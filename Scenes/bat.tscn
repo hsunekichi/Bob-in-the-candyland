@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://tpt7r3tvoka4"]
 
-[ext_resource type="Script" uid="uid://7l17541jahdd" path="res://scripts/Actors/bat.gd" id="1_g2jdi"]
+[ext_resource type="Script" uid="uid://7l17541jahdd" path="res://Scripts/Actors/bat.gd" id="1_g2jdi"]
 [ext_resource type="Texture2D" uid="uid://b4uujx20ws5xt" path="res://Art/Bat/Bat_Fly.png" id="2_qrbwd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uu6xs"]

@@ -74,18 +74,17 @@ func create_markers() -> void:
 
 ## Create a single marker at the given position
 func _create_single_marker(pos: Vector2, index: int) -> void:
-	var marker = Node2D.new()
+	var marker = PathDisplayMarker.new()
 	marker.global_position = pos
 	add_child(marker)
 	_marker_nodes.append(marker)
 	
 	# If custom texture is provided, use it
 	# Use custom drawing
-	marker.set_script(preload("res://scripts/Navigation/Display/PathDisplayMarker.gd"))
-	marker.set("color", marker_color)
-	marker.set("radius", marker_radius)
-	marker.set("outline_color", marker_outline_color)
-	marker.set("outline_width", marker_outline_width)
+	marker.color = marker_color
+	marker.radius = marker_radius
+	marker.outline_color = marker_outline_color
+	marker.outline_width = marker_outline_width
 
 	# Add number label if enabled
 	if show_numbers:

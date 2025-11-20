@@ -232,13 +232,42 @@ although many of those would require to modify the local planner to take them in
 \section{Conclusions}\label{sec:conclusion}
 Practical work conclusions. Remember, it is part of your job to make us believe you deserve the maximum grade!!
 
+\appendix
+\section{Appendix}
+\label{sec:appendix}
+
+\subsection{Project structure}
+
+The project has two main folders: Scripts/Actors and Scripts/Navigation.
+
+\begin{itemize}
+    \item \textbf{Scripts/Actors:} Contains all the scripts related to the agents in the scene. 
+        Bat.gd contains the trajectory following logic and the low-level controller, which have been 
+        combined under the main agent controller due to their simplicity. Player.gd controls the player input and movement.
+    \item \textbf{Scripts/Navigation:} Contains all the scripts related to the navigation pipeline.
+        RRTStarNavigationGD.gd implements the global planner, HolonomicND.gd implements the local planner,
+        and RTTtree.gd implements a helper KD-tree structure for efficient nearest neighbor search.
+        All of them are combined inside Bat.gd, which queries a global path, computes a target from the trajectory,
+        feeds it to the local planner and finally executes its movement commands and handles the animations.
+\end{itemize}
+
+Player and World are configured as Autoloads, so they are automatically 
+loaded as global Singletons when the game starts. Other bats can be added 
+to the scene by just dragging Scenes/bat.tscn into the main scene.
+
+The rest of the project contains an Art folder with the sprites used, 
+World.gd which provides global convenience logic, Scenes which 
+contains Godot scene files, and Scripts/Navigation/Display which contains the 
+classes used to visualize the RRT* tree for debugging purposes.
+
+\bibliographystyle{IEEEtran}
+\bibliography{biblio}
 
 %%%%%%%%%%%%%%           
 % REFERENCES %
 %%%%%%%%%%%%%%
 
-\bibliographystyle{IEEEtran}
-\bibliography{biblio}
+
 
 \end{document}
 

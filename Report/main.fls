@@ -1,9 +1,9 @@
-PWD /home/hsunekichi/Escritorio/AR-FP/report
+PWD /home/hsunekichi/Escritorio/AR-FP/Report
 INPUT /etc/texmf/web2c/texmf.cnf
 INPUT /usr/share/texmf/web2c/texmf.cnf
 INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf
 INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
-INPUT /home/hsunekichi/Escritorio/AR-FP/report/main.tex
+INPUT /home/hsunekichi/Escritorio/AR-FP/Report/main.tex
 OUTPUT main.log
 INPUT ./ieeeconf.cls
 INPUT ieeeconf.cls

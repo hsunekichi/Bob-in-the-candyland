@@ -1,15 +1,15 @@
 # Fdb version 4
-["bibtex main"] 1763660389.35323 "main.aux" "main.bbl" "main" 1763667589.66864 0
+["bibtex main"] 1763679109.10632 "main.aux" "main.bbl" "main" 1763679819.87088 0
   "./biblio.bib" 1763655946.26426 268 8720bbf31a0c8746568704f4eaf9207b ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/ieeetran/IEEEtran.bst" 1440712899 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
-  "main.aux" 1763667589.45092 2580 aff8556364c62fa722a00d904b5d52d2 "pdflatex"
+  "main.aux" 1763679819.6972 2857 a6d9c1c5309e4edd3d26b1e2f4432390 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1763667589.04662 "/home/hsunekichi/Escritorio/AR-FP/report/main.tex" "main.pdf" "main" 1763667589.66886 0
+["pdflatex"] 1763679819.31768 "/home/hsunekichi/Escritorio/AR-FP/Report/main.tex" "main.pdf" "main" 1763679819.87107 0
   "/etc/texmf/web2c/texmf.cnf" 1746532701.84144 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/hsunekichi/Escritorio/AR-FP/report/main.tex" 1763667588.87392 14241 6716253ffd065d9f3d01b904854068be ""
+  "/home/hsunekichi/Escritorio/AR-FP/Report/main.tex" 1763679819.14772 15780 caf865ee6154b75f6d2e2ab7ecfb6a94 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm" 1136768653 2172 fd0c924230362ff848a33632ed45dc23 ""
@@ -125,10 +125,10 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1746532717.74051 5472669 54eaf61a88b6b7896ebd0dac973cb29c ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1746532806 8213359 29f7db34718e42b3f92898a5c5e2a2b9 ""
   "ieeeconf.cls" 1763651339.34218 197574 ece0d1d68e7d93da26a38d986a993284 ""
-  "main.aux" 1763667589.45092 2580 aff8556364c62fa722a00d904b5d52d2 "pdflatex"
-  "main.bbl" 1763660389.42132 1091 8cb6ab6695f5b975f334769cf3219625 "bibtex main"
-  "main.out" 1763667589.45092 1975 3f9e950c25e5ae524de908d216beb7b7 "pdflatex"
-  "main.tex" 1763667588.87392 14241 6716253ffd065d9f3d01b904854068be ""
+  "main.aux" 1763679819.6972 2857 a6d9c1c5309e4edd3d26b1e2f4432390 "pdflatex"
+  "main.bbl" 1763679109.17152 1091 8cb6ab6695f5b975f334769cf3219625 "bibtex main"
+  "main.out" 1763679819.6972 2216 dbc20ff9086bca75c145989ef090cdd5 "pdflatex"
+  "main.tex" 1763679819.14772 15780 caf865ee6154b75f6d2e2ab7ecfb6a94 ""
   (generated)
   "main.aux"
   "main.log"

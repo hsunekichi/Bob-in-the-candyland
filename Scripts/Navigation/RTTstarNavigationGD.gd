@@ -6,9 +6,9 @@ extends Node
 var MAX_NEIGHBORS: int = 5 ## Maximum number of neighbors to consider when connecting a new point, controls efficiency and optimality of paths
 var SAMPLE_DISTANCE_MULTIPLIER: float = 2.0 ## Multiplier for the sampling disk around the actor and goal. 1 means the circle will pass through each of them
 
-var MAX_TREE_SIZE: int = 10000 ## Maximum number of nodes in the RTT* tree
+var MAX_TREE_SIZE: int = 1000 ## Maximum number of nodes in the RTT* tree
 var TREE_BUILD_SAMPLES: int = 100 ## Maxumum number of samples to generate when building a new tree. If a path is found earlier, the process stops
-var TREE_REFINE_SAMPLES: int = 100 ## Number of samples to generate when refining an existing tree
+var TREE_REFINE_SAMPLES: int = 5 ## Number of samples to generate when refining an existing tree
 
 ## Returns a trajectory from the origin to the target, optimized for the current position.
 ##  The trajectory may not be reachable from the current position, in which case the caller 
