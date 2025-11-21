@@ -1,15 +1,15 @@
 # Fdb version 4
-["bibtex main"] 1763679109.10632 "main.aux" "main.bbl" "main" 1763679819.87088 0
-  "./biblio.bib" 1763655946.26426 268 8720bbf31a0c8746568704f4eaf9207b ""
-  "/usr/share/texlive/texmf-dist/bibtex/bst/ieeetran/IEEEtran.bst" 1440712899 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
-  "main.aux" 1763679819.6972 2857 a6d9c1c5309e4edd3d26b1e2f4432390 "pdflatex"
+["bibtex main"] 1763718415.39713 "main.aux" "main.bbl" "main" 1763718859.78704 0
+  "./IEEEtran.bst" 1763718408.66761 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
+  "./biblio.bib" 1763716131.65757 268 8720bbf31a0c8746568704f4eaf9207b ""
+  "main.aux" 1763718859.72863 2857 6e3165c92eca5fb7319bfae242ea7113 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1763679819.31768 "/home/hsunekichi/Escritorio/AR-FP/Report/main.tex" "main.pdf" "main" 1763679819.87107 0
-  "/etc/texmf/web2c/texmf.cnf" 1746532701.84144 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/hsunekichi/Escritorio/AR-FP/Report/main.tex" 1763679819.14772 15780 caf865ee6154b75f6d2e2ab7ecfb6a94 ""
+["pdflatex"] 1763718859.54561 "/home/hsunekichi/Escritorio/AR-FP/Report/main.tex" "main.pdf" "main" 1763718859.78719 0
+  "/etc/texmf/web2c/texmf.cnf" 1759903345.29985 475 c0e671620eb5563b2130f56340a5fde8 ""
+  "/home/hsunekichi/Escritorio/AR-FP/Report/main.tex" 1763718859.34561 16515 f460119959bb4d1aa7fddf2b9948e3ab ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm" 1136768653 2172 fd0c924230362ff848a33632ed45dc23 ""
@@ -122,13 +122,13 @@
   "/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty" 1655411236 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
-  "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1746532717.74051 5472669 54eaf61a88b6b7896ebd0dac973cb29c ""
-  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1746532806 8213359 29f7db34718e42b3f92898a5c5e2a2b9 ""
-  "ieeeconf.cls" 1763651339.34218 197574 ece0d1d68e7d93da26a38d986a993284 ""
-  "main.aux" 1763679819.6972 2857 a6d9c1c5309e4edd3d26b1e2f4432390 "pdflatex"
-  "main.bbl" 1763679109.17152 1091 8cb6ab6695f5b975f334769cf3219625 "bibtex main"
-  "main.out" 1763679819.6972 2216 dbc20ff9086bca75c145989ef090cdd5 "pdflatex"
-  "main.tex" 1763679819.14772 15780 caf865ee6154b75f6d2e2ab7ecfb6a94 ""
+  "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1763717018.03366 165012 f177baa1c39a3ebd62c3096a43521a0d ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1763717037 6830998 4457b07e3033c637e81b8d4f6613e5cf ""
+  "IEEEconf.cls" 1763718170.63717 197574 ece0d1d68e7d93da26a38d986a993284 ""
+  "main.aux" 1763718859.72863 2857 6e3165c92eca5fb7319bfae242ea7113 "pdflatex"
+  "main.bbl" 1763718415.41636 1091 8cb6ab6695f5b975f334769cf3219625 "bibtex main"
+  "main.out" 1763718859.72863 2216 dbc20ff9086bca75c145989ef090cdd5 "pdflatex"
+  "main.tex" 1763718859.34561 16515 f460119959bb4d1aa7fddf2b9948e3ab ""
   (generated)
   "main.aux"
   "main.log"

@@ -1,4 +1,4 @@
-\documentclass[letterpaper, 10 pt, conference]{ieeeconf}
+\documentclass[letterpaper, 10 pt, conference]{IEEEconf}
 \IEEEoverridecommandlockouts
 \overrideIEEEmargins
 \let\proof\relax
@@ -48,11 +48,21 @@ Practical work abstract. 200 words approx.
 
 \section{Introduction}\label{sec:intro}
 
-Navigation is a core component of modern videogames, as it determines how non-player characters 
-move through complex environments while avoiding obstacles and respecting design constraints. 
+Navigation is a core component of modern videogames, 
+as it determines how non-player characters move through complex environments 
+while avoiding obstacles and respecting design constraints. 
+It also lies at the heart of behaviour AI, since characters 
+must not only reach their goals but do so in ways that appear intentional, 
+legible and consistent with the game's fiction. From enemy flanking in 
+action games to crowd movement in open worlds or unit coordination 
+in strategy titles, robust navigation directly impacts believability 
+and player immersion. At the same time, navigation systems must remain 
+controllable and expressive enough to support artistic and level-design goals, 
+so that designers and artists can obtain plausible, cinematic movement 
+without manually scripting every trajectory. 
+
 Classical pipelines rely on graph-based representations, such as navigation meshes or waypoint graphs, 
 and search algorithms like A*, which require a carefully constructed graph discretizing the free space.
-
 In practice, these graphs are often built or curated by level designers, a tedious and error-prone 
 process that is difficult to maintain in large or dynamic worlds. Automatic graph construction is 
 possible but complex, hard to adapt in real time, and challenging to tune for artistic or gameplay requirements. 
@@ -60,14 +70,14 @@ possible but complex, hard to adapt in real time, and challenging to tune for ar
 As an alternative, robotics research has developed plenty of methods that operate directly in continuous space, 
 such as sampling-based planners and reactive navigation. However, many navigation pipelines designed for robotics
 are too computationally expensive to run in a videogame, since they are designed to work in a robot with 
-its own dedicated resources. In contrast, videogame agents must share limited CPU time with all other agents, 
-rendering, physics, AI, and other systems, all over frameworks that typically have very limited multithreading capabilities
+its own dedicated resources. In contrast, videogame agents must share limited CPU time with other agents, 
+rendering, physics, AI, and other systems, using frameworks that typically have very limited multithreading capabilities
 and need to run at a high framerate (60+ FPS). Thus, the challenge is to design a navigation stack that is both efficient and effective
 enough to run in real-time within these constraints.
 
 This practical work implements a complete navigation pipeline based on these ideas: a customized RRT* 
-algorithm acts as the global planner, computing collision-free paths in continuous space, while a 
-simple discretized holonomic ND controller serves as the local planner. Together, they provide a flexible, 
+algorithm acts as the global planner, computing collision-free paths in continuous space, while an 
+efficient discretized holonomic ND controller serves as the local planner. Together, they provide a flexible, 
 real-time navigation stack suitable for dynamic videogame scenarios.
 
 A demo level has been created to test and show the capabilities of the system, featuring moving obstacles
@@ -127,6 +137,9 @@ However that is impossible to implement in the physics engine, since it would re
 A work around could be to use Godot's \textit{shape casting} feature, which allows to cast full shapes instead of rays. 
 This would allow to check collisions of the agent's full shape along the edge, but comes with a significant performance cost in an already expensive algorithm.
 Instead, the paths are checked using simple ray-casts, and the final refinement is left to the local planner.
+
+In this section, additional constraints could be added to only allow points that meet
+the kinematic constraints of the agent.
 
 \subsection{Real-time optimization}\label{sec:rrtstar_optimization}
 
@@ -223,7 +236,7 @@ are always performed for all 8 rays, since it is more performant to use Godot's 
 The low-level controler is responsible for executing the movement commands provided by the local planner.
 In this case, it simply moves the agent in the desired direction at a constant speed.
 This is the place where the designer can implement more complex movement mechanics like acceleration, jumping, etc,
-although many of those would require to modify the local planner to take them into account.
+although many of those would require to modify the global and local planners to take them into account.
 
 \section{Performance analysis}\label{sec:performance}
 
@@ -233,7 +246,6 @@ although many of those would require to modify the local planner to take them in
 Practical work conclusions. Remember, it is part of your job to make us believe you deserve the maximum grade!!
 
 \appendix
-\section{Appendix}
 \label{sec:appendix}
 
 \subsection{Project structure}
