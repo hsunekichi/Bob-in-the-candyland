@@ -1,7 +1,7 @@
 extends Node2D
 
 # Maze configuration
-@export var maze_width: int = 30
+@export var maze_width: int = 50
 @export var maze_height: int = 10
 @export var max_jump_height: int = 1  # Maximum vertical distance player can jump
 
