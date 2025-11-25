@@ -52,14 +52,21 @@ func spawn_enemies() -> void:
 	var random = RandomNumberGenerator.new()
 	random.randomize()
 	
-	# Collect all free cells (passages)
+	var player_start_cell = Vector2i(0, maze_height - 1)
+	var min_distance = 6  # Minimum distance from player in cells
+	
+	# Collect all free cells (passages) that are far enough from player
 	var free_cells: Array[Vector2i] = []
 	for x in range(maze_width):
 		for y in range(maze_height):
 			if maze[x][y] == PASSAGE:
+				var cell = Vector2i(x, y)
 				# Exclude start and end positions
 				if not (x == 0 and y == maze_height - 1) and not (x == maze_width - 1 and y == 0):
-					free_cells.append(Vector2i(x, y))
+					# Check distance from player start
+					var distance = abs(cell.x - player_start_cell.x) + abs(cell.y - player_start_cell.y)
+					if distance >= min_distance:
+						free_cells.append(cell)
 	
 	# Shuffle and pick random cells
 	free_cells.shuffle()
