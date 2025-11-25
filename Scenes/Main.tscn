@@ -1,50 +1,35 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxh11qiblygx0"]
+[gd_scene load_steps=7 format=3 uid="uid://bxh11qiblygx0"]
 
 [ext_resource type="Script" uid="uid://blvnwf5ma8iql" path="res://Scripts/PlayerSpawn.gd" id="1_idj7w"]
 [ext_resource type="PackedScene" uid="uid://tpt7r3tvoka4" path="res://Scenes/bat.tscn" id="2_kln2b"]
+[ext_resource type="Texture2D" uid="uid://q5cyhqdmdo14" path="res://Art/Dino Tri/dino_tri_idle.png" id="3_kln2b"]
+[ext_resource type="TileSet" uid="uid://cfkxyhw5jrysv" path="res://Scenes/ChocolateTilemap.tres" id="4_rgh2o"]
+[ext_resource type="Script" uid="uid://ynkqwpajeice" path="res://Scripts/Maze.gd" id="5_pbw6q"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_glv2v"]
-size = Vector2(2679, 401)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uu6xs"]
-size = Vector2(220, 571)
+[sub_resource type="AtlasTexture" id="AtlasTexture_rgh2o"]
+atlas = ExtResource("3_kln2b")
+region = Rect2(160.7623, 45.462776, 125.03906, 82.48952)
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Suelo" type="StaticBody2D" parent="."]
-position = Vector2(461, 1013)
-
-[node name="ColorRect" type="ColorRect" parent="Suelo"]
-offset_left = -725.0
-offset_top = -123.0
-offset_right = 1926.0
-offset_bottom = 283.0
-color = Color(0, 0, 0, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Suelo"]
-visible = false
-position = Vector2(612.5, 77.5)
-shape = SubResource("RectangleShape2D_glv2v")
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(1135, 681)
-
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D2"]
-offset_left = -356.0
-offset_top = -237.0
-offset_right = -136.0
-offset_bottom = 339.0
-color = Color(0, 0, 0, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-visible = false
-position = Vector2(-246, 44)
-shape = SubResource("RectangleShape2D_uu6xs")
-
 [node name="PlayerSpawn" type="Marker2D" parent="."]
-position = Vector2(592, 808)
+position = Vector2(747, 768)
 script = ExtResource("1_idj7w")
 
 [node name="Bat" parent="." instance=ExtResource("2_kln2b")]
 position = Vector2(1131, 764)
 FLY_SPEED = 64.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(597, 820)
+scale = Vector2(1.1, 1.1)
+texture = SubResource("AtlasTexture_rgh2o")
+
+[node name="MazeGenerator" type="Node2D" parent="."]
+texture_filter = 1
+position = Vector2(991, 109)
+scale = Vector2(8, 8)
+script = ExtResource("5_pbw6q")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="MazeGenerator"]
+tile_set = ExtResource("4_rgh2o")

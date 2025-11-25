@@ -466,13 +466,14 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bg4s2"]
-size = Vector2(115, 64)
+size = Vector2(83, 52)
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 0
 script = ExtResource("1_x3wgy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-31.799988, 0.40000153)
 scale = Vector2(1.1, 1.1)
 sprite_frames = SubResource("SpriteFrames_kjvhd")
 animation = &"Walk"
@@ -483,7 +484,7 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(31.5, 39)
+position = Vector2(11.5, 45)
 shape = SubResource("RectangleShape2D_bg4s2")
 
 [node name="Camera2D" type="Camera2D" parent="."]

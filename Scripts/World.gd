@@ -22,3 +22,6 @@ func ray_intersects_ground(from: Vector2, to: Vector2) -> bool:
 func log(...msg: Array) -> void:
     if verbose:
         print(msg)
+
+func teleport_player(p: Vector2) -> void:
+    Player.global_position = p

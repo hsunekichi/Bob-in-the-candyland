@@ -1,4 +1,4 @@
 extends Marker2D
 
 func _ready() -> void:
-    Player.global_position = global_position
+    World.teleport_player(global_position)
