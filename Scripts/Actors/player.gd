@@ -4,12 +4,11 @@ extends CharacterBody2D
 @export var sit_time: float = 3.0
 @onready var animator: AnimationPlayer = $AnimationPlayer
 
-@export var MAX_JUMP_HEIGHT: float = 180.0
-@export var TIME_TO_APEX: float = 0.45
 @export var MAX_FALL_SPEED: float = 500.0
 
-var gravity: float = 0.0
-var jump_velocity: float = 0.0
+var gravity: float = 15 * World.ppu
+var propulsor_velocity: float = 4 * World.ppu
+var isPropulsing: bool = false
 
 var moveInput: Vector2 = Vector2.ZERO
 var moveInputX: float:
@@ -23,21 +22,14 @@ var sit_timer: Timer
 var isSit: bool = false
 
 func _ready() -> void:
-	# Compute gravity and jump velocity so the jump reaches MAX_JUMP_HEIGHT
-	# using the kinematic formula: g = 2*h / t^2, v0 = g * t
-	if TIME_TO_APEX <= 0.0:
-		push_error("TIME_TO_APEX must be > 0. Using default 0.4s")
-		TIME_TO_APEX = 0.4
-
-	gravity = 2.0 * MAX_JUMP_HEIGHT / (TIME_TO_APEX * TIME_TO_APEX)
-	jump_velocity = gravity * TIME_TO_APEX
-	
 	sit_timer = Timer.new()
 	add_child(sit_timer)
 	sit_timer.one_shot = true
 	sit_timer.wait_time = sit_time
 	sit_timer.timeout.connect(sit)
 	sit_timer.start()
+
+	set_propulsor_visibility(false)
 
 func sit() -> void:
 	animator.play("SitStart")
@@ -60,35 +52,52 @@ func _physics_process(_delta: float) -> void:
 		if moveInputX != 0: # Finish sitting
 			get_up()
 		return
-	if moveInput.x != 0: # Each movement restarts the sitting timer
+	if moveInput.x != 0 or not is_on_floor(): # Each movement restarts the sitting timer
 		sit_timer.start()
 
 	# Handle movement
-	velocity.x = moveInput.x * speed
+	if is_on_floor() or isPropulsing:
+		velocity.x = moveInput.x * speed
 
 	# Jump
-	if Input.is_action_just_pressed("Jump"): # and is_on_floor():
-		velocity.y = -jump_velocity
-	elif not Input.is_action_pressed("Jump") and velocity.y < 0.0:
-		# Variable jump height
-		velocity.y = 0.0
+	if Input.is_action_pressed("Jump"):
+		velocity.y = -propulsor_velocity
+		isPropulsing = true
+		set_propulsor_visibility(true)
+	else:
+		# Stop upward movement when jump is released
+		isPropulsing = false
+		set_propulsor_visibility(false)
 	
 	# Gravity
-	velocity.y += gravity * _delta
-	if velocity.y > MAX_FALL_SPEED:
-		velocity.y = MAX_FALL_SPEED
+	if not isPropulsing and not is_on_floor():
+		velocity.y = max(0, velocity.y + gravity * _delta)
+		if velocity.y > MAX_FALL_SPEED:
+			velocity.y = MAX_FALL_SPEED
 
 	_animation_process(_delta)
 
 	# Move the character using CharacterBody2D helper
 	move_and_slide()
 
+func set_propulsor_visibility(v: bool) -> void:
+	$Propulsors.visible = v
+
+
 
 func _animation_process(_delta: float) -> void:
-	if moveInputX != 0:
+	if isPropulsing:
+		if animator.current_animation != "Fly":
+			animator.play("Fly")
+			set_propulsor_visibility(true)
+		if velocity.x != 0:
+			look_to(velocity.x)
+		return
+
+	if velocity.x != 0:
 		if animator.current_animation != WALK:
 			animator.play(WALK)
-		look_to(moveInputX)
+		look_to(velocity.x)
 	else:
 		if animator.current_animation != IDLE:
 			animator.play(IDLE)
