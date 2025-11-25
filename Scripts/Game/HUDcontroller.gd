@@ -8,12 +8,8 @@ var win_node: TextureRect
 @onready var transition: Node = $Transition
 
 func _ready() -> void:
-    # Build win screen
-	var win_screen = Image.new()
-	var err = win_screen.load(win_screen_path)
-	assert(err == OK)
 	win_node = TextureRect.new()
-	win_node.texture = ImageTexture.create_from_image(win_screen)
+	win_node.texture = load(win_screen_path)
 	win_node.visible = false
 	add_child(win_node)
 

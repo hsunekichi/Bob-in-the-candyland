@@ -4,9 +4,12 @@
 [ext_resource type="Script" uid="uid://d30ghrxd7vhef" path="res://Scripts/Game/Goal.gd" id="1_s0pnd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s0pnd"]
-size = Vector2(21.5, 20.75)
+size = Vector2(10, 11)
 
 [node name="Goal" type="Area2D"]
+z_index = -1
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("1_s0pnd")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -15,7 +18,7 @@ scale = Vector2(0.02825928, 0.026428225)
 texture = ExtResource("1_paeek")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -2)
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_s0pnd")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

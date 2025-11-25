@@ -1,6 +1,9 @@
 extends Node2D
 
 # Maze configuration
+@export var enemy_scene: PackedScene
+@export var enemy_count: int = 3
+
 @export var maze_width: int = 10
 @export var maze_height: int = 5
 @export var max_jump_height: int = 1  # Maximum vertical distance player can jump
@@ -40,6 +43,38 @@ func _ready():
 
 	teleport_player_to_start()
 	spawn_goal()
+	spawn_enemies()
+
+func spawn_enemies() -> void:
+	if enemy_scene == null:
+		return
+	
+	var random = RandomNumberGenerator.new()
+	random.randomize()
+	
+	# Collect all free cells (passages)
+	var free_cells: Array[Vector2i] = []
+	for x in range(maze_width):
+		for y in range(maze_height):
+			if maze[x][y] == PASSAGE:
+				# Exclude start and end positions
+				if not (x == 0 and y == maze_height - 1) and not (x == maze_width - 1 and y == 0):
+					free_cells.append(Vector2i(x, y))
+	
+	# Shuffle and pick random cells
+	free_cells.shuffle()
+	var spawn_count = mini(enemy_count, free_cells.size())
+	
+	# Spawn enemies at random free cells
+	for i in range(spawn_count):
+		var cell = free_cells[i]
+		var local_pos = tilemap.map_to_local(cell)
+		var world_pos = tilemap.to_global(local_pos)
+		
+		var enemy: Node2D = enemy_scene.instantiate()
+		get_tree().root.add_child.bind(enemy).call_deferred()
+		enemy.global_position = world_pos
+
 
 func generate_maze():
 	var attempts = 0

@@ -45,4 +45,4 @@ func game_begin() -> void:
 func game_completed() -> void:
 	# Show win screen
 	HUD.show_win_screen()
-	
+	Player.disable_input()

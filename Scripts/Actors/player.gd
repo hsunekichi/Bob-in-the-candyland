@@ -22,6 +22,11 @@ var IDLE: StringName = "Idle"
 var sit_timer: Timer
 var isSit: bool = false
 
+func disable_input() -> void:
+	animator.play("Idle")
+	set_process(false)
+	set_physics_process(false)
+
 func _ready() -> void:
 	sit_timer = Timer.new()
 	add_child(sit_timer)
