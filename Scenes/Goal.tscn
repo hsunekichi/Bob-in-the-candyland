@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bifaid8u5yhlb"]
 
 [ext_resource type="Texture2D" uid="uid://d05b3b6qkg0fs" path="res://Art/Goal/donut_port.png" id="1_paeek"]
-[ext_resource type="Script" uid="uid://d30ghrxd7vhef" path="res://Scripts/Goal.gd" id="1_s0pnd"]
+[ext_resource type="Script" uid="uid://d30ghrxd7vhef" path="res://Scripts/Game/Goal.gd" id="1_s0pnd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s0pnd"]
 size = Vector2(21.5, 20.75)

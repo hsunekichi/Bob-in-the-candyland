@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bxh11qiblygx0"]
+[gd_scene load_steps=8 format=3 uid="uid://bxh11qiblygx0"]
 
-[ext_resource type="Script" uid="uid://blvnwf5ma8iql" path="res://Scripts/PlayerSpawn.gd" id="1_idj7w"]
 [ext_resource type="PackedScene" uid="uid://tpt7r3tvoka4" path="res://Scenes/bat.tscn" id="2_kln2b"]
 [ext_resource type="Texture2D" uid="uid://q5cyhqdmdo14" path="res://Art/Dino Tri/dino_tri_idle.png" id="3_kln2b"]
 [ext_resource type="TileSet" uid="uid://cfkxyhw5jrysv" path="res://Scenes/ChocolateTilemap.tres" id="4_rgh2o"]
-[ext_resource type="Script" uid="uid://ynkqwpajeice" path="res://Scripts/Maze.gd" id="5_pbw6q"]
+[ext_resource type="Script" uid="uid://ynkqwpajeice" path="res://Scripts/Game/Maze.gd" id="5_pbw6q"]
 [ext_resource type="Texture2D" uid="uid://8qkgqa4jd4tm" path="res://Art/Candy Land - full pack/day background.png" id="6_v1gob"]
 [ext_resource type="PackedScene" uid="uid://bifaid8u5yhlb" path="res://Scenes/Goal.tscn" id="7_jw32o"]
 
@@ -22,10 +21,6 @@ z_index = -10
 position = Vector2(2457.0002, 52.00006)
 scale = Vector2(1.5646799, 1.5709401)
 texture = ExtResource("6_v1gob")
-
-[node name="PlayerSpawn" type="Marker2D" parent="."]
-position = Vector2(747, 768)
-script = ExtResource("1_idj7w")
 
 [node name="Bat" parent="." instance=ExtResource("2_kln2b")]
 position = Vector2(1131, 764)
