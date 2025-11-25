@@ -3,6 +3,7 @@ extends CanvasLayer
 
 
 @export var win_screen_path: StringName = "res://Art/Screens/WinScreen.png"
+@export var main_menu_scene_path: StringName = "res://Scenes/MainMenu.tscn"
 var win_node: TextureRect
 
 @onready var transition: Node = $Transition
@@ -20,48 +21,22 @@ func _ready() -> void:
 
 
 func show_win_screen() -> void:
-	await play_transition(win_node)
+	await enable_transition()
+	win_node.visible = true
+	await disable_transition()
 
-## Plays a transition animation showing random children from Transition node,
-## then displays the target screen, then hides the transition elements
-func play_transition(target_screen: Node) -> void:
+func show_main_menu() -> void:
+	await enable_transition()
+
+	var main_menu_scene: PackedScene = load(main_menu_scene_path)
+	var main_menu_instance: Node = main_menu_scene.instantiate()
+	add_child(main_menu_instance)
+
+	await disable_transition()
+
+func enable_transition():
 	var tr_nodes = transition.get_children()
-	if tr_nodes.is_empty():
-		if target_screen:
-			target_screen.visible = true
-		return
 
-	await enable_deserts(tr_nodes)
-
-	# Wait for a short moment
-	await get_tree().create_timer(0.5).timeout
-
-	# Show the target screen
-	if target_screen:
-		target_screen.visible = true
-	
-	# Move Transition node up smoothly for 0.5 seconds
-	var tween = create_tween()
-	tween.set_ease(Tween.EASE_OUT)
-	tween.set_trans(Tween.TRANS_QUAD)
-	var start_pos = transition.position
-	tween.tween_property(transition, "position", start_pos + Vector2(0, -300), 0.35)
-	await tween.finished
-	
-	# Move all transition elements out of screen fast
-	var exit_tween = create_tween()
-	exit_tween.set_parallel(true)
-	exit_tween.set_ease(Tween.EASE_IN)
-	exit_tween.set_trans(Tween.TRANS_BACK)
-	exit_tween.tween_property(transition, "position", start_pos + Vector2(0, 2300), 0.4)
-	await exit_tween.finished
-	
-	# Reset position and hide all transition elements
-	transition.position = start_pos
-	for child in tr_nodes:
-		child.visible = false
-
-func enable_deserts(tr_nodes: Array) -> void:	
 	# Hide all transition nodes initially
 	for child in tr_nodes:
 		child.visible = false
@@ -106,3 +81,30 @@ func enable_deserts(tr_nodes: Array) -> void:
 	var pause_end_time = Time.get_ticks_usec() + 200000  # 200ms in microseconds
 	while Time.get_ticks_usec() < pause_end_time:
 		await get_tree().process_frame
+
+	# Wait for a short moment
+	await get_tree().create_timer(0.5).timeout
+
+func disable_transition():
+	# Move Transition node up smoothly for 0.5 seconds
+	var tween = create_tween()
+	tween.set_ease(Tween.EASE_OUT)
+	tween.set_trans(Tween.TRANS_QUAD)
+	var start_pos = transition.position
+	tween.tween_property(transition, "position", start_pos + Vector2(0, -300), 0.35)
+	await tween.finished
+	
+	# Move all transition elements out of screen fast
+	var exit_tween = create_tween()
+	exit_tween.set_parallel(true)
+	exit_tween.set_ease(Tween.EASE_IN)
+	exit_tween.set_trans(Tween.TRANS_BACK)
+	exit_tween.tween_property(transition, "position", start_pos + Vector2(0, 2300), 0.4)
+	await exit_tween.finished
+	
+	# Reset position and hide all transition elements
+	transition.position = start_pos
+
+	var tr_nodes = transition.get_children()
+	for child in tr_nodes:
+		child.visible = false	

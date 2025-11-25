@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cd67h1ppritvf"]
+
+[ext_resource type="Texture2D" uid="uid://d1qd6mqfeavgq" path="res://Art/Screens/MenuButton.png" id="1_5duia"]
+
+[sub_resource type="FontVariation" id="FontVariation_853f1"]
+
+[sub_resource type="Theme" id="Theme_8saeu"]
+default_font = SubResource("FontVariation_853f1")
+default_font_size = 33
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_853f1"]
+
+[node name="MenuButton" type="Button"]
+offset_left = 638.0
+offset_top = 501.0
+offset_right = 1266.0
+offset_bottom = 600.0
+theme = SubResource("Theme_8saeu")
+theme_override_colors/font_color = Color(0.4509804, 0.15686275, 0.050980393, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 0.83137256)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_853f1")
+text = "Enter the candyland"
+icon = ExtResource("1_5duia")
+flat = true
+icon_alignment = 1
+expand_icon = true

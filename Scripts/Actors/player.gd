@@ -75,6 +75,7 @@ func _ready() -> void:
 			break
 	
 	add_child(dash_detector)
+	visible = false
 
 	disable_propulsion()
 
@@ -82,6 +83,11 @@ func disable_input() -> void:
 	animator.play("Idle")
 	set_process(false)
 	set_physics_process(false)
+func enable_input() -> void:
+	visible = true
+	set_process(true)
+	set_physics_process(true)
+
 
 ######### Main Physics Loop #########
 func _physics_process(delta: float) -> void:
@@ -109,6 +115,8 @@ func _process_sitting_state() -> void:
 				current_state = State.NORMAL
 				sit_timer.start()
 		, CONNECT_ONE_SHOT)
+
+	move_and_slide()
 
 ######### State: DASHING #########
 func _process_dashing_state(delta: float) -> void:

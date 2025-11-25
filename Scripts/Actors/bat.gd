@@ -25,7 +25,7 @@ func _physics_process(_delta: float) -> void:
 
 ## Compute the direction to the player, using navigation if needed
 func _compute_direction() -> Vector2:
-	var player := Player.global_position
+	var player = Player.global_position
 
 	# Direct path to player is clear, go directly
 	if not World.ray_intersects_ground(global_position, player):

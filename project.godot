@@ -11,8 +11,10 @@ config_version=5
 [application]
 
 config/name="AR-FP"
-run/main_scene="uid://bxh11qiblygx0"
+run/main_scene="uid://dxh1ltumtc5i5"
 config/features=PackedStringArray("4.5", "Forward Plus")
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/show_image=false
 config/icon="res://icon.svg"
 
 [autoload]

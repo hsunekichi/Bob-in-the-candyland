@@ -6,10 +6,16 @@ const GROUND_COLLISION_MASK: int = 1
 var verbose: bool = false
 
 var hud_scene: PackedScene = preload("res://Scenes/HUD.tscn")
+var main_menu_scene: PackedScene = preload("res://Scenes/MainMenu.tscn")
+var maze_scene: PackedScene = preload("res://Scenes/Maze.tscn")
+var debug_scene: PackedScene = preload("res://Scenes/Debug.tscn")
 var HUD: HUDcontroller
 
 
 func _ready() -> void:
+	# Set clear color
+	RenderingServer.set_default_clear_color(Color(0, 0, 0, 1))
+
 	raycast = RayCast2D.new()
 	add_child(raycast)
 	raycast.enabled = false
@@ -22,8 +28,10 @@ func _ready() -> void:
 	# Await until the game is done loading
 	await get_tree().process_frame
 
-	game_begin()
-	
+	Player.disable_input()
+	Player.visible = false
+
+	load_menu()	
 
 func ray_intersects_ground(from: Vector2, to: Vector2) -> bool:
 	raycast.global_position = from
@@ -39,8 +47,51 @@ func log(...msg: Array) -> void:
 func teleport_player(p: Vector2) -> void:
 	Player.global_position = p
 
-func game_begin() -> void:
-	pass
+	# Move the camera immediately to the spawn point
+	var mainCamera = get_viewport().get_camera_2d()
+	mainCamera.global_position = Player.global_position
+	mainCamera.reset_smoothing()
+
+func load_menu() -> void:
+	await HUD.enable_transition()
+
+	var main_menu_instance: Node = main_menu_scene.instantiate()
+	main_menu_instance.name = "MainMenu"
+	HUD.add_child(main_menu_instance)
+
+	await HUD.disable_transition()
+
+func load_maze() -> void:
+	await HUD.enable_transition()
+
+	# Remove menu
+	HUD.get_node("MainMenu").queue_free()
+
+	# Load maze
+	var maze: Node = maze_scene.instantiate()
+	add_child(maze)
+
+	# Enable player input and make visible
+	Player.enable_input()
+	Player.visible = true
+
+	await HUD.disable_transition()
+
+func load_debug() -> void:
+	await HUD.enable_transition()
+
+	# Remove menu
+	HUD.get_node("MainMenu").queue_free()
+
+	# Load demo maze
+	var scene: Node = debug_scene.instantiate()
+	add_child(scene)
+
+	# Enable player input and make visible
+	Player.enable_input()
+	Player.visible = true
+
+	await HUD.disable_transition()
 
 func game_completed() -> void:
 	# Show win screen
