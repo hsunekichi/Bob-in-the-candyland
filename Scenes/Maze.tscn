@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxh11qiblygx0"]
+[gd_scene load_steps=7 format=3 uid="uid://bxh11qiblygx0"]
 
 [ext_resource type="PackedScene" uid="uid://tpt7r3tvoka4" path="res://Scenes/bat.tscn" id="2_kln2b"]
+[ext_resource type="PackedScene" uid="uid://4gwf5x2dfrm5" path="res://Scenes/donut.tscn" id="3_g4w1m"]
 [ext_resource type="TileSet" uid="uid://cfkxyhw5jrysv" path="res://Scenes/ChocolateTilemap.tres" id="4_rgh2o"]
 [ext_resource type="Script" uid="uid://ynkqwpajeice" path="res://Scripts/Game/Maze.gd" id="5_pbw6q"]
 [ext_resource type="Texture2D" uid="uid://8qkgqa4jd4tm" path="res://Art/Candy Land - full pack/day background.png" id="6_v1gob"]
@@ -22,6 +23,7 @@ texture = ExtResource("6_v1gob")
 position = Vector2(991, 109)
 scale = Vector2(8, 8)
 script = ExtResource("5_pbw6q")
+donut_scene = ExtResource("3_g4w1m")
 enemy_scene = ExtResource("2_kln2b")
 goal_scene = ExtResource("7_jw32o")
 

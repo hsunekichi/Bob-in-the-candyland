@@ -2,12 +2,15 @@ class_name MazeGenerator
 extends Node2D
 
 # Maze configuration
+
+@export var donut_scene: PackedScene
 @export var enemy_scene: PackedScene
 @export var enemy_count: int = 3
 
 @export var maze_width: int = 10
 @export var maze_height: int = 5
 @export var max_jump_height: int = 1  # Maximum vertical distance player can jump
+@export var nDonuts: int = 5
 
 # TileMap configuration
 @export var tile_source_id: int = 0  # Source ID in the TileSet
@@ -140,12 +143,45 @@ func remove_cell(cell: Vector2i) -> bool:
 	return true
 
 func _ready():
+	nDonuts = World.config_value("maze_donuts", 3)
+
 	generate_maze()
 	build_tilemap()
 
 	teleport_player_to_start()
 	spawn_goal()
+	spawn_donuts()
 	spawn_enemies()
+
+func spawn_donuts() -> void:
+	if donut_scene == null:
+		return
+	
+	var random = RandomNumberGenerator.new()
+	random.randomize()
+	
+	# Collect all free cells (passages)
+	var free_cells: Array[Vector2i] = []
+	for x in range(maze_width):
+		for y in range(maze_height):
+			if maze[x][y] == PASSAGE:
+				var cell = Vector2i(x, y)
+				# Exclude start and end positions
+				if not (x == 0 and y == maze_height - 1) and not (x == maze_width - 1 and y == 0):
+					free_cells.append(cell)
+	
+	# Shuffle and pick random cells
+	free_cells.shuffle()
+	var spawn_count = mini(nDonuts, free_cells.size())
+	
+	# Spawn donuts at random free cells
+	for i in range(spawn_count):
+		var cell = free_cells[i]
+		var world_pos = cell_to_world(cell)
+		
+		var donut: Node2D = donut_scene.instantiate()
+		donut.global_position = world_pos
+		get_parent().add_child.bind(donut).call_deferred()
 
 func spawn_enemies() -> void:
 	if enemy_scene == null:

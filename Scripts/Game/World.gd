@@ -180,13 +180,8 @@ func game_completed() -> void:
 
 func activate_sugar_rush_effect() -> void:
 	HUD.get_node("SugarRushEffect").enable()
-func deactivate_sugar_rush_effect() -> void:
-	HUD.get_node("SugarRushEffect").disable()
-
 func activate_sugar_eat_effect() -> void:
 	HUD.get_node("EatSugarEffect").enable()
-func deactivate_sugar_eat_effect() -> void:
-	HUD.get_node("EatSugarEffect").disable()
 
 func emit_pulse(location: Vector2) -> void:
 	if pulse_instance:

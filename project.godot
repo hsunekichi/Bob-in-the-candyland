@@ -20,7 +20,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 World="*res://Scripts/Game/World.gd"
-Player="*res://Scenes/player.tscn"
+Player="*res://Scenes/Bob.tscn"
 DebugMenu="*res://addons/debug_menu/debug_menu.tscn"
 
 [display]

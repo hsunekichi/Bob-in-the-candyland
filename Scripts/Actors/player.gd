@@ -90,7 +90,7 @@ func initialize() -> void:
 	disable_propulsion()
 	animator.play("Idle")
 	current_state = State.NORMAL
-	
+
 	enable_input()
 
 
@@ -106,6 +106,7 @@ func enable_input() -> void:
 func increase_sugar(amount: int = 1) -> void:
 	sugar_level += amount
 	World.sugar_level_changed(sugar_level)
+	World.activate_sugar_eat_effect()
 
 
 ######### Main Physics Loop #########
@@ -206,7 +207,6 @@ func start_sugar_rush() -> void:
 
 func end_sugar_rush() -> void:
 	sugarRushCooldownTimer.start()
-	World.deactivate_sugar_rush_effect()
 	
 func _apply_propulsion(delta: float) -> void:
 	if Input.is_action_pressed("Jump"):

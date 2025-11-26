@@ -12233,6 +12233,7 @@ material = SubResource("ShaderMaterial_s3jbq")
 offset_right = 1921.0
 offset_bottom = 1081.0
 script = ExtResource("4_c3eba")
+alpha = 0.35
 
 [node name="EatSugarEffect" type="ColorRect" parent="."]
 visible = false
@@ -12240,6 +12241,7 @@ material = SubResource("ShaderMaterial_c3eba")
 offset_right = 1921.0
 offset_bottom = 1081.0
 script = ExtResource("4_c3eba")
+alpha = 0.7
 
 [node name="HealthDisplay" type="Control" parent="."]
 layout_mode = 3

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://4gwf5x2dfrm5"]
+
+[ext_resource type="Texture2D" uid="uid://w7kpqv4twnxw" path="res://Art/donut.png" id="1_mmpmu"]
+[ext_resource type="Script" uid="uid://fwtnajj22al" path="res://Scripts/Donut.gd" id="1_wflqx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2af54"]
+radius = 35.0
+
+[node name="Donut" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_wflqx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.28, 0.28)
+texture = ExtResource("1_mmpmu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2af54")

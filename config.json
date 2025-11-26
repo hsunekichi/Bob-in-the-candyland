@@ -2,5 +2,6 @@
 	"starting_sugar": 3,
     "starting_health": 3,
     "sugar_rush_duration": 3.0,
-    "sugar_rush_cooldown": 0.5
+    "sugar_rush_cooldown": 0.5,
+    "maze_donuts": 5
 }
