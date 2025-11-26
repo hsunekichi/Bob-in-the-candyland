@@ -1,8 +1,10 @@
 class_name MazeGenerator
 extends Node2D
 
-# Maze configuration
 
+signal maze_changed
+
+# Maze configuration
 @export var donut_scene: PackedScene
 @export var enemy_scene: PackedScene
 @export var enemy_count: int = 3
@@ -139,6 +141,8 @@ func remove_cell(cell: Vector2i) -> bool:
 			if is_wall(neighbor.x, neighbor.y):
 				var tile = get_tile_for_position(neighbor.x, neighbor.y)
 				tilemap.set_cell(neighbor, tile_source_id, tile)
+
+	maze_changed.emit()
 	
 	return true
 
@@ -240,6 +244,7 @@ func generate_maze():
 			print("No path found, regenerating maze (attempt %d)" % attempts)
 	
 	print("Warning: Could not generate valid maze after %d attempts" % max_attempts)
+	maze_changed.emit()
 
 func _generate_maze_internal():
 	# Initialize maze with all walls

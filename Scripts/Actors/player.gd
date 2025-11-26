@@ -26,7 +26,7 @@ var gravity: float = 15 * World.ppu
 @export var sugar_rush_duration: float = 2.0
 var sugarRushCooldownTimer: Timer
 var sugarRushDurationTimer: Timer
-var sugarPuffScene: PackedScene = preload("res://Scenes/SugarPuff.tscn")
+var sugarPuffScene: PackedScene = preload("res://Scenes/GameAssets/SugarPuff.tscn")
 var isRemovingCells: bool = false
 
 ######### Sitting Parameters #########
@@ -88,8 +88,8 @@ func initialize() -> void:
 	World.sugar_level_changed(sugar_level)
 	
 	disable_propulsion()
-	animator.play("Idle")
-	current_state = State.NORMAL
+	current_state = State.SITTING
+	animator.play("SitIdle")
 
 	enable_input()
 
@@ -194,9 +194,14 @@ func on_hit() -> void:
 		if not World.get_maze():
 			return
 		var maze = World.get_maze().get_node("MazeGenerator") as MazeGenerator
-		global_position = maze.get_start_position()
-		velocity = Vector2.ZERO
 		maze.spawn_enemies()
+
+		current_state = State.SITTING
+		animator.play("SitIdle")
+		velocity = Vector2.ZERO
+		global_position = maze.get_start_position()
+
+
 
 func start_sugar_rush() -> void:
 	sugar_level -= 1

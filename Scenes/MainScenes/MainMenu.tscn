@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://f4psnkm1dc6d"]
+
+[ext_resource type="Script" uid="uid://b34eqsowat22x" path="res://Scripts/Game/MainMenu.gd" id="1_8saeu"]
+[ext_resource type="PackedScene" uid="uid://cd67h1ppritvf" path="res://Scenes/menu_button.tscn" id="2_853f1"]
+[ext_resource type="Texture2D" uid="uid://ch64p1snpjtlg" path="res://Art/Screens/MenuButtonL.png" id="3_358vw"]
+[ext_resource type="Texture2D" uid="uid://clxf5fk7k2r2h" path="res://Art/Screens/MenuButtonM.png" id="4_a2d0p"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5mpcw"]
+load_path = "res://.godot/imported/MenuBackground.png-e3d3db516d287e73597e8bb477357f4e.ctex"
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_8saeu")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("CompressedTexture2D_5mpcw")
+
+[node name="PlayButton" parent="." instance=ExtResource("2_853f1")]
+layout_mode = 1
+offset_top = 493.0
+offset_bottom = 592.0
+theme_override_colors/font_focus_color = Color(0.4509804, 0.15686275, 0.050980393, 1)
+
+[node name="PlayDebug" parent="." instance=ExtResource("2_853f1")]
+layout_mode = 1
+offset_top = 582.0
+offset_bottom = 681.0
+theme_override_colors/font_focus_color = Color(0.4509804, 0.15686275, 0.050980393, 1)
+text = "Play navigation test"
+icon = ExtResource("3_358vw")
+
+[node name="Controls" parent="." instance=ExtResource("2_853f1")]
+layout_mode = 1
+offset_left = 648.0
+offset_top = 670.0
+offset_right = 1276.0
+offset_bottom = 769.0
+theme_override_colors/font_focus_color = Color(0.4509804, 0.15686275, 0.050980393, 1)
+text = "Controls"
+icon = ExtResource("4_a2d0p")

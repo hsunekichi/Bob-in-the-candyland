@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://bghx832pqxacg"]
+
+[ext_resource type="Script" uid="uid://dghc3kehy87ie" path="res://Scripts/Game/lose_scene.gd" id="1_ojgy1"]
+[ext_resource type="Texture2D" uid="uid://bfwrakkncf4ex" path="res://Art/Screens/LoseScreen.png" id="2_cjo6h"]
+[ext_resource type="PackedScene" uid="uid://cd67h1ppritvf" path="res://Scenes/menu_button.tscn" id="3_p2s2b"]
+[ext_resource type="Texture2D" uid="uid://n62c3stfrmpw" path="res://Art/Screens/MenuButtonS.png" id="4_ojgy1"]
+
+[node name="LoseScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ojgy1")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_cjo6h")
+
+[node name="RetryButton" parent="." instance=ExtResource("3_p2s2b")]
+layout_mode = 1
+offset_top = 655.0
+offset_bottom = 754.0
+theme_override_colors/font_focus_color = Color(0.4509804, 0.15686275, 0.050980393, 1)
+text = "Try again"
+icon = ExtResource("4_ojgy1")
+
+[node name="MainMenuButton" parent="." instance=ExtResource("3_p2s2b")]
+layout_mode = 1
+offset_top = 745.0
+offset_bottom = 844.0
+theme_override_colors/font_focus_color = Color(0.4509804, 0.15686275, 0.050980393, 1)
+text = "Main menu"
+icon = ExtResource("4_ojgy1")

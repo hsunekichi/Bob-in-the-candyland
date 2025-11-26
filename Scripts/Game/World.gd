@@ -5,17 +5,16 @@ var raycast: RayCast2D
 const GROUND_COLLISION_MASK: int = 1
 var verbose: bool = false
 
-var hud_scene: PackedScene = preload("res://Scenes/HUD.tscn")
-var main_menu_scene: PackedScene = preload("res://Scenes/MainMenu.tscn")
-var lose_menu_scene: PackedScene = preload("res://Scenes/LoseScene.tscn")
-var maze_scene: PackedScene = preload("res://Scenes/Maze.tscn")
-var debug_scene: PackedScene = preload("res://Scenes/Debug.tscn")
+var hud_scene: PackedScene = preload("res://Scenes/MainScenes/HUD.tscn")
+var main_menu_scene: PackedScene = preload("res://Scenes/MainScenes/MainMenu.tscn")
+var lose_menu_scene: PackedScene = preload("res://Scenes/MainScenes/LoseScene.tscn")
+var win_scene: PackedScene = preload("res://Scenes/MainScenes/WinScene.tscn")
+var maze_scene: PackedScene = preload("res://Scenes/MainScenes/Maze.tscn")
+var debug_scene: PackedScene = preload("res://Scenes/MainScenes/Debug.tscn")
 
 var scene_changing: bool = false
 
-@export var win_screen_path: StringName = "res://Art/Screens/WinScreen.png"
-@export var main_menu_scene_path: StringName = "res://Scenes/MainMenu.tscn"
-var win_node: TextureRect
+@export var main_menu_scene_path: StringName = "res://Scenes/MainScenes/MainMenu.tscn"
 
 var pulse_scene: PackedScene = preload("res://Scripts/SFX/BatPulse.tscn")
 var pulse_instance: Node2D = null
@@ -40,11 +39,6 @@ func _ready() -> void:
 	
 	HUD = hud_scene.instantiate()
 	add_child(HUD)
-
-	win_node = TextureRect.new()
-	win_node.texture = load(win_screen_path)
-	win_node.visible = false
-	HUD.add_child(win_node)
 
 	# Load config from JSON file
 	var config_path = "res://config.json"
@@ -98,85 +92,57 @@ func teleport_player(p: Vector2) -> void:
 	mainCamera.global_position = Player.global_position
 	mainCamera.reset_smoothing()
 
-func load_menu() -> void:
+func change_scene(scene: PackedScene, scene_name: String = "", parent: Node = null, setup_callback: Callable = Callable()) -> void:
+	"""Generic scene change function with transition and optional setup callback."""
 	if scene_changing:
 		return
 	scene_changing = true
 
 	await HUD.enable_transition()
 
+	# Clean up current scene
 	if current_scene:
 		current_scene.queue_free()
 
-	current_scene = main_menu_scene.instantiate()
-	HUD.add_child(current_scene)
+	# Execute setup callback if provided (for pre-scene setup)
+	if setup_callback.is_valid():
+		setup_callback.call()
+
+	# Instantiate new scene
+	current_scene = scene.instantiate()
+	if scene_name != "":
+		current_scene.name = scene_name
+	
+	# Add to appropriate parent (HUD or World)
+	if parent == null:
+		parent = self
+	parent.add_child(current_scene)
 
 	await HUD.disable_transition()
 
 	scene_changing = false
+
+func load_menu() -> void:
+	change_scene(main_menu_scene, "", HUD)
 
 func load_maze() -> void:
-	if scene_changing:
-		return
-	scene_changing = true
-
-	await HUD.enable_transition()
-
-	if current_scene:
-		current_scene.queue_free()
-
-	HUD.show_hud()
-	Player.initialize()
-
-	# Load maze
-	current_scene = maze_scene.instantiate()
-	current_scene.name = "Maze"
-	add_child(current_scene)
-
-	await HUD.disable_transition()
-
-	scene_changing = false
+	var initialize_player = func():
+		HUD.show_hud()
+		Player.initialize()
+	change_scene(maze_scene, "Maze", self, initialize_player)
 
 func get_maze() -> Node:
 	return get_node_or_null("Maze")
 
 func load_debug() -> void:
-	if not scene_changing:
-		return
-	scene_changing = false
-
-	await HUD.enable_transition()
-
-	# Remove menu
-	HUD.remove_menu()
-	HUD.show_hud()
-
-	if current_scene:
-		current_scene.queue_free()
-
-	Player.initialize()
-
-	# Load demo maze
-	current_scene = debug_scene.instantiate()
-	add_child(current_scene)
-
-
-	await HUD.disable_transition()
-
+	var initialize_player = func():
+		HUD.remove_menu()
+		HUD.show_hud()
+		Player.initialize()
+	change_scene(debug_scene, "", self, initialize_player)
 func game_completed() -> void:
-	# Show win screen
 	game_finished.emit()
-	scene_changing = true
-
-	await HUD.enable_transition()
-	win_node.visible = true
-
-	if current_scene:
-		current_scene.queue_free()
-
-	await HUD.disable_transition()
-
-	scene_changing = false
+	change_scene(win_scene, "", HUD)
 
 func activate_sugar_rush_effect() -> void:
 	HUD.get_node("SugarRushEffect").enable()
@@ -189,20 +155,7 @@ func emit_pulse(location: Vector2) -> void:
 
 func game_over() -> void:
 	game_finished.emit()
-	scene_changing = true
-
-	# Show game over screen
-	await HUD.enable_transition()
-	
-	if current_scene:
-		current_scene.queue_free()
-
-	current_scene = lose_menu_scene.instantiate()
-	HUD.add_child(current_scene)
-
-	await HUD.disable_transition()
-
-	scene_changing = false
+	change_scene(lose_menu_scene, "", HUD)
 
 func health_changed(new_health: int) -> void:
 	HUD.update_health(new_health)

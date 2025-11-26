@@ -81,6 +81,8 @@ func actor_collision(body: Node2D) -> void:
 		World.emit_pulse(Player.global_position)
 		Player.on_hit()
 		
+func environment_change() -> void:
+	navigation.restart(global_position)
 
 func _ready() -> void:
 	navigation = RTTstarNavigationGD.new()
@@ -96,6 +98,8 @@ func _ready() -> void:
 	World.add_child(_path_display)
 
 	World.game_finished.connect(disable)
+
+	World.get_maze().get_node("MazeGenerator").maze_changed.connect(environment_change)
 
 func _exit_tree() -> void:
 	if _path_display:
