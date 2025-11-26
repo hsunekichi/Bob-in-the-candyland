@@ -2,38 +2,15 @@ class_name HUDcontroller
 extends CanvasLayer
 
 
-@export var win_screen_path: StringName = "res://Art/Screens/WinScreen.png"
-@export var main_menu_scene_path: StringName = "res://Scenes/MainMenu.tscn"
-var win_node: TextureRect
 
 @onready var transition: Node = $Transition
 
 func _ready() -> void:
-	win_node = TextureRect.new()
-	win_node.texture = load(win_screen_path)
-	win_node.visible = false
-	add_child(win_node)
-
 	var tr_nodes = transition.get_children()
 	for child in tr_nodes:
 		child.visible = false
 	transition.visible = true
-
-
-func show_win_screen() -> void:
-	await enable_transition()
-	win_node.visible = true
-	await disable_transition()
-
-func show_main_menu() -> void:
-	await enable_transition()
-
-	var main_menu_scene: PackedScene = load(main_menu_scene_path)
-	var main_menu_instance: Node = main_menu_scene.instantiate()
-	add_child(main_menu_instance)
-
-	await disable_transition()
-
+	
 func enable_transition():
 	var tr_nodes = transition.get_children()
 

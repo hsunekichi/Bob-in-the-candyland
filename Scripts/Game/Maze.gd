@@ -79,8 +79,8 @@ func spawn_enemies() -> void:
 		var world_pos = tilemap.to_global(local_pos)
 		
 		var enemy: Node2D = enemy_scene.instantiate()
-		World.add_child(enemy)
 		enemy.global_position = world_pos
+		get_parent().add_child.bind(enemy).call_deferred()
 
 
 func generate_maze():

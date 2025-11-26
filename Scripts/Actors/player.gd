@@ -43,6 +43,8 @@ var moveInput: Vector2 = Vector2.ZERO
 
 ######### Components #########
 @onready var animator: AnimationPlayer = $AnimationPlayer
+var rainbowPulseScene: PackedScene = preload("res://Scripts/SFX/RainbowPulse.tscn")
+var rainbowPulse: RainbowPulse
 
 ######### Initialization #########
 func _ready() -> void:
@@ -77,12 +79,20 @@ func _ready() -> void:
 	add_child(dash_detector)
 	visible = false
 
+	# Rainbow pulse effect
+	rainbowPulse = rainbowPulseScene.instantiate()
+	World.add_child(rainbowPulse)
+
 	disable_propulsion()
+
+	World.game_finished.connect(disable_input)
+
 
 func disable_input() -> void:
 	animator.play("Idle")
 	set_process(false)
 	set_physics_process(false)
+	rainbowPulse.end_pulse()
 func enable_input() -> void:
 	visible = true
 	set_process(true)
@@ -125,6 +135,8 @@ func _process_dashing_state(delta: float) -> void:
 	
 	var wasInsideWall = insideWall
 	insideWall = dash_detector.has_overlapping_bodies()
+
+	look_to(dash_direction.x)
 	
 	# Exit dash when out of wall or max distance reached
 	if (wasInsideWall or dashedDistance >= MAX_DASHED_DISTANCE) and not insideWall:
@@ -140,7 +152,7 @@ func _process_dashing_state(delta: float) -> void:
 ######### State: NORMAL #########
 func _process_normal_state(delta: float) -> void:
 	# Reset sitting timer on movement
-	if moveInput.x != 0 and not isPropulsing:
+	if moveInput.x != 0 and is_on_floor():
 		sit_timer.start()
 	
 	# Check for dash input
@@ -167,6 +179,8 @@ func _try_start_dash() -> bool:
 	dashedDistance = 0.0
 	sit_timer.stop()
 	disable_propulsion()
+
+	rainbowPulse.start_pulse(global_position)
 
 	return true
 	

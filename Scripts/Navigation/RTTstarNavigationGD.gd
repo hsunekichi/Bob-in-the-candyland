@@ -6,8 +6,8 @@ extends Node
 var MAX_NEIGHBORS: int = 5 ## Maximum number of neighbors to consider when connecting a new point, controls efficiency and optimality of paths
 var SAMPLE_DISTANCE_MULTIPLIER: float = 2.0 ## Multiplier for the sampling disk around the actor and goal. 1 means the circle will pass through each of them
 
-var MAX_TREE_SIZE: int = 1000 ## Maximum number of nodes in the RTT* tree
-var TREE_BUILD_SAMPLES: int = 100 ## Maxumum number of samples to generate when building a new tree. If a path is found earlier, the process stops
+var MAX_TREE_SIZE: int = 1500 ## Maximum number of nodes in the RTT* tree
+var TREE_BUILD_SAMPLES: int = 30 ## Maxumum number of samples to generate when building a new tree. If a path is found earlier, the process stops
 var TREE_REFINE_SAMPLES: int = 5 ## Number of samples to generate when refining an existing tree
 
 ## Returns a trajectory from the origin to the target, optimized for the current position.
@@ -162,6 +162,10 @@ func _ready() -> void:
 	_tree_display.marker_outline_width = 1.0
 	_tree_display.show_connections = false
 	World.add_child(_tree_display)
+
+func _exit_tree() -> void:
+	if _tree_display:
+		_tree_display.queue_free()
 	
 
 var _tree: RTTtreeGD = RTTtreeGD.new()

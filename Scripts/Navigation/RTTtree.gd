@@ -57,7 +57,60 @@ func compute_cost(idx: int) -> float:
 
 func get_k_nearest(point: Vector2, k: int) -> PackedInt32Array:
 	var heap: Array = []
-	_knn_recursive(root, point, k, heap, 0)
+	
+	if root == -1:
+		return PackedInt32Array()
+	
+	# Stack for iterative traversal: [node_idx, depth, phase]
+	# phase 0: process node, phase 1: check far child
+	var stack: Array = [[root, 0, 0]]
+	
+	while stack.size() > 0:
+		var frame = stack.pop_back()
+		var node_idx = frame[0]
+		var depth = frame[1]
+		var phase = frame[2]
+		
+		if node_idx == -1:
+			continue
+		
+		var node = nodes[node_idx]
+		
+		if phase == 0:
+			# Process current node
+			var dist = node.point.distance_squared_to(point)
+			
+			if heap.size() < k:
+				heap.append([node.index, dist])
+				if heap.size() == k:
+					heap.sort_custom(func(a, b): return a[1] > b[1])
+			elif dist < heap[0][1]:
+				heap[0] = [node.index, dist]
+				heap.sort_custom(func(a, b): return a[1] > b[1])
+			
+			# Determine near and far children
+			var cd = depth % 2
+			var diff = point[cd] - node.point[cd]
+			var near = node.left if diff < 0 else node.right
+			#var far = node.right if diff < 0 else node.left
+			
+			# Push far child check for later (phase 1)
+			stack.append([node_idx, depth, 1])
+			
+			# Push near child for immediate exploration
+			if near != -1:
+				stack.append([near, depth + 1, 0])
+		
+		else:  # phase == 1
+			# Check if we need to explore far child
+			var cd = depth % 2
+			var diff = point[cd] - node.point[cd]
+			var far = node.right if diff < 0 else node.left
+			
+			if far != -1 and (heap.size() < k or diff * diff < heap[0][1]):
+				stack.append([far, depth + 1, 0])
+	
+	# Sort heap by distance and extract indices
 	heap.sort_custom(func(a, b): return a[1] < b[1])
 	
 	var result: PackedInt32Array = []
@@ -88,25 +141,5 @@ func _insert_recursive(node_idx: int, point: Vector2, index: int, depth: int) ->
 		nodes[node_idx].right = _insert_recursive(nodes[node_idx].right, point, index, depth + 1)
 	return node_idx
 
-func _knn_recursive(node_idx: int, target: Vector2, k: int, heap: Array, depth: int) -> void:
-	if node_idx == -1:
-		return
-	
-	var node = nodes[node_idx]
-	var dist = node.point.distance_squared_to(target)
-	
-	if heap.size() < k:
-		heap.append([node.index, dist])
-	elif dist < heap[0][1]:
-		heap[0] = [node.index, dist]
-		heap.sort_custom(func(a, b): return a[1] > b[1])
-	
-	var cd = depth % 2
-	var diff = target[cd] - node.point[cd]
-	var near = node.left if diff < 0 else node.right
-	var far = node.right if diff < 0 else node.left
-	
-	_knn_recursive(near, target, k, heap, depth + 1)
-	if heap.size() < k or diff * diff < heap[0][1]:
-		_knn_recursive(far, target, k, heap, depth + 1)
+
 

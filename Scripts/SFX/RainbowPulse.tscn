@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://cfs35efnpcy5x"]
+
+[ext_resource type="Script" uid="uid://dx3njgfc8rrr2" path="res://Scripts/SFX/LurkerPulse.gd" id="1_b5dwd"]
+[ext_resource type="Shader" uid="uid://dfno5vpd2o082" path="res://Scripts/SFX/LurkerPulse.gdshader" id="2_mq5pu"]
+[ext_resource type="Script" uid="uid://bxy0dwo0osf2i" path="res://addons/HelperCode/SpriteBackBufferCopy.gd" id="2_qqqg2"]
+[ext_resource type="Shader" uid="uid://i4hlw1afshkj" path="res://Scripts/SFX/LurkerPulseBlur.gdshader" id="3_qqqg2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fk7gb"]
+shader = ExtResource("2_mq5pu")
+shader_parameter/add = 0.00179999995446
+shader_parameter/threshold = 0.08400000399
+shader_parameter/edgeColour = Color(2.7915835e-06, 0.6559213, 0.72595453, 1)
+shader_parameter/nonEdgeColour = Color(0, 0, 0, 1)
+shader_parameter/inner_radius = 0.3450000163875
+shader_parameter/inner_fade_radius = 0.10000000475
+
+[sub_resource type="Gradient" id="Gradient_ertdb"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4jubh"]
+gradient = SubResource("Gradient_ertdb")
+width = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ertdb"]
+shader = ExtResource("3_qqqg2")
+shader_parameter/inner_radius = 0.3450000163875
+shader_parameter/inner_fade_radius = 0.10000000475
+shader_parameter/blurLod = 0.75
+
+[node name="LurkerPulse" type="Node2D"]
+physics_interpolation_mode = 2
+z_index = 100
+z_as_relative = false
+script = ExtResource("1_b5dwd")
+
+[node name="PulseBuffer" type="BackBufferCopy" parent="." node_paths=PackedStringArray("target_sprite")]
+rect = Rect2(524.75, 105.27084, 620, 620)
+script = ExtResource("2_qqqg2")
+target_sprite = NodePath("PulseSprite")
+
+[node name="PulseSprite" type="Sprite2D" parent="PulseBuffer"]
+material = SubResource("ShaderMaterial_fk7gb")
+scale = Vector2(900, 900)
+texture = SubResource("GradientTexture1D_4jubh")
+
+[node name="BlurBuffer" type="BackBufferCopy" parent="." node_paths=PackedStringArray("target_sprite")]
+rect = Rect2(519.75, 100.27084, 630, 630)
+script = ExtResource("2_qqqg2")
+target_sprite = NodePath("Blur")
+
+[node name="Blur" type="Sprite2D" parent="BlurBuffer"]
+material = SubResource("ShaderMaterial_ertdb")
+scale = Vector2(915, 915)
+texture = SubResource("GradientTexture1D_4jubh")

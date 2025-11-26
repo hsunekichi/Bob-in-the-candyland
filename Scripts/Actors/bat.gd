@@ -91,6 +91,17 @@ func _ready() -> void:
 	_path_display.marker_outline_width = 1.0
 	World.add_child(_path_display)
 
+	World.game_finished.connect(disable)
+
+func _exit_tree() -> void:
+	if _path_display:
+		_path_display.queue_free()
+
+func disable() -> void:
+	set_process(false)
+	set_physics_process(false)
+
+
 func looking_dir_x() -> float:
 	if abs(global_rotation) > PI/2:
 		return -scale.x

@@ -9,7 +9,14 @@ var hud_scene: PackedScene = preload("res://Scenes/HUD.tscn")
 var main_menu_scene: PackedScene = preload("res://Scenes/MainMenu.tscn")
 var maze_scene: PackedScene = preload("res://Scenes/Maze.tscn")
 var debug_scene: PackedScene = preload("res://Scenes/Debug.tscn")
+
+@export var win_screen_path: StringName = "res://Art/Screens/WinScreen.png"
+@export var main_menu_scene_path: StringName = "res://Scenes/MainMenu.tscn"
+var win_node: TextureRect
+
 var HUD: HUDcontroller
+
+signal game_finished
 
 
 func _ready() -> void:
@@ -24,6 +31,11 @@ func _ready() -> void:
 	
 	HUD = hud_scene.instantiate()
 	add_child(HUD)
+
+	win_node = TextureRect.new()
+	win_node.texture = load(win_screen_path)
+	win_node.visible = false
+	HUD.add_child(win_node)
 
 	# Await until the game is done loading
 	await get_tree().process_frame
@@ -69,6 +81,7 @@ func load_maze() -> void:
 
 	# Load maze
 	var maze: Node = maze_scene.instantiate()
+	maze.name = "Maze"
 	add_child(maze)
 
 	# Enable player input and make visible
@@ -95,5 +108,9 @@ func load_debug() -> void:
 
 func game_completed() -> void:
 	# Show win screen
-	HUD.show_win_screen()
-	Player.disable_input()
+	game_finished.emit()
+
+	await HUD.enable_transition()
+	win_node.visible = true
+	get_node("Maze").queue_free()
+	await HUD.disable_transition()

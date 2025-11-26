@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://blblagmxq7g6t"]
+[gd_scene load_steps=69 format=3 uid="uid://blblagmxq7g6t"]
 
 [ext_resource type="Script" uid="uid://bg7axshfnux2t" path="res://Scripts/Actors/player.gd" id="1_x3wgy"]
 [ext_resource type="Texture2D" uid="uid://q5cyhqdmdo14" path="res://Art/Dino Tri/dino_tri_idle.png" id="2_3smsa"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ii8c2vr8peur" path="res://Art/Dino Tri/dino_tri_sit_1_start.png" id="5_tx1dd"]
 [ext_resource type="Texture2D" uid="uid://8vhlvjbwdary" path="res://Art/Dino Tri/dino_tri_move.png" id="6_gymyn"]
 [ext_resource type="Texture2D" uid="uid://c3jclt5y5wkl6" path="res://Art/Pixel Fire Asset Pack v2.2/Pixel Fire Asset Pack  Floored/Pixel Fire Asset Pack Floored Red/Group 4 - 1/Group 4 - 1.png" id="7_3smsa"]
+[ext_resource type="PackedScene" uid="uid://cfs35efnpcy5x" path="res://Scripts/SFX/LurkerPulse.tscn" id="8_8erm5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cm0pq"]
 atlas = ExtResource("2_3smsa")
@@ -667,3 +668,6 @@ rotation = 3.1415925
 scale = Vector2(0.4206063, 0.39396933)
 sprite_frames = SubResource("SpriteFrames_wpjfl")
 autoplay = "default"
+
+[node name="RainbowPulse" parent="." instance=ExtResource("8_8erm5")]
+visible = false
