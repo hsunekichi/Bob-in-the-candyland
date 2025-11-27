@@ -11,9 +11,15 @@ func _ready() -> void:
 
 	# Setup valley debug line
 	_valley_line = Line2D.new()
-	_valley_line.width = 10.0
+	_valley_line.width = 3.0
 	_valley_line.default_color = Color.YELLOW
 	World.add_child(_valley_line)
+	
+	# Setup repulsion debug line
+	_repulsion_line = Line2D.new()
+	_repulsion_line.width = 3.0
+	_repulsion_line.default_color = Color.ORANGE
+	World.add_child(_repulsion_line)
 
 	# This area will enable the rays in a low safety zone (obstacles close)
 	_safety_zone = Area2D.new()
@@ -42,6 +48,11 @@ func _ready() -> void:
 		add_child(ray)
 		_proximity_rays.append(ray)
 		_ray_angles.append(i * (PI / 4))
+
+func _exit_tree() -> void:
+	_disable_rays()
+	_valley_line.queue_free()
+	_repulsion_line.queue_free()
 
 func set_shape(ray_distance: float, cast_radius: float) -> void:
 	PATHFINDER_SHAPE_RADIUS = cast_radius
@@ -74,7 +85,18 @@ func compute_direction(actor: Vector2, target: Vector2) -> Vector2:
 
 		# Combine fleeing from walls with going to a valley
 		if valley != INF:
-			direction = _repel_walls() + Vector2(1, 0).rotated(valley)
+			var repulsion = _repel_walls()
+			var valley_vec = Vector2(1, 0).rotated(valley)
+			direction = repulsion + valley_vec
+			
+			# Draw debug lines
+			var line_length = RAY_DISTANCE * 0.8
+			_valley_line.points = [actor, actor + valley_vec.normalized() * line_length]
+			_repulsion_line.points = [actor, actor + repulsion.normalized() * line_length]
+	else:
+		# Clear debug lines when not using ND
+		_valley_line.points = []
+		_repulsion_line.points = []
 
 	return direction.normalized()
 
@@ -177,3 +199,4 @@ var nSafetyObstacles: int = 0 ## Number of obstacles in the safety zone
 var _cast_shape: CircleShape2D = CircleShape2D.new()
 var _safety_zone: Area2D = null
 var _valley_line: Line2D = null  # Debug line for valley angle
+var _repulsion_line: Line2D = null  # Debug line for repulsion force

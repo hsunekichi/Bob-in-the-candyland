@@ -19,4 +19,5 @@ func _draw() -> void:
 
 
 func _ready() -> void:
-	queue_redraw()
+	queue_redraw() 
+	physics_interpolation_mode = PHYSICS_INTERPOLATION_MODE_OFF

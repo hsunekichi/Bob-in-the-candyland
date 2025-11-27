@@ -24,7 +24,7 @@ func _physics_process(_delta: float) -> void:
 
 ## Compute the direction to the player, using navigation if needed
 func _compute_direction() -> Vector2:
-	var player = Player.global_position
+	var player = Player.target_point()
 
 	# Direct path to player is clear, go directly
 	if not World.ray_intersects_ground(global_position, player):
@@ -47,11 +47,6 @@ func _compute_direction() -> Vector2:
 			World.log("Actor cannot travel to path node ", path[target_idx], ", clearing tree")
 			return Vector2.ZERO
 
-		# We are already at the target, move to the next one
-		if global_position.distance_to(path[target_idx]) < DISTANCE_EPSILON \
-			and target_idx < path.size() - 1:
-				target_idx += 1 # Move to the next target
-
 		# Update path display
 		if _path_display:
 			_path_display.set_positions(path)
@@ -68,12 +63,16 @@ func _go_to_trajectory(new_path: PackedVector2Array) -> int:
 	# Find closest point on path segments
 	for i in range(new_path.size() - 1):
 		var closest = Geometry2D.get_closest_point_to_segment(global_position, new_path[i], new_path[i + 1])
-		var dist = global_position.distance_squared_to(closest)
-		if dist < min_dist:
+		var dist = global_position.distance_squared_to(closest) - (i * 20) # Slight bias to favor later segments
+		if dist <= min_dist: # Favor later segments in case of ties
 			min_dist = dist
 			best_segment = i
+	
+	var target = best_segment + 1
+	#if global_position.distance_to(new_path[target]) < DISTANCE_EPSILON:
+	#	target = min(target + 1, new_path.size() - 1)
 
-	return best_segment + 1
+	return target
 
 
 func actor_collision(body: Node2D) -> void:

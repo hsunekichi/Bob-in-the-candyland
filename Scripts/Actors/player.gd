@@ -44,6 +44,7 @@ var moveInput: Vector2 = Vector2.ZERO
 ######### Components #########
 @onready var animator: AnimationPlayer = $AnimationPlayer
 @onready var rayDestructor: RayCast2D = $RayDestructor
+@onready var player_center: Node2D = $Center
 
 ######### Initialization #########
 func _ready() -> void:
@@ -94,6 +95,9 @@ func initialize() -> void:
 
 	enable_input()
 
+## Returns the center of the player
+func target_point() -> Vector2:
+	return player_center.global_position
 
 func disable_input() -> void:
 	animator.play("Idle")

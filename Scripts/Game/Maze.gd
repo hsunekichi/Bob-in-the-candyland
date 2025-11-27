@@ -278,10 +278,6 @@ func load_maze_from_tilemap():
 	# Store offset: maze array index 0 corresponds to tilemap coordinate (min_x + 1)
 	maze_offset = Vector2i(int(min_x) + 1, int(min_y) + 1)
 	
-	print("Tilemap bounds: min(%d, %d) to max(%d, %d)" % [min_x, min_y, max_x, max_y])
-	print("Maze dimensions: %dx%d" % [maze_width, maze_height])
-	print("Maze offset: %s" % [maze_offset])
-	
 	# Initialize maze array
 	maze = []
 	for x in range(maze_width):

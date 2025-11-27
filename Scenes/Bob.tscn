@@ -672,3 +672,6 @@ autoplay = "default"
 position = Vector2(33, 53)
 enabled = false
 target_position = Vector2(61, 0)
+
+[node name="Center" type="Marker2D" parent="."]
+position = Vector2(0, 45)
