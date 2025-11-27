@@ -56,20 +56,34 @@ func compute_cost(idx: int) -> float:
 	return total
 
 func get_k_nearest(point: Vector2, k: int) -> PackedInt32Array:
-	var heap: Array = []
-	
 	if root == -1:
 		return PackedInt32Array()
 	
-	# Stack for iterative traversal: [node_idx, depth, phase]
-	# phase 0: process node, phase 1: check far child
-	var stack: Array = [[root, 0, 0]]
+	# Use separate arrays instead of nested arrays for better cache performance
+	var heap_indices: PackedInt32Array = []
+	var heap_dists: PackedFloat32Array = []
+	var worst_dist := INF
 	
-	while stack.size() > 0:
-		var frame = stack.pop_back()
-		var node_idx = frame[0]
-		var depth = frame[1]
-		var phase = frame[2]
+	# Stack for iterative traversal - use flat arrays
+	var stack_nodes: PackedInt32Array = []
+	var stack_depths: PackedInt32Array = []
+	var stack_phases: PackedInt32Array = []  # phase 0: process node, phase 1: check far child
+	
+	# Pre-allocate stack with reasonable size
+	stack_nodes.resize(32)
+	stack_depths.resize(32)
+	stack_phases.resize(32)
+	
+	stack_nodes[0] = root
+	stack_depths[0] = 0
+	stack_phases[0] = 0
+	var stack_size := 1
+	
+	while stack_size > 0:
+		stack_size -= 1
+		var node_idx = stack_nodes[stack_size]
+		var depth = stack_depths[stack_size]
+		var phase = stack_phases[stack_size]
 		
 		if node_idx == -1:
 			continue
@@ -80,26 +94,50 @@ func get_k_nearest(point: Vector2, k: int) -> PackedInt32Array:
 			# Process current node
 			var dist = node.point.distance_squared_to(point)
 			
-			if heap.size() < k:
-				heap.append([node.index, dist])
-				if heap.size() == k:
-					heap.sort_custom(func(a, b): return a[1] > b[1])
-			elif dist < heap[0][1]:
-				heap[0] = [node.index, dist]
-				heap.sort_custom(func(a, b): return a[1] > b[1])
+			var heap_size = heap_indices.size()
+			if heap_size < k:
+				heap_indices.append(node.index)
+				heap_dists.append(dist)
+				if dist > worst_dist:
+					worst_dist = dist
+			elif dist < worst_dist:
+				# Find and replace worst element (simple linear search for small k)
+				var worst_idx := 0
+				worst_dist = heap_dists[0]
+				for i in range(1, k):
+					if heap_dists[i] > worst_dist:
+						worst_dist = heap_dists[i]
+						worst_idx = i
+				heap_indices[worst_idx] = node.index
+				heap_dists[worst_idx] = dist
 			
 			# Determine near and far children
 			var cd = depth % 2
 			var diff = point[cd] - node.point[cd]
 			var near = node.left if diff < 0 else node.right
-			#var far = node.right if diff < 0 else node.left
 			
 			# Push far child check for later (phase 1)
-			stack.append([node_idx, depth, 1])
+			if stack_size >= stack_nodes.size():
+				var new_size = stack_nodes.size() * 2
+				stack_nodes.resize(new_size)
+				stack_depths.resize(new_size)
+				stack_phases.resize(new_size)
+			stack_nodes[stack_size] = node_idx
+			stack_depths[stack_size] = depth
+			stack_phases[stack_size] = 1
+			stack_size += 1
 			
 			# Push near child for immediate exploration
 			if near != -1:
-				stack.append([near, depth + 1, 0])
+				if stack_size >= stack_nodes.size():
+					var new_size = stack_nodes.size() * 2
+					stack_nodes.resize(new_size)
+					stack_depths.resize(new_size)
+					stack_phases.resize(new_size)
+				stack_nodes[stack_size] = near
+				stack_depths[stack_size] = depth + 1
+				stack_phases[stack_size] = 0
+				stack_size += 1
 		
 		else:  # phase == 1
 			# Check if we need to explore far child
@@ -107,16 +145,30 @@ func get_k_nearest(point: Vector2, k: int) -> PackedInt32Array:
 			var diff = point[cd] - node.point[cd]
 			var far = node.right if diff < 0 else node.left
 			
-			if far != -1 and (heap.size() < k or diff * diff < heap[0][1]):
-				stack.append([far, depth + 1, 0])
+			if far != -1 and (heap_indices.size() < k or diff * diff < worst_dist):
+				if stack_size >= stack_nodes.size():
+					var new_size = stack_nodes.size() * 2
+					stack_nodes.resize(new_size)
+					stack_depths.resize(new_size)
+					stack_phases.resize(new_size)
+				stack_nodes[stack_size] = far
+				stack_depths[stack_size] = depth + 1
+				stack_phases[stack_size] = 0
+				stack_size += 1
 	
-	# Sort heap by distance and extract indices
-	heap.sort_custom(func(a, b): return a[1] < b[1])
+	# Sort by distance using insertion sort (efficient for small k)
+	for i in range(1, heap_indices.size()):
+		var key_idx = heap_indices[i]
+		var key_dist = heap_dists[i]
+		var j = i - 1
+		while j >= 0 and heap_dists[j] > key_dist:
+			heap_indices[j + 1] = heap_indices[j]
+			heap_dists[j + 1] = heap_dists[j]
+			j -= 1
+		heap_indices[j + 1] = key_idx
+		heap_dists[j + 1] = key_dist
 	
-	var result: PackedInt32Array = []
-	for elem in heap:
-		result.append(elem[0])
-	return result
+	return heap_indices
 
 func get_nearest(point: Vector2, radius: float) -> PackedInt32Array:
 	var result: PackedInt32Array = []
@@ -140,6 +192,3 @@ func _insert_recursive(node_idx: int, point: Vector2, index: int, depth: int) ->
 	else:
 		nodes[node_idx].right = _insert_recursive(nodes[node_idx].right, point, index, depth + 1)
 	return node_idx
-
-
-
