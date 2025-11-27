@@ -10,7 +10,7 @@ L3 programming layer <2024-01-22>
 (./IEEEconf.cls
 
 LaTeX Warning: You have requested document class `IEEEconf',
-               but the document class provides `ieeeconf'.
+			   but the document class provides `ieeeconf'.
 
 Document Class: ieeeconf 2004/1/15 revision V1.6b by Pradeep Misra
 \@IEEEtrantmpdimenA=\dimen140
@@ -536,4 +536,3 @@ PDF statistics:
  143 compressed objects within 2 object streams
  32 named destinations out of 1000 (max. 500000)
  170 words of extra memory for PDF output out of 10000 (max. 10000000)
-
