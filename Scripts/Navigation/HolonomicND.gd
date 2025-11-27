@@ -9,18 +9,6 @@ var PATHFINDER_SHAPE_RADIUS: float = 28
 func _ready() -> void:
 	_cast_shape.radius = PATHFINDER_SHAPE_RADIUS
 
-	# Setup valley debug line
-	_valley_line = Line2D.new()
-	_valley_line.width = 3.0
-	_valley_line.default_color = Color.YELLOW
-	World.add_child(_valley_line)
-	
-	# Setup repulsion debug line
-	_repulsion_line = Line2D.new()
-	_repulsion_line.width = 3.0
-	_repulsion_line.default_color = Color.ORANGE
-	World.add_child(_repulsion_line)
-
 	# This area will enable the rays in a low safety zone (obstacles close)
 	_safety_zone = Area2D.new()
 	add_child(_safety_zone)
@@ -51,8 +39,6 @@ func _ready() -> void:
 
 func _exit_tree() -> void:
 	_disable_rays()
-	_valley_line.queue_free()
-	_repulsion_line.queue_free()
 
 func set_shape(ray_distance: float, cast_radius: float) -> void:
 	PATHFINDER_SHAPE_RADIUS = cast_radius
@@ -77,9 +63,10 @@ func compute_direction(actor: Vector2, target: Vector2) -> Vector2:
 	var to_target := target - actor
 	var direction: Vector2 = to_target
 	var ray_end: Vector2 = actor + to_target.normalized() * minf(to_target.length(), RAY_DISTANCE * 2.0)
+	var circle_end: Vector2 = ray_end - to_target.normalized() * PATHFINDER_SHAPE_RADIUS
 
 	# Path is occluded, we need to change the direction
-	if World.ray_intersects_ground(actor, ray_end) or _circle_intersects(actor, ray_end):
+	if World.ray_intersects_ground(actor, ray_end) or _circle_intersects(actor, circle_end):
 
 		var valley = _select_valley(actor, to_target.angle())
 
@@ -88,15 +75,6 @@ func compute_direction(actor: Vector2, target: Vector2) -> Vector2:
 			var repulsion = _repel_walls()
 			var valley_vec = Vector2(1, 0).rotated(valley)
 			direction = repulsion + valley_vec
-			
-			# Draw debug lines
-			var line_length = RAY_DISTANCE * 0.8
-			_valley_line.points = [actor, actor + valley_vec.normalized() * line_length]
-			_repulsion_line.points = [actor, actor + repulsion.normalized() * line_length]
-	else:
-		# Clear debug lines when not using ND
-		_valley_line.points = []
-		_repulsion_line.points = []
 
 	return direction.normalized()
 
@@ -198,5 +176,3 @@ var nSafetyObstacles: int = 0 ## Number of obstacles in the safety zone
 
 var _cast_shape: CircleShape2D = CircleShape2D.new()
 var _safety_zone: Area2D = null
-var _valley_line: Line2D = null  # Debug line for valley angle
-var _repulsion_line: Line2D = null  # Debug line for repulsion force

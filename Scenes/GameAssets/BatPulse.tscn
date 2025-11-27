@@ -33,7 +33,7 @@ z_as_relative = false
 script = ExtResource("1_b5dwd")
 
 [node name="PulseBuffer" type="BackBufferCopy" parent="." node_paths=PackedStringArray("target_sprite")]
-rect = Rect2(151, -296.60416, 780, 780)
+rect = Rect2(-19, -191, 630, 630)
 script = ExtResource("2_qqqg2")
 target_sprite = NodePath("PulseSprite")
 
@@ -43,7 +43,7 @@ scale = Vector2(900, 900)
 texture = SubResource("GradientTexture1D_4jubh")
 
 [node name="BlurBuffer" type="BackBufferCopy" parent="." node_paths=PackedStringArray("target_sprite")]
-rect = Rect2(144.5, -303.10416, 793, 793)
+rect = Rect2(-24.25, -196.25, 640.5, 640.5)
 script = ExtResource("2_qqqg2")
 target_sprite = NodePath("Blur")
 

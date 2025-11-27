@@ -198,17 +198,14 @@ To ensure real-time performance, several optimizations are implemented:
             When the limit is reached, the tree is rebuilt from the agent's current position. This ensures that the planner remains responsive and does not degrade over time.
 \end{itemize}
 
-\section{Trajectory following}\label{sec:lowlevel}
+\section{Trajectory following}\label{sec:trajectory}
 
 Once the global planner provides a path, the agent needs to follow it.
-For that, the trajectory follower iterates over all path segments and finds along them
-the minimum distance point to the agent. Having found the closest segment in the path,
-the target becomes the second endpoint of that segment. This is a 
-generalization of the next waypoint in the path, which allows to compute it 
-even when the agent is outside the path.
+For that, the trajectory follower iterates over all path segments to find the closest one to the agent, and 
+selects its second endpoint as the target to reach.
 
-In the corner case where the agent is already at the computed target, 
-the next segment is directly selected to prevent getting stuck at it.
+To prevent the agent from getting stuck at the endpoints, if the next segment endpoint has no 
+obstructions the agent skips to it directly.
 
 [Figure of a trajectory, the selected segment and the target point]
 

@@ -11,12 +11,14 @@
 z_index = 2
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
+texture_repeat = 3
 scroll_scale = Vector2(0.6, 0.6)
+repeat_times = 3
 
-[node name="DayBackground" type="Sprite2D" parent="Parallax2D"]
+[node name="Background" type="Sprite2D" parent="Parallax2D"]
 z_index = -10
-position = Vector2(2457.0002, 52.00006)
-scale = Vector2(1.5646799, 1.5709401)
+position = Vector2(2263, -56.999924)
+scale = Vector2(1.4543046, 1.4564103)
 texture = ExtResource("6_v1gob")
 
 [node name="Maze" type="Node2D" parent="."]
