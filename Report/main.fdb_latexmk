@@ -1,15 +1,15 @@
 # Fdb version 4
-["bibtex main"] 0 "main.aux" "main.bbl" "main" 1764201528.37964 -1
+["bibtex main"] 1764251965.09737 "main.aux" "main.bbl" "main" 1764252101.97752 0
   "./IEEEtran.bst" 1763999862.94514 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
   "./biblio.bib" 1764201075.44985 577 9043b9823ace47efad3b32a7dec9091f ""
-  "main.aux" 1764201528.17495 3763 86bb4e412148f78034f0efc496d317fd "pdflatex"
+  "main.aux" 1764252101.78597 4697 eb14c50b7c9ea88f1687c7612fe6780a "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1764201527.56784 "/home/hsunekichi/Escritorio/AR-FP/Report/main.tex" "main.pdf" "main" 1764201528.37986 0
+["pdflatex"] 1764252101.07016 "/home/hsunekichi/Escritorio/AR-FP/Report/main.tex" "main.pdf" "main" 1764252101.97768 0
   "/etc/texmf/web2c/texmf.cnf" 1746532701.84144 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/hsunekichi/Escritorio/AR-FP/Report/main.tex" 1764201527.39394 18392 b642f314381c540fc2bb1db9a5ebfbdb ""
+  "/home/hsunekichi/Escritorio/AR-FP/Report/main.tex" 1764252100.88749 20565 0774455467a249c65ccc4babe73cf17f ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm" 1136768653 2172 fd0c924230362ff848a33632ed45dc23 ""
@@ -126,11 +126,14 @@
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1746532806 8213359 29f7db34718e42b3f92898a5c5e2a2b9 ""
   "IEEEconf.cls" 1763999862.94484 197574 ece0d1d68e7d93da26a38d986a993284 ""
   "Images/CandylandMenu.png" 1764201303.00177 1473151 11de8aa55b613f6ec6d0d88dd5a88f58 ""
+  "Images/DemoMaze.png" 1764249747.91131 53468 d2b7ae4d6352d3169cb7b721baa8d885 ""
+  "Images/DemoMazeOpen.png" 1764249890.72152 38835 c65c71547cde4582d89bac852551bc4c ""
   "Images/GodotNavigation.jpeg" 1764200865.90282 80773 c55fff30f05144f78b48585f0acba2e0 ""
-  "main.aux" 1764201528.17495 3763 86bb4e412148f78034f0efc496d317fd "pdflatex"
-  "main.bbl" 1764201338.89013 1327 4ce3eec9af737515f707525ac0773a30 "bibtex main"
-  "main.out" 1764201528.17495 2529 e2186719667bb5f9f1c699cca66ddd73 "pdflatex"
-  "main.tex" 1764201527.39394 18392 b642f314381c540fc2bb1db9a5ebfbdb ""
+  "Images/profiler.png" 1764250173.22995 7026 0374f0d27f64645dd3f424f13004c13f ""
+  "main.aux" 1764252101.78597 4697 eb14c50b7c9ea88f1687c7612fe6780a "pdflatex"
+  "main.bbl" 1764251965.17886 1327 4ce3eec9af737515f707525ac0773a30 "bibtex main"
+  "main.out" 1764252101.78697 2631 9a17c14bb7200f0fb60ac0a1ceb56a19 "pdflatex"
+  "main.tex" 1764252100.88749 20565 0774455467a249c65ccc4babe73cf17f ""
   (generated)
   "main.aux"
   "main.log"

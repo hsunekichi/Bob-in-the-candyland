@@ -102,7 +102,7 @@ func _ready() -> void:
 	var maze = World.get_maze()
 
 	if maze:
-		maze.get_node("MazeGenerator").maze_changed.connect(environment_change)
+		maze.maze_changed.connect(environment_change)
 
 func _exit_tree() -> void:
 	if _path_display:

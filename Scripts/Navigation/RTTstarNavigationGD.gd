@@ -4,12 +4,12 @@ extends Node
 
 
 var MAX_NEIGHBORS: int = 5 ## Maximum number of neighbors to consider when connecting a new point, controls efficiency and optimality of paths
-var SAMPLE_DISTANCE_MULTIPLIER: float = 2.0 ## Multiplier for the sampling disk around the actor and goal. 1 means the circle will pass through each of them
+var SAMPLE_DISTANCE_MULTIPLIER: float = 3.5 ## Multiplier for the sampling disk around the actor and goal. 1 means the circle will pass through each of them
 var MIN_SAMPLE_DISTANCE: float = 0.45 * World.ppu ## Minimum distance to consider a neighbor valid when connecting a new point
 
 var MAX_TREE_SIZE: int = 1500 ## Maximum number of nodes in the RTT* tree
 var TREE_BUILD_SAMPLES: int = 30 ## Maxumum number of samples to generate when building a new tree. If a path is found earlier, the process stops
-var TREE_REFINE_SAMPLES: int = 5 ## Number of samples to generate when refining an existing tree
+var TREE_REFINE_SAMPLES: int = 10 ## Number of samples to generate when refining an existing tree
 
 var MAX_TREE_BASE_SIZE: int = 500
 var _tree_limit: int = MAX_TREE_BASE_SIZE
@@ -87,7 +87,7 @@ func _sample_point(origin: Vector2, goal: Vector2) -> Vector2:
 func _insert_point(point: Vector2) -> float:
 	var nearest := _tree.get_k_nearest(point, MAX_NEIGHBORS)
 
-	if _tree.get_point(nearest[0]).distance_to(point) < MIN_SAMPLE_DISTANCE:
+	if nearest.is_empty() or _tree.get_point(nearest[0]).distance_to(point) < MIN_SAMPLE_DISTANCE:
 		return INF # Too close to existing point
 
 	buff_parent_cost.resize(nearest.size())

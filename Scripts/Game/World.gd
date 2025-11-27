@@ -71,7 +71,7 @@ func _ready() -> void:
 
 	pulse_instance.set_parameters(pulse_size, pulse_duration, 1.0)
 
-	load_menu()	
+	load_debug()	
 
 func ray_intersects_ground(from: Vector2, to: Vector2) -> bool:
 	raycast.global_position = from
@@ -129,16 +129,18 @@ func load_maze() -> void:
 	var initialize_player = func():
 		HUD.show_hud()
 		Player.initialize()
-	change_scene(maze_scene, "Maze", self, initialize_player)
+	change_scene(maze_scene, "Game", self, initialize_player)
 
 func get_maze() -> Node:
-	return get_node_or_null("Maze")
+	var game = get_node_or_null("Game")
+	return game.get_node_or_null("Maze") if game else null
 
 func load_debug() -> void:
 	var initialize_player = func():
 		HUD.show_hud()
 		Player.initialize()
-	change_scene(debug_scene, "", self, initialize_player)
+		Player.increase_sugar(100)
+	change_scene(debug_scene, "Game", self, initialize_player)
 func game_completed() -> void:
 	game_finished.emit()
 	change_scene(win_scene, "", HUD)

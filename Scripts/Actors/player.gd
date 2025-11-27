@@ -53,7 +53,6 @@ func _ready() -> void:
 	sit_timer.wait_time = sit_time
 	sit_timer.timeout.connect(_enter_sitting_state)
 	add_child(sit_timer)
-	sit_timer.start()
 	
 	# Sugar rush cooldown timer
 	sugarRushCooldownTimer = Timer.new()
@@ -92,6 +91,7 @@ func initialize() -> void:
 	animator.play("SitIdle")
 	velocity = Vector2.ZERO
 
+
 	enable_input()
 
 
@@ -116,7 +116,7 @@ func _physics_process(delta: float) -> void:
 	
 	match current_state:
 		State.SITTING:
-			_process_sitting_state()
+			_process_sitting_state(delta)
 		State.NORMAL:
 			_process_normal_state(delta)
 
@@ -126,14 +126,17 @@ func _enter_sitting_state() -> void:
 	animator.play("SitStart")
 	animator.queue("SitIdle")
 
-func _process_sitting_state() -> void:
-	if moveInput.x != 0:
+func _process_sitting_state(delta: float) -> void:
+	if moveInput.x != 0 or Input.is_action_just_pressed("Jump"):
 		animator.play("SitEnd")
 		animator.animation_finished.connect(
 			func(_anim_name) -> void:
 				current_state = State.NORMAL
 				sit_timer.start()
 		, CONNECT_ONE_SHOT)
+
+	# Add gravity
+	_apply_gravity(delta)
 
 	move_and_slide()
 
@@ -160,11 +163,11 @@ func _process_normal_state(delta: float) -> void:
 	move_and_slide()
 
 func _handle_sugar_rush() -> void:
-	var maze_scene := World.get_maze()
-	if maze_scene == null or sugarRushDurationTimer.is_stopped() or isRemovingCells:
+	var _maze = World.get_maze()
+	if _maze == null or sugarRushDurationTimer.is_stopped() or isRemovingCells:
 		return
 
-	var maze = maze_scene.get_node("MazeGenerator") as MazeGenerator
+	var maze := _maze as MazeGenerator
 
 	var origin = rayDestructor.global_position
 	var target = rayDestructor.to_global(rayDestructor.target_position)
@@ -172,7 +175,9 @@ func _handle_sugar_rush() -> void:
 	var col: Vector2i = maze.raycast_cells(origin, target)
 
 	if col[0] != -1:
-		var cell_pos = maze.cell_to_world(col)
+		# raycast_cells returns tilemap coordinates, convert directly to world
+		var cell_pos = maze.tilemap.map_to_local(col)
+		cell_pos = maze.tilemap.to_global(cell_pos)
 		var sugar_puff = sugarPuffScene.instantiate()
 		isRemovingCells = true
 		
@@ -194,7 +199,7 @@ func on_hit() -> void:
 	else:
 		if not World.get_maze():
 			return
-		var maze = World.get_maze().get_node("MazeGenerator") as MazeGenerator
+		var maze := World.get_maze() as MazeGenerator
 		maze.spawn_enemies()
 
 		current_state = State.SITTING

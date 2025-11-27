@@ -19,7 +19,7 @@ position = Vector2(2457.0002, 52.00006)
 scale = Vector2(1.5646799, 1.5709401)
 texture = ExtResource("6_v1gob")
 
-[node name="MazeGenerator" type="Node2D" parent="."]
+[node name="Maze" type="Node2D" parent="."]
 position = Vector2(991, 109)
 scale = Vector2(8, 8)
 script = ExtResource("5_pbw6q")
@@ -27,6 +27,6 @@ donut_scene = ExtResource("3_g4w1m")
 enemy_scene = ExtResource("2_kln2b")
 goal_scene = ExtResource("7_jw32o")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="MazeGenerator"]
+[node name="TileMapLayer" type="TileMapLayer" parent="Maze"]
 texture_filter = 1
 tile_set = ExtResource("4_rgh2o")

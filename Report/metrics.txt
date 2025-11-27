@@ -1,0 +1,3 @@
+Time until path in demo (from when the candies start moving up to when the path appears):
+3.7s
+

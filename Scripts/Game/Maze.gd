@@ -5,6 +5,9 @@ extends Node2D
 signal maze_changed
 
 # Maze configuration
+@export var procedural_generation: bool = true
+
+@export_group("Scenes and initialization")
 @export var donut_scene: PackedScene
 @export var enemy_scene: PackedScene
 @export var enemy_count: int = 3
@@ -44,18 +47,26 @@ const PASSAGE = true
 # Maze representation: false = wall, true = passage
 var maze: Array = []
 
+# Offset for non-procedural maps (tilemap coordinates to maze array coordinates)
+var maze_offset: Vector2i = Vector2i(0, 0)
+
 @onready var tilemap: TileMapLayer = $TileMapLayer
 
 # Coordinate conversion helpers
 func cell_to_world(cell: Vector2i) -> Vector2:
 	"""Convert maze cell coordinates to world position."""
-	var local_pos = tilemap.map_to_local(cell)
-	return tilemap.to_global(local_pos)
+	# Apply offset to convert maze array coordinates to tilemap coordinates
+	var tilemap_cell = cell + maze_offset
+	var local_pos = tilemap.map_to_local(tilemap_cell)
+	var world_pos = tilemap.to_global(local_pos)
+	return world_pos
 
 func world_to_cell(world_pos: Vector2) -> Vector2i:
 	"""Convert world position to maze cell coordinates."""
 	var local_pos = tilemap.to_local(world_pos)
-	return tilemap.local_to_map(local_pos)
+	var tilemap_cell = tilemap.local_to_map(local_pos)
+	# Apply offset to convert tilemap coordinates to maze array coordinates
+	return tilemap_cell - maze_offset
 
 func raycast_cells(origin: Vector2, destination: Vector2) -> Vector2i:
 	"""
@@ -76,7 +87,7 @@ func raycast_cells(origin: Vector2, destination: Vector2) -> Vector2i:
 	if steps == 0:
 		# Origin and destination are in the same cell
 		if is_cell_wall(start_cell):
-			return start_cell
+			return start_cell + maze_offset  # Convert back to tilemap coordinates
 		return Vector2i(-1, -1)
 	
 	# Step increments
@@ -93,7 +104,7 @@ func raycast_cells(origin: Vector2, destination: Vector2) -> Vector2i:
 		
 		# Check if this cell is a wall
 		if is_cell_wall(current_cell):
-			return current_cell
+			return current_cell + maze_offset  # Convert back to tilemap coordinates
 		
 		# Move to next position
 		x += x_inc
@@ -109,20 +120,24 @@ func is_cell_wall(cell: Vector2i) -> bool:
 	
 	return maze[cell.x][cell.y] == WALL
 
-func remove_cell(cell: Vector2i) -> bool:
+func remove_cell(tilemap_cell: Vector2i) -> bool:
 	"""
 	Removes a cell (converts it to a passage) from both the internal maze matrix and the tilemap.
+	Takes tilemap coordinates as input.
 	Returns true if the cell was successfully removed, false if the cell is out of bounds.
 	"""
+	# Convert tilemap coordinates to maze array coordinates
+	var maze_cell = tilemap_cell - maze_offset
+	
 	# Check bounds
-	if cell.x < 0 or cell.x >= maze_width or cell.y < 0 or cell.y >= maze_height:
+	if maze_cell.x < 0 or maze_cell.x >= maze_width or maze_cell.y < 0 or maze_cell.y >= maze_height:
 		return false
 	
 	# Update internal maze matrix
-	maze[cell.x][cell.y] = PASSAGE
+	maze[maze_cell.x][maze_cell.y] = PASSAGE
 	
-	# Remove tile from tilemap
-	tilemap.erase_cell(cell)
+	# Remove tile from tilemap (using tilemap coordinates)
+	tilemap.erase_cell(tilemap_cell)
 	
 	# Update neighboring tiles to reflect the change
 	# Check all 8 neighbors and update their tiles if they are walls
@@ -131,16 +146,17 @@ func remove_cell(cell: Vector2i) -> bool:
 			if dx == 0 and dy == 0:
 				continue
 			
-			var neighbor = Vector2i(cell.x + dx, cell.y + dy)
+			var neighbor_tilemap = Vector2i(tilemap_cell.x + dx, tilemap_cell.y + dy)
+			var neighbor_maze = neighbor_tilemap - maze_offset
 			
 			# Skip if neighbor is out of bounds (including border walls)
-			if neighbor.x < -1 or neighbor.x > maze_width or neighbor.y < -1 or neighbor.y > maze_height:
+			if neighbor_maze.x < -1 or neighbor_maze.x > maze_width or neighbor_maze.y < -1 or neighbor_maze.y > maze_height:
 				continue
 			
 			# Update the neighbor's tile if it's a wall
-			if is_wall(neighbor.x, neighbor.y):
-				var tile = get_tile_for_position(neighbor.x, neighbor.y)
-				tilemap.set_cell(neighbor, tile_source_id, tile)
+			if is_wall(neighbor_maze.x, neighbor_maze.y):
+				var tile = get_tile_for_position(neighbor_maze.x, neighbor_maze.y)
+				tilemap.set_cell(neighbor_tilemap, tile_source_id, tile)
 
 	maze_changed.emit()
 	
@@ -149,13 +165,15 @@ func remove_cell(cell: Vector2i) -> bool:
 func _ready():
 	nDonuts = World.config_value("maze_donuts", 3)
 
-	generate_maze()
-	build_tilemap()
-
-	teleport_player_to_start()
-	spawn_goal()
-	spawn_donuts()
-	spawn_enemies()
+	if procedural_generation:
+		generate_maze()
+		build_tilemap()
+		teleport_player_to_start()
+		spawn_goal()
+		spawn_donuts()
+		spawn_enemies()
+	else:
+		load_maze_from_tilemap()
 
 func spawn_donuts() -> void:
 	if donut_scene == null:
@@ -228,6 +246,56 @@ func spawn_enemies() -> void:
 		get_parent().add_child.bind(enemy).call_deferred()
 		enemies.append(enemy)
 
+
+func load_maze_from_tilemap():
+	"""Load maze structure from pre-built tilemap and populate internal maze array."""
+	# Get the bounds of the existing tilemap
+	var used_cells = tilemap.get_used_cells()
+	
+	if used_cells.is_empty():
+		print("Warning: No tiles found in tilemap, falling back to procedural generation")
+		generate_maze()
+		build_tilemap()
+		return
+	
+	# Calculate maze bounds from used cells
+	# Initialize with first cell to avoid overflow issues
+	var min_x: int = used_cells[0].x
+	var max_x: int = used_cells[0].x
+	var min_y: int = used_cells[0].y
+	var max_y: int = used_cells[0].y
+	
+	for cell in used_cells:
+		min_x = mini(min_x, cell.x)
+		max_x = maxi(max_x, cell.x)
+		min_y = mini(min_y, cell.y)
+		max_y = maxi(max_y, cell.y)
+	
+	# Adjust for border walls (-1 to width, -1 to height)
+	maze_width = int(max_x - min_x)  # Excludes borders
+	maze_height = int(max_y - min_y)  # Excludes borders
+	
+	# Store offset: maze array index 0 corresponds to tilemap coordinate (min_x + 1)
+	maze_offset = Vector2i(int(min_x) + 1, int(min_y) + 1)
+	
+	print("Tilemap bounds: min(%d, %d) to max(%d, %d)" % [min_x, min_y, max_x, max_y])
+	print("Maze dimensions: %dx%d" % [maze_width, maze_height])
+	print("Maze offset: %s" % [maze_offset])
+	
+	# Initialize maze array
+	maze = []
+	for x in range(maze_width):
+		maze.append([])
+		for y in range(maze_height):
+			# Check if there's a tile at this position (offset by min bounds + 1 for border)
+			var tile_coord = Vector2i(x + int(min_x) + 1, y + int(min_y) + 1)
+			var has_tile = tilemap.get_cell_source_id(tile_coord) != -1
+			
+			# Tile present = WALL, no tile = PASSAGE
+			maze[x].append(WALL if has_tile else PASSAGE)
+	
+	print("Loaded maze from tilemap successfully")
+	maze_changed.emit()
 
 func generate_maze():
 	var attempts = 0

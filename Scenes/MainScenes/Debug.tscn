@@ -1,13 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://bwb7iybo4w6wk"]
+[gd_scene load_steps=8 format=4 uid="uid://bwb7iybo4w6wk"]
 
 [ext_resource type="Texture2D" uid="uid://8qkgqa4jd4tm" path="res://Art/Candy Land - full pack/day background.png" id="1_xmg8h"]
+[ext_resource type="Script" uid="uid://ynkqwpajeice" path="res://Scripts/Game/Maze.gd" id="3_sv7vc"]
 [ext_resource type="PackedScene" uid="uid://tpt7r3tvoka4" path="res://Scenes/bat.tscn" id="3_ykmub"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8koso"]
-size = Vector2(3676, 271)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rwhvy"]
-size = Vector2(135, 495)
+[ext_resource type="PackedScene" uid="uid://4gwf5x2dfrm5" path="res://Scenes/GameAssets/donut.tscn" id="4_tf8ol"]
+[ext_resource type="PackedScene" uid="uid://bifaid8u5yhlb" path="res://Scenes/GameAssets/Goal.tscn" id="5_tjm64"]
+[ext_resource type="TileSet" uid="uid://cfkxyhw5jrysv" path="res://Scenes/ChocolateTilemap.tres" id="6_4g3ta"]
+[ext_resource type="Script" uid="uid://bdesa3780euns" path="res://Scripts/Game/PlayerSpawn.gd" id="7_tf8ol"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -20,37 +19,23 @@ position = Vector2(2457.0002, 52.00006)
 scale = Vector2(1.5646799, 1.5709401)
 texture = ExtResource("1_xmg8h")
 
-[node name="Floor" type="StaticBody2D" parent="."]
-position = Vector2(-369, 335)
-collision_mask = 0
+[node name="Bat" parent="." instance=ExtResource("3_ykmub")]
+position = Vector2(693, 142)
 
-[node name="ColorRect" type="ColorRect" parent="Floor"]
-offset_left = -1308.0
-offset_top = -10.0
-offset_right = 2366.0
-offset_bottom = 261.0
-color = Color(0, 0, 0, 1)
+[node name="Maze" type="Node2D" parent="."]
+position = Vector2(1014, -76)
+scale = Vector2(8, 8)
+script = ExtResource("3_sv7vc")
+procedural_generation = false
+donut_scene = ExtResource("4_tf8ol")
+enemy_scene = ExtResource("3_ykmub")
+goal_scene = ExtResource("5_tjm64")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
-visible = false
-position = Vector2(527, 125.5)
-shape = SubResource("RectangleShape2D_8koso")
+[node name="TileMapLayer" type="TileMapLayer" parent="Maze"]
+texture_filter = 1
+tile_map_data = PackedByteArray("AAD4/wMAAAABAAEAAAD2/wMAAAABAAEAAAD3/wMAAAABAAEAAAD5/wMAAAABAAEAAAD6/wMAAAABAAEAAAD7/wMAAAABAAEAAAD8/wMAAAABAAEAAAD9/wMAAAABAAEAAAD+/wMAAAABAAEAAAD//wMAAAABAAEAAAD1/wMAAAABAAEAAAD0/wMAAAABAAEAAADz/wMAAAABAAEAAADy/wMAAAABAAEAAADx/wMAAAABAAEAAADw/wMAAAABAAEAAAAAAAMAAAABAAEAAAABAAMAAAABAAEAAAACAAMAAAABAAEAAAADAAMAAAABAAEAAAAEAAMAAAABAAEAAAAFAAMAAAABAAEAAAD8/wEAAAABAAEAAAD8/wIAAAABAAEAAAD+/wIAAAABAAEAAAD+/wEAAAABAAEAAAD+//7/AAABAAEAAAD7//7/AAABAAEAAAD6//7/AAABAAEAAAD6////AAABAAEAAAD6/wAAAAABAAEAAAD6/wEAAAABAAEAAAD4/wEAAAABAAEAAAD4/wAAAAABAAEAAAD4////AAABAAEAAAD4//7/AAABAAEAAAD4//3/AAABAAEAAAD4//z/AAABAAEAAAACAAAAAAABAAEAAAACAAEAAAABAAEAAAACAAIAAAABAAEAAAD3/wEAAAABAAEAAAD2/wEAAAABAAEAAAD8//7/AAABAAEAAAD8/wAAAAABAAEAAAD+//3/AAABAAEAAAD8//3/AAABAAEAAAD9//z/AAABAAEAAAD+//z/AAABAAEAAAD8//z/AAABAAEAAAD2/wIAAAABAAEAAAD5//z/AAABAAEAAAD5//v/AAABAAEAAAD5//r/AAABAAEAAAD6//r/AAABAAEAAAD7//r/AAABAAEAAAD8//r/AAABAAEAAAD9//r/AAABAAEAAAD+//r/AAABAAEAAAD///r/AAABAAEAAAAAAPr/AAABAAEAAAAAAPv/AAABAAEAAAABAPv/AAABAAEAAAACAPv/AAABAAEAAAACAPz/AAABAAEAAAAAAP3/AAABAAEAAAD+////AAABAAEAAAACAP3/AAABAAEAAAACAP7/AAABAAEAAAACAP//AAABAAEAAAAAAP7/AAABAAEAAAAAAP//AAABAAEAAAD+/wAAAAABAAEAAAAAAAEAAAABAAEAAAD//wEAAAABAAEAAAA=")
+tile_set = ExtResource("6_4g3ta")
 
-[node name="Wall" type="StaticBody2D" parent="."]
-position = Vector2(-146, 260)
-collision_mask = 0
-
-[node name="ColorRect" type="ColorRect" parent="Wall"]
-offset_left = 476.0
-offset_top = -325.0
-offset_right = 611.0
-offset_bottom = 211.0
-color = Color(0, 0, 0, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
-visible = false
-position = Vector2(543.5, -77.5)
-shape = SubResource("RectangleShape2D_rwhvy")
-
-[node name="Bat" parent="Wall" instance=ExtResource("3_ykmub")]
-position = Vector2(783, -112)
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(1072, 236)
+script = ExtResource("7_tf8ol")

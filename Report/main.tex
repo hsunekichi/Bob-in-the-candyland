@@ -181,13 +181,14 @@ the kinematic constraints of the agent.
 
 To ensure real-time performance, several optimizations are implemented:
 \begin{itemize}
+     \item \textbf{K-nearest rewiring:} When a new node is added, only the k-nearest neighbors are considered for rewiring, limiting computational overhead to a fixed amount. However
+            this directly limits the quality of the path found, in comparison to considering all nodes within a radius. It is a direct trade-off between performance and optimality. 
     \item \textbf{Sparse sampling:} When a sample is generated too close to an existing node, it is discarded and a new sample is generated.
             This prevents the tree from growing too dense in small areas, which would increase computation time without improving path quality.
-            However, this threshold must be small enough to allow the tree to explore narrow passages.
+            However, this threshold must be small enough to allow the tree to explore narrow passages. This feature may reduce the bias introduced by K-nearest rewiring, 
+            since a less dense tree will favor wider (and better) rewirings.
     \item \textbf{Efficient nearest neighbor search:} A k-d tree structure is used to allow fast nearest neighbor queries during tree expansion. 
             It was adapted from \cite{geeksforgeeks_kdtree} to work with Godot's Vector2 class.
-    \item \textbf{K-nearest rewiring:} When a new node is added, only the k-nearest neighbors are considered for rewiring, limiting computational overhead to a fixed amount. However
-            this directly limits the quality of the path found, in comparison to considering all nodes within a radius. It is a direct trade-off between performance and optimality. 
     \item \textbf{Adaptive sampling:} Samples are generated uniformly within a disk around the agent and the current goal, focusing exploration on relevant areas. The size of the disk is configurable,
           which directly affects the convergence speed. If the path goes outside the disk it will never be found, so the disk could by automatically increased if no path is found after some time.
     \item \textbf{Quick start:} Each time the tree is rebuilt, a large number of samples is generated to quickly find an initial path. 
@@ -283,9 +284,65 @@ In this case, it simply moves the agent in the desired direction at a constant s
 This is the place where the designer can implement more complex movement mechanics like acceleration, jumping, etc,
 although many of those would require to modify the global and local planners to take them into account.
 
-\section{Performance analysis}\label{sec:performance}
+\section{Testing}\label{sec:testing}
 
-\section{Functional testing}\label{sec:testing}
+\subsection{Navigation testing}\label{sec:nav_testing}
+
+To test the navigation pipeline, a test maze (figure \ref{fig:debugMaze}) has been hand-created 
+to feature narrow passages with a complex path.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.6\columnwidth]{Images/DemoMaze.png}
+    \caption{Path generated in the demo level.
+    }
+    \label{fig:debugMaze}
+\end{figure}
+
+By just adding 10 new points per frame, RTT* + ND is able 
+to find a path through the maze in an average of 3.7 seconds.
+While the path has not been found the local planner temporarily 
+traverses the maze following any free passage, with 
+the possibility of getting stuck in dead ends.
+
+After opening a new dynamic path on the bottom of the maze 
+(figure \ref{fig:debugMazeOpen}), the agent
+finds a new path in 0.3 seconds (which highly depends on the 
+sampling to randomly find the new opened spot).
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.6\columnwidth]{Images/DemoMazeOpen.png}
+    \caption{Path generated in the demo level after opening a new path.
+    }
+    \label{fig:debugMazeOpen}
+\end{figure}
+
+
+\subsection{Performance testing}\label{sec:performance}
+
+Figure \ref{fig:profiler} shows the Godot profiler when running the demo maze.
+The navigation pipeline takes around 1ms per frame, mostly inside
+the get-k-nearest function. This is a heavily algorithmic function 
+with a high penalty coming from GDscript's interpreted nature. 
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.6\columnwidth]{Images/profiler.png}
+    \caption{Godot profiler when running the demo maze.
+    }
+    \label{fig:profiler}
+\end{figure}
+
+Figure \ref{fig:profiler} shows a spike around the half of the timeline, which corresponds to
+the opening of a new path while the agent is too far from the origin, triggering a new
+tree rebuild.
+
+The same code written in C++ runs around 10x faster, resulting in an 
+average of just 0.1ms per frame. This code has not been 
+included in the final release due to the complexity of 
+cross-compiling C++ modules to different platforms.
+
 
 \section{Conclusions}\label{sec:conclusion}
 Practical work conclusions. Remember, it is part of your job to make us believe you deserve the maximum grade!!

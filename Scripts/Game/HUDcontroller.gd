@@ -97,8 +97,8 @@ func update_sugar_level(new_value: int) -> void:
 	score.text = "Sugar level: " + str(new_value)
 
 func show_hud() -> void:
-	$HealthDisplay.visible = true
-	$SugarDisplay.visible = true
+	$HealthDisplay.visible = false
+	$SugarDisplay.visible = false
 
 func on_game_ended() -> void:
 	$HealthDisplay.visible = false
