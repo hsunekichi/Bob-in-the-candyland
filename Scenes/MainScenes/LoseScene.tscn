@@ -22,16 +22,20 @@ texture = ExtResource("2_cjo6h")
 
 [node name="RetryButton" parent="." instance=ExtResource("3_p2s2b")]
 layout_mode = 1
-offset_top = 655.0
-offset_bottom = 754.0
+offset_left = 736.0
+offset_top = 652.0
+offset_right = 1170.0
+offset_bottom = 751.0
 theme_override_colors/font_focus_color = Color(0.4509804, 0.15686275, 0.050980393, 1)
 text = "Try again"
 icon = ExtResource("4_ojgy1")
 
 [node name="MainMenuButton" parent="." instance=ExtResource("3_p2s2b")]
 layout_mode = 1
-offset_top = 745.0
-offset_bottom = 844.0
+offset_left = 735.0
+offset_top = 749.0
+offset_right = 1174.0
+offset_bottom = 848.0
 theme_override_colors/font_focus_color = Color(0.4509804, 0.15686275, 0.050980393, 1)
 text = "Main menu"
 icon = ExtResource("4_ojgy1")

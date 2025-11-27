@@ -22,10 +22,10 @@ texture = ExtResource("2_1wqq5")
 
 [node name="MainMenuButton" parent="." instance=ExtResource("2_n24ec")]
 layout_mode = 1
-offset_left = -65.0
-offset_top = 81.0
-offset_right = 563.0
-offset_bottom = 180.0
+offset_left = 20.0
+offset_top = 83.0
+offset_right = 450.0
+offset_bottom = 182.0
 theme_override_colors/font_focus_color = Color(0.4509804, 0.15686275, 0.050980393, 1)
 text = "Main menu"
 icon = ExtResource("3_1wqq5")

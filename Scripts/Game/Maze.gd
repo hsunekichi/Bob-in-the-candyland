@@ -162,7 +162,7 @@ func remove_cell(tilemap_cell: Vector2i) -> bool:
 	return true
 
 func _update_background():
-	# Update scene background size to cover all the maze
+	# Update scene background size to cover all the maze and viewport
 	var background = get_parent().get_node_or_null("Parallax2D/Background") as Sprite2D
 	if background:
 		var size = tilemap.get_used_rect()
@@ -171,9 +171,18 @@ func _update_background():
 
 		var bg_position = (world_top_left + world_bottom_right) / 2.0
 		var bg_size = world_bottom_right - world_top_left
+		
+		# Get viewport size to ensure background covers the screen
+		var viewport_size = get_viewport_rect().size
+		
+		# Use the larger of maze size or viewport size (with margin) to ensure full coverage
+		var required_size = Vector2(
+			max(bg_size.x, viewport_size.x * 1.5),
+			max(bg_size.y, viewport_size.y * 1.5)
+		)
 
 		background.global_position = bg_position
-		background.scale = bg_size / background.texture.get_size() * 1.5
+		background.scale = required_size * 1.5 / background.texture.get_size()
 
 func _ready():
 	nDonuts = World.config_value("maze_donuts", 3)

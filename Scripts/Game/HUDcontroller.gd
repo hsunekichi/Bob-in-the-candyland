@@ -23,6 +23,11 @@ func _ready() -> void:
 	$SugarRushEffect.total_duration = World.config_value("sugar_rush_duration", 2.0)
 	$EatSugarEffect.total_duration = 1.0
 
+	World.config_changed.connect(config_changed)
+
+func config_changed() -> void:
+	$SugarRushEffect.total_duration = World.config_value("sugar_rush_duration", 2.0)
+
 func enable_transition():
 	var tr_nodes = transition.get_children()
 

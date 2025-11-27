@@ -21,12 +21,19 @@ var pulse_scene: PackedScene = preload("res://Scenes/GameAssets/BatPulse.tscn")
 var pulse_instance: Node2D = null
 
 var config: Dictionary = {}
+var configs: Dictionary = {
+	"easy": {},
+	"medium": {},
+	"hard": {}
+}
+var current_difficulty: String = "easy"
 var HUD: HUDcontroller
 
 var current_scene: Node = null
 var show_navigation: bool = false
 
 signal game_finished
+signal config_changed
 
 
 func _ready() -> void:
@@ -42,21 +49,13 @@ func _ready() -> void:
 	HUD = hud_scene.instantiate()
 	add_child(HUD)
 
-	# Load config from JSON file
-	var config_path = "res://config.json"
-	if FileAccess.file_exists(config_path):
-		var file = FileAccess.open(config_path, FileAccess.READ)
-		if file:
-			var json_string = file.get_as_text()
-			file.close()
-			var json = JSON.new()
-			var parse_result = json.parse(json_string)
-			if parse_result == OK:
-				config = json.data
-			else:
-				print("Error parsing config.json: ", json.get_error_message())
-	else:
-		print("Config file not found: ", config_path)
+	# Load all configuration files
+	_load_config_file("easy", "res://easy.json")
+	_load_config_file("medium", "res://medium.json")
+	_load_config_file("hard", "res://hard.json")
+	
+	# Set the active configuration to easy by default
+	set_difficulty("easy")
 
 	# Await until the game is done loading
 	await get_tree().process_frame
@@ -176,3 +175,36 @@ func config_value(key: String, default_value: Variant) -> Variant:
 	if key in config:
 		return config[key]
 	return default_value
+
+func _load_config_file(difficulty: String, path: String) -> void:
+	"""Load a configuration file for a specific difficulty level."""
+	if FileAccess.file_exists(path):
+		var file = FileAccess.open(path, FileAccess.READ)
+		if file:
+			var json_string = file.get_as_text()
+			file.close()
+			var json = JSON.new()
+			var parse_result = json.parse(json_string)
+			if parse_result == OK:
+				configs[difficulty] = json.data
+				print("Loaded config for ", difficulty, " difficulty from ", path)
+			else:
+				print("Error parsing ", path, ": ", json.get_error_message())
+		else:
+			print("Failed to open file: ", path)
+	else:
+		print("Config file not found: ", path)
+
+func set_difficulty(difficulty: String) -> void:
+	"""Change the active configuration to the specified difficulty level."""
+	if difficulty in configs:
+		current_difficulty = difficulty
+		config = configs[difficulty]
+		config_changed.emit()
+		print("Difficulty changed to: ", difficulty)
+	else:
+		print("Unknown difficulty level: ", difficulty)
+
+func get_difficulty() -> String:
+	"""Get the current difficulty level."""
+	return current_difficulty

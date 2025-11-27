@@ -88,18 +88,24 @@ func _ready() -> void:
 	disable_propulsion()
 
 	World.game_finished.connect(disable_input)
-	sugar_level = World.config_value("starting_sugar", 0)
-	health = World.config_value("starting_health", 3)
-	World.sugar_level_changed(sugar_level)
-	World.health_changed(health)
 
 	
 
 func initialize() -> void:
+	sugar_level = World.config_value("starting_sugar", 0)
+	health = World.config_value("starting_health", 3)
+	World.sugar_level_changed(sugar_level)
+	World.health_changed(health)
+	
 	health = World.config_value("starting_health", 3)
 	sugar_level = World.config_value("starting_sugar", 0)
 	World.health_changed(health)
 	World.sugar_level_changed(sugar_level)
+
+	sugar_rush_duration = World.config_value("sugar_rush_duration", 2.0)
+	sugar_rush_cooldown = World.config_value("sugar_rush_cooldown", 0.5)
+	sugarRushCooldownTimer.wait_time = sugar_rush_cooldown
+	sugarRushDurationTimer.wait_time = sugar_rush_duration
 	
 	disable_propulsion()
 	current_state = State.SITTING

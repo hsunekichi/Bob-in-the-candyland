@@ -24,9 +24,9 @@ texture = SubResource("CompressedTexture2D_raalc")
 
 [node name="MainMenuButton" parent="." instance=ExtResource("2_mmu82")]
 layout_mode = 1
-offset_left = 629.0
+offset_left = 739.0
 offset_top = 743.0
-offset_right = 1257.0
+offset_right = 1171.0
 offset_bottom = 842.0
 theme_override_colors/font_focus_color = Color(0.4509804, 0.15686275, 0.050980393, 1)
 text = "Main menu"
