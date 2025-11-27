@@ -8,10 +8,10 @@ var SAMPLE_DISTANCE_MULTIPLIER: float = 3.5 ## Multiplier for the sampling disk 
 var MIN_SAMPLE_DISTANCE: float = 0.45 * World.ppu ## Minimum distance to consider a neighbor valid when connecting a new point
 
 var MAX_TREE_SIZE: int = 1500 ## Maximum number of nodes in the RTT* tree
-var TREE_BUILD_SAMPLES: int = 30 ## Maxumum number of samples to generate when building a new tree. If a path is found earlier, the process stops
-var TREE_REFINE_SAMPLES: int = 10 ## Number of samples to generate when refining an existing tree
+var TREE_BUILD_SAMPLES: int = 10 ## Maxumum number of samples to generate when building a new tree. If a path is found earlier, the process stops
+var TREE_REFINE_SAMPLES: int = 3 ## Number of samples to generate when refining an existing tree
 
-var MAX_TREE_BASE_SIZE: int = 500
+var MAX_TREE_BASE_SIZE: int = 800
 var _tree_limit: int = MAX_TREE_BASE_SIZE
 
 ## Returns a trajectory from the origin to the target, optimized for the current position.
@@ -166,13 +166,14 @@ func build_path(goal: Vector2, max_neighbors: int) -> PackedVector2Array:
 
 
 func _ready() -> void:
-	_tree_display = RTTstarDisplay.new()
-	_tree_display.marker_color = Color.BLUE
-	_tree_display.marker_radius = 3.0
-	_tree_display.show_numbers = false
-	_tree_display.marker_outline_width = 1.0
-	_tree_display.show_connections = false
-	World.add_child(_tree_display)
+	if World.show_navigation:
+		_tree_display = RTTstarDisplay.new()
+		_tree_display.marker_color = Color.BLUE
+		_tree_display.marker_radius = 3.0
+		_tree_display.show_numbers = false
+		_tree_display.marker_outline_width = 1.0
+		_tree_display.show_connections = false
+		World.add_child(_tree_display)
 
 func _exit_tree() -> void:
 	if _tree_display:

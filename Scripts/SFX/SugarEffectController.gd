@@ -16,6 +16,10 @@ func _ready() -> void:
     timer.timeout.connect(disable)
     add_child(timer)
 
+func set_duration(duration: float) -> void:
+    total_duration = duration
+    timer.wait_time = total_duration
+
 func enable() -> void:
     if isRunning:
         timer.start()

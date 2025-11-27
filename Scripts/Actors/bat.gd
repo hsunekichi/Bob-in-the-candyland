@@ -63,21 +63,23 @@ func _go_to_trajectory(new_path: PackedVector2Array) -> int:
 	# Find closest point on path segments
 	for i in range(new_path.size() - 1):
 		var closest = Geometry2D.get_closest_point_to_segment(global_position, new_path[i], new_path[i + 1])
-		var dist = global_position.distance_squared_to(closest) - (i * 20) # Slight bias to favor later segments
+		var dist = global_position.distance_squared_to(closest)
 		if dist <= min_dist: # Favor later segments in case of ties
 			min_dist = dist
 			best_segment = i
 	
 	var target = best_segment + 1
-	#if global_position.distance_to(new_path[target]) < DISTANCE_EPSILON:
-	#	target = min(target + 1, new_path.size() - 1)
+
+	# We have the closest segment. Now, if the next point is not obstructed, we directly go to it
+	if target + 1 < new_path.size() and not World.ray_intersects_ground(global_position, new_path[target + 1]):
+		target += 1
 
 	return target
 
 
 func actor_collision(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		World.emit_pulse(Player.global_position)
+		World.emit_pulse(Player.target_point())
 		Player.on_hit()
 		
 func environment_change() -> void:
@@ -90,11 +92,12 @@ func _ready() -> void:
 	add_child(navigation)
 	add_child(nd)
 
-	_path_display = RTTstarDisplay.new()
-	_path_display.show_connections = true
-	_path_display.marker_radius = 8.0
-	_path_display.marker_outline_width = 1.0
-	World.add_child(_path_display)
+	if World.show_navigation:
+		_path_display = RTTstarDisplay.new()
+		_path_display.show_connections = true
+		_path_display.marker_radius = 8.0
+		_path_display.marker_outline_width = 1.0
+		World.add_child(_path_display)
 
 	World.game_finished.connect(disable)
 

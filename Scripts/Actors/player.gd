@@ -30,7 +30,7 @@ var sugarPuffScene: PackedScene = preload("res://Scenes/GameAssets/SugarPuff.tsc
 var isRemovingCells: bool = false
 
 ######### Sitting Parameters #########
-@export var sit_time: float = 3.0
+@export var sit_time: float = 5.0
 var sit_timer: Timer
 
 ######### State Flags #########
@@ -54,6 +54,9 @@ func _ready() -> void:
 	sit_timer.wait_time = sit_time
 	sit_timer.timeout.connect(_enter_sitting_state)
 	add_child(sit_timer)
+
+	sugar_rush_duration = World.config_value("sugar_rush_duration", 2.0)
+	sugar_rush_cooldown = World.config_value("sugar_rush_cooldown", 0.5)
 	
 	# Sugar rush cooldown timer
 	sugarRushCooldownTimer = Timer.new()
@@ -78,8 +81,7 @@ func _ready() -> void:
 	World.sugar_level_changed(sugar_level)
 	World.health_changed(health)
 
-	sugar_rush_duration = World.config_value("sugar_rush_duration", 2.0)
-	sugar_rush_cooldown = World.config_value("sugar_rush_cooldown", 0.5)
+	
 
 func initialize() -> void:
 	health = World.config_value("starting_health", 3)

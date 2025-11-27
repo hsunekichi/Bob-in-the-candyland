@@ -16,13 +16,14 @@ var scene_changing: bool = false
 
 @export var main_menu_scene_path: StringName = "res://Scenes/MainScenes/MainMenu.tscn"
 
-var pulse_scene: PackedScene = preload("res://Scripts/SFX/BatPulse.tscn")
+var pulse_scene: PackedScene = preload("res://Scenes/GameAssets/BatPulse.tscn")
 var pulse_instance: Node2D = null
 
 var config: Dictionary = {}
 var HUD: HUDcontroller
 
 var current_scene: Node = null
+var show_navigation: bool = false
 
 signal game_finished
 
@@ -65,13 +66,17 @@ func _ready() -> void:
 	pulse_instance = pulse_scene.instantiate()
 	add_child(pulse_instance)
 
+	# Finish the HUD a bit before the actual effect
+	var sugar_rush = World.config_value("sugar_rush_duration", 2.0)
+	HUD.get_node("SugarRushEffect").set_duration(sugar_rush - 0.5)
+
 	var pulse_speed: float = 2.0  # Scale units per second
 	var pulse_size: float = 8.0  # max scale
 	var pulse_duration: float = pulse_size / pulse_speed  # Compute duration from speed and size
 
 	pulse_instance.set_parameters(pulse_size, pulse_duration, 1.0)
 
-	load_menu()	
+	load_maze()	
 
 func ray_intersects_ground(from: Vector2, to: Vector2) -> bool:
 	raycast.global_position = from

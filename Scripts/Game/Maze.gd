@@ -14,7 +14,6 @@ signal maze_changed
 
 @export var maze_width: int = 10
 @export var maze_height: int = 5
-@export var max_jump_height: int = 1  # Maximum vertical distance player can jump
 @export var nDonuts: int = 5
 
 # TileMap configuration
@@ -162,18 +161,37 @@ func remove_cell(tilemap_cell: Vector2i) -> bool:
 	
 	return true
 
+func _update_background():
+	# Update scene background size to cover all the maze
+	var background = get_parent().get_node_or_null("Parallax2D/Background") as Sprite2D
+	if background:
+		var size = tilemap.get_used_rect()
+		var world_top_left = tilemap.to_global(tilemap.map_to_local(size.position))
+		var world_bottom_right = tilemap.to_global(tilemap.map_to_local(size.position + size.size))
+
+		var bg_position = (world_top_left + world_bottom_right) / 2.0
+		var bg_size = world_bottom_right - world_top_left
+
+		background.global_position = bg_position
+		background.scale = bg_size / background.texture.get_size() * 1.5
+
 func _ready():
 	nDonuts = World.config_value("maze_donuts", 3)
+	enemy_count = World.config_value("maze_enemies", 2)
+	maze_width = World.config_value("maze_width", 10)
+	maze_height = World.config_value("maze_height", 5)
 
 	if procedural_generation:
 		generate_maze()
 		build_tilemap()
+		_update_background()
 		teleport_player_to_start()
 		spawn_goal()
 		spawn_donuts()
 		spawn_enemies()
 	else:
 		load_maze_from_tilemap()
+
 
 func spawn_donuts() -> void:
 	if donut_scene == null:
