@@ -1,12 +1,21 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=22 format=3 uid="uid://b1igigbcqc3mq"]
+=======
+[gd_scene load_steps=23 format=3 uid="uid://b1igigbcqc3mq"]
+>>>>>>> Stashed changes
 
 [ext_resource type="Script" uid="uid://leusnapulo60" path="res://Scripts/Game/HUDcontroller.gd" id="1_sd512"]
 [ext_resource type="Texture2D" uid="uid://xxwcqol0t2lu" path="res://Art/Deserts/DessertSpriteSheet_NOTOUTLINED.png" id="2_jo1ms"]
 [ext_resource type="Shader" uid="uid://bqdr545toe1mc" path="res://Scripts/SFX/SugarRush.gdshader" id="3_psnte"]
 [ext_resource type="Script" uid="uid://d0np1r4gub5y0" path="res://Scripts/SFX/SugarEffectController.gd" id="4_c3eba"]
 [ext_resource type="Shader" uid="uid://tj3yuby32lhv" path="res://Scripts/SFX/EatSugar.gdshader" id="4_s3jbq"]
+<<<<<<< Updated upstream
 [ext_resource type="Script" uid="uid://ci8cue465f3yj" path="res://Scripts/SFX/StatDisplay.gd" id="6_0hk07"]
+=======
+[ext_resource type="Texture2D" uid="uid://rrp2vg7xg515" path="res://Art/Dino Tri/DinoIcon.png" id="6_0hk07"]
+>>>>>>> Stashed changes
 [ext_resource type="Texture2D" uid="uid://d1qd6mqfeavgq" path="res://Art/Screens/MenuButton.png" id="6_g8s2e"]
+[ext_resource type="Texture2D" uid="uid://dnsy41lnnrkp0" path="res://Art/Dino Tri/health.png" id="7_18tkv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_psnte"]
 atlas = ExtResource("2_jo1ms")
@@ -12247,54 +12256,75 @@ alpha = 0.7
 [node name="HealthDisplay" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
+<<<<<<< Updated upstream
 offset_left = 266.0
 offset_top = 81.0
 offset_right = 306.0
 offset_bottom = 121.0
 script = ExtResource("6_0hk07")
+=======
+offset_left = 72.0
+offset_top = 8.0
+offset_right = 868.0
+offset_bottom = 250.0
+>>>>>>> Stashed changes
 
-[node name="Icon" type="TextureRect" parent="HealthDisplay"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -221.0
-offset_top = -49.0
-offset_right = 221.0
-offset_bottom = 49.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("6_g8s2e")
+[node name="CharacterIcon" type="TextureRect" parent="HealthDisplay"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 0
+offset_left = -26.0
+offset_top = -4.0
+offset_right = 230.0
+offset_bottom = 238.0
+texture = ExtResource("6_0hk07")
 expand_mode = 1
 
-[node name="Label" type="Label" parent="HealthDisplay"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HealthDisplay"]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = -1
+anchor_left = 0.367
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 0.367
 anchor_bottom = 0.5
-offset_left = -182.0
-offset_top = -28.0
-offset_right = 183.0
-offset_bottom = 41.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.42352942, 0.2509804, 0.1882353, 1)
-theme_override_font_sizes/font_size = 40
-text = "Bob's energy: 3"
-horizontal_alignment = 1
+offset_left = -64.13202
+offset_top = -63.0
+offset_right = 407.86798
+offset_bottom = 65.0
+
+[node name="LifeOne" type="TextureRect" parent="HealthDisplay/HBoxContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+texture = ExtResource("7_18tkv")
+expand_mode = 1
+
+[node name="LifeTwo" type="TextureRect" parent="HealthDisplay/HBoxContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+texture = ExtResource("7_18tkv")
+expand_mode = 1
+
+[node name="LifeThree" type="TextureRect" parent="HealthDisplay/HBoxContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+texture = ExtResource("7_18tkv")
+expand_mode = 1
 
 [node name="SugarDisplay" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
+<<<<<<< Updated upstream
 offset_left = 266.0
 offset_top = 186.0
 offset_right = 306.0
 offset_bottom = 226.0
 script = ExtResource("6_0hk07")
+=======
+offset_left = 260.0
+offset_top = 198.0
+offset_right = 300.0
+offset_bottom = 238.0
+>>>>>>> Stashed changes
 
 [node name="Icon" type="TextureRect" parent="SugarDisplay"]
 layout_mode = 1
@@ -12303,10 +12333,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -221.0
-offset_top = -49.0
-offset_right = 221.0
-offset_bottom = 49.0
+offset_left = -214.0
+offset_top = 36.0
+offset_right = 228.0
+offset_bottom = 134.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("6_g8s2e")
@@ -12319,10 +12349,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -182.0
-offset_top = -28.0
-offset_right = 183.0
-offset_bottom = 41.0
+offset_left = -175.0
+offset_top = 57.0
+offset_right = 190.0
+offset_bottom = 126.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.42352942, 0.2509804, 0.1882353, 1)

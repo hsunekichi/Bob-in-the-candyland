@@ -99,7 +99,16 @@ func disable_transition():
 		child.visible = false	
 
 func update_health(new_health: int) -> void:
+<<<<<<< Updated upstream
 	health_display.set_value(new_health)
+=======
+	var lives_container := $HealthDisplay/HBoxContainer
+	var lives := lives_container.get_children()
+
+	for i in range(lives.size()):
+		lives[i].visible = i < new_health
+
+>>>>>>> Stashed changes
 
 func update_sugar_level(new_value: int) -> void:
 	sugar_display.set_value(new_value)
