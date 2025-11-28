@@ -17,8 +17,6 @@ func _ready() -> void:
 	sugar_display.visible = false
 	pause_menu.visible = false
 
-	$SugarDisplay/Label.text = "Sugar level: "
-
 	$SugarRushEffect.total_duration = World.config_value("sugar_rush_duration", 2.0)
 	$EatSugarEffect.total_duration = 1.0
 
@@ -105,7 +103,11 @@ func update_health(new_health: int) -> void:
 		lives[i].visible = i < new_health
 
 func update_sugar_level(new_value: int) -> void:
-	$SugarDisplay/Label.text = "Sugar level: " + str(new_value)
+	var sugar_container := $SugarDisplay/HBoxContainer
+	var sugar := sugar_container.get_children()
+
+	for i in range(sugar.size()):
+		sugar[i].visible = i < new_value
 
 func show_hud() -> void:
 	health_display.visible = true

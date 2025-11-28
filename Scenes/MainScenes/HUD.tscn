@@ -6,8 +6,8 @@
 [ext_resource type="Script" uid="uid://d0np1r4gub5y0" path="res://Scripts/SFX/SugarEffectController.gd" id="4_c3eba"]
 [ext_resource type="Shader" uid="uid://tj3yuby32lhv" path="res://Scripts/SFX/EatSugar.gdshader" id="4_s3jbq"]
 [ext_resource type="Texture2D" uid="uid://rrp2vg7xg515" path="res://Art/Dino Tri/DinoIcon.png" id="6_0hk07"]
-[ext_resource type="Texture2D" uid="uid://d1qd6mqfeavgq" path="res://Art/Screens/MenuButton.png" id="6_g8s2e"]
 [ext_resource type="Texture2D" uid="uid://dnsy41lnnrkp0" path="res://Art/Dino Tri/health.png" id="7_18tkv"]
+[ext_resource type="Texture2D" uid="uid://dhy67e0w4yqqm" path="res://Art/Dino Tri/Donut.png" id="8_iylfn"]
 [ext_resource type="Texture2D" uid="uid://cwodlpgs5a876" path="res://Art/Screens/PauseScreen.png" id="9_iylfn"]
 [ext_resource type="PackedScene" uid="uid://cd67h1ppritvf" path="res://Scenes/menu_button.tscn" id="10_gxcq2"]
 [ext_resource type="Texture2D" uid="uid://n62c3stfrmpw" path="res://Art/Screens/MenuButtonS.png" id="11_o2h1v"]
@@ -12305,42 +12305,82 @@ offset_top = 198.0
 offset_right = 300.0
 offset_bottom = 238.0
 
-[node name="Icon" type="TextureRect" parent="SugarDisplay"]
+[node name="HBoxContainer" type="HBoxContainer" parent="SugarDisplay"]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = -1
+anchor_left = 0.367
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 0.367
 anchor_bottom = 0.5
-offset_left = -214.0
-offset_top = 36.0
-offset_right = 228.0
-offset_bottom = 134.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("6_g8s2e")
+offset_left = -130.68
+offset_top = 4.0
+offset_right = 324.32
+offset_bottom = 68.0
+
+[node name="Donut" type="TextureRect" parent="SugarDisplay/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("8_iylfn")
 expand_mode = 1
 
-[node name="Label" type="Label" parent="SugarDisplay"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -175.0
-offset_top = 57.0
-offset_right = 190.0
-offset_bottom = 126.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.42352942, 0.2509804, 0.1882353, 1)
-theme_override_font_sizes/font_size = 40
-text = "Sugar level: 3"
-horizontal_alignment = 1
+[node name="Donut2" type="TextureRect" parent="SugarDisplay/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("8_iylfn")
+expand_mode = 1
+
+[node name="Donut3" type="TextureRect" parent="SugarDisplay/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("8_iylfn")
+expand_mode = 1
+
+[node name="Donut4" type="TextureRect" parent="SugarDisplay/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("8_iylfn")
+expand_mode = 1
+
+[node name="Donut5" type="TextureRect" parent="SugarDisplay/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("8_iylfn")
+expand_mode = 1
+
+[node name="Donut6" type="TextureRect" parent="SugarDisplay/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("8_iylfn")
+expand_mode = 1
+
+[node name="Donut7" type="TextureRect" parent="SugarDisplay/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("8_iylfn")
+expand_mode = 1
+
+[node name="Donut8" type="TextureRect" parent="SugarDisplay/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("8_iylfn")
+expand_mode = 1
+
+[node name="Donut9" type="TextureRect" parent="SugarDisplay/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("8_iylfn")
+expand_mode = 1
+
+[node name="Donut10" type="TextureRect" parent="SugarDisplay/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("8_iylfn")
+expand_mode = 1
 
 [node name="PauseMenu" type="Control" parent="."]
 process_mode = 2
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
