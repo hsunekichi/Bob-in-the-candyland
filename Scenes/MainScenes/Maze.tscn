@@ -30,5 +30,6 @@ enemy_scene = ExtResource("2_kln2b")
 goal_scene = ExtResource("7_jw32o")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Maze"]
+physics_interpolation_mode = 2
 texture_filter = 1
 tile_set = ExtResource("4_rgh2o")
