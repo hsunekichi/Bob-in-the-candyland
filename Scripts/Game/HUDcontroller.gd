@@ -4,6 +4,7 @@ extends CanvasLayer
 @onready var transition: Node = $Transition
 @onready var health_display: Node = $HealthDisplay
 @onready var sugar_display: Node = $SugarDisplay
+@onready var pause_menu: Control = $PauseMenu
 
 func _ready() -> void:
 	var tr_nodes = transition.get_children()
@@ -14,6 +15,7 @@ func _ready() -> void:
 
 	health_display.visible = false
 	sugar_display.visible = false
+	pause_menu.visible = false
 
 	$SugarDisplay/Label.text = "Sugar level: "
 
@@ -112,3 +114,32 @@ func show_hud() -> void:
 func on_game_ended() -> void:
 	health_display.visible = false
 	sugar_display.visible = false
+	
+func open_pause() -> void:
+	pause_menu.visible = true
+	get_tree().paused = true
+
+func close_pause() -> void:
+	pause_menu.visible = false
+	get_tree().paused = false
+
+func _input(event):
+	if event.is_action_pressed("ui_cancel"):
+		if get_tree().paused:
+			close_pause()
+		else:
+			open_pause()
+
+
+func _on_ResumeButton_pressed():
+	close_pause()
+
+func _on_RestartButton_pressed() -> void:
+	close_pause()
+	await get_tree().process_frame
+	World.load_maze()
+
+func _on_HomeButton_pressed() -> void:
+	close_pause()
+	await get_tree().process_frame
+	World.load_menu()
