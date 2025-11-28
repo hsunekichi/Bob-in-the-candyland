@@ -149,7 +149,7 @@ func close_pause() -> void:
 	get_tree().paused = false
 
 func _input(event):
-	if event.is_action_pressed("ui_cancel"):
+	if event.is_action_pressed("ui_cancel") and health_display.visible == true:
 		if get_tree().paused:
 			close_pause()
 		else:

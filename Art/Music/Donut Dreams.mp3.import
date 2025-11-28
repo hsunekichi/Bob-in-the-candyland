@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://coohft6xymcnu"
+path="res://.godot/imported/Donut Dreams.mp3-0b96c2f7265ae3c5751979b664d91c91.mp3str"
+
+[deps]
+
+source_file="res://Art/Music/Donut Dreams.mp3"
+dest_files=["res://.godot/imported/Donut Dreams.mp3-0b96c2f7265ae3c5751979b664d91c91.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -22,6 +22,7 @@ config/icon="res://icon.svg"
 World="*res://Scripts/Game/World.gd"
 Player="*res://Scenes/Bob.tscn"
 DebugMenu="*res://addons/debug_menu/debug_menu.tscn"
+MusicManager="*res://Scripts/Game/MusicManager.gd"
 
 [display]
 

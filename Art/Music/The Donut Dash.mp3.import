@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dfnlk8d1hor8l"
+path="res://.godot/imported/The Donut Dash.mp3-66607fe6ca5c7f308f8994c3a18f36ac.mp3str"
+
+[deps]
+
+source_file="res://Art/Music/The Donut Dash.mp3"
+dest_files=["res://.godot/imported/The Donut Dash.mp3-66607fe6ca5c7f308f8994c3a18f36ac.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

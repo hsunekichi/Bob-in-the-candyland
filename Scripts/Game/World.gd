@@ -131,12 +131,16 @@ func load_controls() -> void:
 	change_scene(controls_scene, "", HUD)
 
 func load_menu() -> void:
+	# Menu music
+	MusicManager.play_menu_music()
 	change_scene(main_menu_scene, "", HUD)
 
 func load_maze() -> void:
 	var initialize_player = func():
 		HUD.show_hud()
 		Player.initialize()
+		#Game music
+		MusicManager.play_game_music()
 	change_scene(maze_scene, "Game", self, initialize_player)
 
 func get_maze() -> Node:
