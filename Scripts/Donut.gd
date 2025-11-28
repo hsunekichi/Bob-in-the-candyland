@@ -8,5 +8,4 @@ func _ready() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		Player.increase_sugar(sugar_amount)
-		World.donut_collected()
 		queue_free()

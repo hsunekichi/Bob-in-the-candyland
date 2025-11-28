@@ -1,17 +1,7 @@
 extends Area2D
 
-var is_locked: bool = true
-
-func lock() -> void:
-	is_locked = true
-
-
-func unlock() -> void:
-	is_locked = false
-	print("Goal unlocked!")
-
-
 func _on_body_entered(body: Node2D) -> void:
+<<<<<<< HEAD
 	if not body.is_in_group("Player"):
 		return
 
@@ -21,3 +11,7 @@ func _on_body_entered(body: Node2D) -> void:
 		return
 
 	World.game_completed()
+=======
+	if body.is_in_group("Player"):
+		World.game_completed()
+>>>>>>> parent of d1eb90c (AllDonuts)

@@ -222,9 +222,8 @@ func spawn_donuts() -> void:
 	# Shuffle and pick random cells
 	free_cells.shuffle()
 	var spawn_count = mini(nDonuts, free_cells.size())
-
-	World.set_total_donuts(spawn_count)
 	
+	# Spawn donuts at random free cells
 	for i in range(spawn_count):
 		var cell = free_cells[i]
 		var world_pos = cell_to_world(cell)
@@ -232,7 +231,6 @@ func spawn_donuts() -> void:
 		var donut: Node2D = donut_scene.instantiate()
 		donut.global_position = world_pos
 		get_parent().add_child.bind(donut).call_deferred()
-
 
 func spawn_enemies() -> void:
 	if enemy_scene == null:
@@ -594,5 +592,3 @@ func spawn_goal() -> void:
 	var goal: Node2D = goal_scene.instantiate()
 	add_child(goal)
 	goal.global_position = world_pos
-
-	World.register_goal(goal)
