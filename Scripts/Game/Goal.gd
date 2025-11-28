@@ -16,6 +16,7 @@ func _on_body_entered(body: Node2D) -> void:
 		return
 
 	if is_locked:
+		World.HUD.show_hungry_message(2.0)
 		print("Goal is locked. Donuts left:", World.donuts_left)
 		return
 

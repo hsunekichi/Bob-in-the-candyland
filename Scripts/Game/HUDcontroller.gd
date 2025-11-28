@@ -8,6 +8,7 @@ extends CanvasLayer
 @onready var health_display: Node = $HealthDisplay/HBoxContainer
 @onready var sugar_display: Node = $SugarDisplay/HBoxContainer
 @onready var pause_menu: Control = $PauseMenu
+@onready var hungry_display: Node = $HungryDisplay/HungryTexture
 
 func _ready() -> void:
 	var tr_nodes = transition.get_children()
@@ -19,6 +20,7 @@ func _ready() -> void:
 	health_display.visible = false
 	sugar_display.visible = false
 	pause_menu.visible = false
+	hungry_display.visible = false
 
 	$SugarRushEffect.total_duration = World.config_value("sugar_rush_duration", 2.0)
 	$EatSugarEffect.total_duration = 1.0
@@ -168,3 +170,34 @@ func _on_HomeButton_pressed() -> void:
 	close_pause()
 	await get_tree().process_frame
 	World.load_menu()
+
+func show_hungry_message(duration: float = 2.0) -> void:
+	hungry_display.visible = true
+
+	hungry_display.modulate.a = 1.0
+	hungry_display.scale = Vector2(0.8, 0.8)
+
+	var tween := create_tween()
+
+	# POP IN
+	tween.tween_property(
+		hungry_display,
+		"scale",
+		Vector2(1, 1),
+		0.25
+	).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+
+	tween.tween_interval(duration)
+
+	# FADE OUT
+	tween.tween_property(
+		hungry_display,
+		"modulate:a",
+		0.0,
+		0.4
+	).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+
+	tween.finished.connect(func():
+		hungry_display.visible = false
+		hungry_display.modulate.a = 1.0 
+	)
