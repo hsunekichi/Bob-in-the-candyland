@@ -685,6 +685,7 @@ stream = ExtResource("8_5t2qs")
 
 [node name="SugarSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_adsw7")
+volume_db = -4.039
 
 [node name="JetPackSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_x8w73")
