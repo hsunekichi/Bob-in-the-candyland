@@ -35,6 +35,10 @@ var show_navigation: bool = false
 signal game_finished
 signal config_changed
 
+var total_donuts: int = 0
+var donuts_left: int = 0
+var goal: Node = null
+
 
 func _ready() -> void:
 	# Set clear color
@@ -142,6 +146,37 @@ func load_maze() -> void:
 		#Game music
 		MusicManager.play_game_music()
 	change_scene(maze_scene, "Game", self, initialize_player)
+	
+func register_goal(new_goal: Node) -> void:
+	goal = new_goal
+
+
+func set_total_donuts(count: int) -> void:
+	total_donuts = count
+	donuts_left = count
+	print("Total donuts in maze:", total_donuts)
+
+	if donuts_left <= 0:
+		_unlock_goal()
+
+
+func donut_collected() -> void:
+	if donuts_left <= 0:
+		return
+
+	donuts_left -= 1
+	print("Donut collected. Donuts left:", donuts_left)
+
+	if donuts_left <= 0:
+		_unlock_goal()
+
+func _unlock_goal() -> void:
+	if goal and goal.has_method("unlock"):
+		print("All donuts collected. Unlocking goal.")
+		goal.unlock()
+	else:
+		print("No goal found or goal has no unlock() method.")
+
 
 func get_maze() -> Node:
 	var game = get_node_or_null("Game")
