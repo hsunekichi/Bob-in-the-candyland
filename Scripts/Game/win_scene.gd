@@ -5,3 +5,7 @@ func _ready() -> void:
 
 func _on_main_menu_button_pressed() -> void:
 	World.load_menu()
+	$AudioStreamPlayer2.play()
+
+func _on_mycontrol_mouse_entered():
+	$AudioStreamPlayer.play()

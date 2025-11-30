@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cewvmgmy1y537"]
+[gd_scene load_steps=29 format=3 uid="uid://cewvmgmy1y537"]
 
 [ext_resource type="Script" uid="uid://leusnapulo60" path="res://Scripts/Game/HUDcontroller.gd" id="1_sd512"]
 [ext_resource type="PackedScene" uid="uid://byfwek3xujxll" path="res://Scenes/GameAssets/Piruleta.tscn" id="2_iylfn"]
@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://cd67h1ppritvf" path="res://Scenes/menu_button.tscn" id="10_gxcq2"]
 [ext_resource type="Texture2D" uid="uid://n62c3stfrmpw" path="res://Art/Screens/MenuButtonS.png" id="11_o2h1v"]
 [ext_resource type="Texture2D" uid="uid://btt6gmbcmheex" path="res://Art/Screens/hungry.png" id="12_gxcq2"]
+[ext_resource type="AudioStream" uid="uid://dvwpyd7prwovg" path="res://Art/SFX/Sliding.mp3" id="12_o2h1v"]
+[ext_resource type="AudioStream" uid="uid://dgkmlr8c6kcyt" path="res://Art/SFX/buttomTap.mp3" id="13_ls8yp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_psnte"]
 atlas = ExtResource("2_jo1ms")
@@ -12351,6 +12353,14 @@ theme_override_colors/font_focus_color = Color(0.4509804, 0.15686275, 0.05098039
 text = "Resume"
 icon = ExtResource("11_o2h1v")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="PauseMenu"]
+stream = ExtResource("12_o2h1v")
+volume_db = -40.0
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="PauseMenu"]
+stream = ExtResource("13_ls8yp")
+volume_db = -10.0
+
 [node name="HungryDisplay" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -12365,6 +12375,9 @@ offset_right = 677.0
 offset_bottom = 150.0
 texture = ExtResource("12_gxcq2")
 
+[connection signal="mouse_entered" from="PauseMenu/HomeButton" to="." method="_on_mycontrol_mouse_entered"]
 [connection signal="pressed" from="PauseMenu/HomeButton" to="." method="_on_HomeButton_pressed"]
+[connection signal="mouse_entered" from="PauseMenu/RestartButton" to="." method="_on_mycontrol_mouse_entered"]
 [connection signal="pressed" from="PauseMenu/RestartButton" to="." method="_on_RestartButton_pressed"]
+[connection signal="mouse_entered" from="PauseMenu/Resume Button" to="." method="_on_mycontrol_mouse_entered"]
 [connection signal="pressed" from="PauseMenu/Resume Button" to="." method="_on_ResumeButton_pressed"]

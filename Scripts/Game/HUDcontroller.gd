@@ -157,47 +157,21 @@ func _input(event):
 		else:
 			open_pause()
 
-
 func _on_ResumeButton_pressed():
 	close_pause()
+	$PauseMenu/AudioStreamPlayer2.play()
 
 func _on_RestartButton_pressed() -> void:
 	close_pause()
 	await get_tree().process_frame
 	World.load_maze()
+	$PauseMenu/AudioStreamPlayer2.play()
 
 func _on_HomeButton_pressed() -> void:
 	close_pause()
 	await get_tree().process_frame
 	World.load_menu()
-
-func show_hungry_message(duration: float = 2.0) -> void:
-	hungry_display.visible = true
-
-	hungry_display.modulate.a = 1.0
-	hungry_display.scale = Vector2(0.8, 0.8)
-
-	var tween := create_tween()
-
-	# POP IN
-	tween.tween_property(
-		hungry_display,
-		"scale",
-		Vector2(1, 1),
-		0.25
-	).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-
-	tween.tween_interval(duration)
-
-	# FADE OUT
-	tween.tween_property(
-		hungry_display,
-		"modulate:a",
-		0.0,
-		0.4
-	).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-
-	tween.finished.connect(func():
-		hungry_display.visible = false
-		hungry_display.modulate.a = 1.0 
-	)
+	$PauseMenu/AudioStreamPlayer2.play()
+	
+func _on_mycontrol_mouse_entered():
+	$PauseMenu/AudioStreamPlayer.play()

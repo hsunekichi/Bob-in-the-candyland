@@ -17,6 +17,7 @@ func _ready() -> void:
 	icon = texture_100 if is_filled else texture_0
 
 func _on_pressed() -> void:
+	$"../AudioStreamPlayer2".play()
 	if _animating:
 		return  # Prevent multiple animations at once
 	
