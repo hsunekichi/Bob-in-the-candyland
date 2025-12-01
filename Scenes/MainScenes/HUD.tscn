@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cewvmgmy1y537"]
+[gd_scene load_steps=28 format=3 uid="uid://cewvmgmy1y537"]
 
 [ext_resource type="Script" uid="uid://leusnapulo60" path="res://Scripts/Game/HUDcontroller.gd" id="1_sd512"]
 [ext_resource type="PackedScene" uid="uid://byfwek3xujxll" path="res://Scenes/GameAssets/Piruleta.tscn" id="2_iylfn"]
@@ -8,8 +8,9 @@
 [ext_resource type="Script" uid="uid://d0np1r4gub5y0" path="res://Scripts/SFX/SugarEffectController.gd" id="4_c3eba"]
 [ext_resource type="Shader" uid="uid://tj3yuby32lhv" path="res://Scripts/SFX/EatSugar.gdshader" id="4_s3jbq"]
 [ext_resource type="Texture2D" uid="uid://rrp2vg7xg515" path="res://Art/Dino Tri/DinoIcon.png" id="6_0hk07"]
-[ext_resource type="Texture2D" uid="uid://cwodlpgs5a876" path="res://Art/Screens/PauseScreen.png" id="9_iylfn"]
+[ext_resource type="Texture2D" uid="uid://dvomyaw5t5gii" path="res://Art/candy land - UI/menu - Large H.png" id="9_o2h1v"]
 [ext_resource type="PackedScene" uid="uid://cd67h1ppritvf" path="res://Scenes/menu_button.tscn" id="10_gxcq2"]
+[ext_resource type="Texture2D" uid="uid://bibjj2lgk5jpf" path="res://Art/Screens/PauseScreenTransparent.png" id="10_ls8yp"]
 [ext_resource type="Texture2D" uid="uid://n62c3stfrmpw" path="res://Art/Screens/MenuButtonS.png" id="11_o2h1v"]
 [ext_resource type="Texture2D" uid="uid://btt6gmbcmheex" path="res://Art/Screens/hungry.png" id="12_gxcq2"]
 
@@ -12306,52 +12307,62 @@ offset_bottom = 68.0
 
 [node name="PauseMenu" type="Control" parent="."]
 process_mode = 2
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="PauseScreen" type="TextureRect" parent="PauseMenu"]
+texture_filter = 1
 layout_mode = 0
 offset_left = 367.0
 offset_top = 144.0
 offset_right = 2287.0
 offset_bottom = 1224.0
 scale = Vector2(0.6105469, 0.66898143)
-texture = ExtResource("9_iylfn")
+texture = ExtResource("9_o2h1v")
+
+[node name="Text" type="TextureRect" parent="PauseMenu"]
+layout_mode = 0
+offset_left = 86.00001
+offset_top = 192.0
+offset_right = 2818.3865
+offset_bottom = 1762.2976
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("10_ls8yp")
 
 [node name="HomeButton" parent="PauseMenu" instance=ExtResource("10_gxcq2")]
 layout_mode = 0
-offset_left = 444.0
-offset_top = 716.0
-offset_right = 878.0
-offset_bottom = 815.0
+offset_left = 439.0
+offset_top = 677.0
+offset_right = 873.0
+offset_bottom = 776.0
 theme_override_colors/font_focus_color = Color(0.4509804, 0.15686275, 0.050980393, 1)
 text = "Go to the main menu"
 icon = ExtResource("11_o2h1v")
 
 [node name="RestartButton" parent="PauseMenu" instance=ExtResource("10_gxcq2")]
 layout_mode = 0
-offset_left = 1037.0
-offset_top = 716.0
-offset_right = 1471.0
-offset_bottom = 815.0
+offset_left = 1033.0
+offset_top = 683.0
+offset_right = 1467.0
+offset_bottom = 782.0
 theme_override_colors/font_focus_color = Color(0.4509804, 0.15686275, 0.050980393, 1)
 text = "Restart Level"
 icon = ExtResource("11_o2h1v")
 
 [node name="Resume Button" parent="PauseMenu" instance=ExtResource("10_gxcq2")]
 layout_mode = 0
-offset_left = 742.0
-offset_top = 572.0
-offset_right = 1176.0
-offset_bottom = 671.0
+offset_left = 747.0
+offset_top = 574.0
+offset_right = 1181.0
+offset_bottom = 673.0
 theme_override_colors/font_focus_color = Color(0.4509804, 0.15686275, 0.050980393, 1)
 text = "Resume"
 icon = ExtResource("11_o2h1v")
 
 [node name="HungryDisplay" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 612.0
