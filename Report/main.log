@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.11.21)  1 DEC 2025 23:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.11.21)  1 DEC 2025 23:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -451,54 +451,60 @@ Package hyperref Info: Link coloring OFF on input line 36.
 \@outlinefile=\write3
 \openout3 = `main.out'.
 
-<Images/GodotNavigation.jpeg, id=93, 1327.96124pt x 624.3325pt>
+<Images/GodotNavigation.jpeg, id=97, 1327.96124pt x 624.3325pt>
 File: Images/GodotNavigation.jpeg Graphic file (type jpg)
 <use Images/GodotNavigation.jpeg>
 Package pdftex.def Info: Images/GodotNavigation.jpeg  used on input line 73.
 (pdftex.def)             Requested size: 196.57523pt x 92.4169pt.
-<Images/CandylandMenu.png, id=96, 1929.2075pt x 1086.0575pt>
+<Images/CandylandMenu.png, id=100, 1929.2075pt x 1086.0575pt>
 File: Images/CandylandMenu.png Graphic file (type png)
 <use Images/CandylandMenu.png>
 Package pdftex.def Info: Images/CandylandMenu.png  used on input line 108.
 (pdftex.def)             Requested size: 196.57523pt x 110.65045pt.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 126.
- (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 126.
- (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 124.
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 ) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}
 
 
- <./Images/GodotNavigation.jpeg> <./Images/CandylandMenu.png>] [2]
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 270.
+ <./Images/GodotNavigation.jpeg> <./Images/CandylandMenu.png>]
+LaTeX Font Info:    Trying to load font information for U+msa on input line 153.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 153.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [2]
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 297.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 ) [3]
-<Images/DemoMaze.png, id=129, 1004.75375pt x 773.89125pt>
+Underfull \vbox (badness 1342) has occurred while \output is active []
+
+<Images/DemoMaze.png, id=136, 1004.75375pt x 773.89125pt>
 File: Images/DemoMaze.png Graphic file (type png)
 <use Images/DemoMaze.png>
-Package pdftex.def Info: Images/DemoMaze.png  used on input line 341.
+Package pdftex.def Info: Images/DemoMaze.png  used on input line 368.
 (pdftex.def)             Requested size: 147.43236pt x 113.55164pt.
-<Images/DemoMazeOpen.png, id=131, 998.73125pt x 773.89125pt>
+<Images/DemoMazeOpen.png, id=138, 998.73125pt x 773.89125pt>
 File: Images/DemoMazeOpen.png Graphic file (type png)
 <use Images/DemoMazeOpen.png>
-Package pdftex.def Info: Images/DemoMazeOpen.png  used on input line 360.
+Package pdftex.def Info: Images/DemoMazeOpen.png  used on input line 387.
 (pdftex.def)             Requested size: 147.43236pt x 114.23653pt.
  [4 <./Images/DemoMaze.png> <./Images/DemoMazeOpen.png>]
-<Images/profiler.png, id=141, 929.4725pt x 240.9pt>
+<Images/profiler.png, id=148, 829.0975pt x 202.7575pt>
 File: Images/profiler.png Graphic file (type png)
 <use Images/profiler.png>
-Package pdftex.def Info: Images/profiler.png  used on input line 419.
-(pdftex.def)             Requested size: 196.57523pt x 50.94704pt.
- (./main.bbl
-Underfull \hbox (badness 10000) in paragraph at lines 33--34
+Package pdftex.def Info: Images/profiler.png  used on input line 450.
+(pdftex.def)             Requested size: 196.57523pt x 48.07187pt.
+ (./main.bbl [5 <./Images/profiler.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 36--37
 []\OT1/ptm/m/n/8 GeeksforGeeks, ``Search and in-ser-tion in k-dimensional
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 33--34
+Underfull \hbox (badness 10000) in paragraph at lines 36--37
 \OT1/ptm/m/n/8 tree (kd-tree),'' []$https : / / www . geeksforgeeks . org / dsa /
  []
 
@@ -514,27 +520,29 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the US letter (8.5in X 11in) paper size.
 
-[5 <./Images/profiler.png>] (./main.aux)
+[6
+
+] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: D41E169F6E82DBAF9FC94F1A424C384C;3165.
+(rerunfilecheck)             Checksum: 23C8C0C6A7A4A5632A257CA3BA5DB213;3326.
  ) 
 Here is how much of TeX's memory you used:
- 12382 strings out of 476106
- 192371 string characters out of 5793932
+ 12426 strings out of 476106
+ 193011 string characters out of 5793932
  1942975 words of memory out of 5000000
- 34160 multiletter control sequences out of 15000+600000
- 595328 words of font info for 108 fonts, out of 8000000 for 9000
+ 34196 multiletter control sequences out of 15000+600000
+ 595843 words of font info for 110 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 75i,9n,79p,582b,529s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (5 pages, 1946942 bytes).
+ 75i,9n,79p,582b,526s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (6 pages, 1959856 bytes).
 PDF statistics:
- 198 PDF objects out of 1000 (max. 8388607)
- 166 compressed objects within 2 object streams
- 38 named destinations out of 1000 (max. 500000)
- 202 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 214 PDF objects out of 1000 (max. 8388607)
+ 179 compressed objects within 2 object streams
+ 41 named destinations out of 1000 (max. 500000)
+ 210 words of extra memory for PDF output out of 10000 (max. 10000000)
 

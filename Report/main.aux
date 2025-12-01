@@ -3,7 +3,6 @@
 \providecommand\HyField@AuxAddToFields[1]{}
 \providecommand\HyField@AuxAddToCoFields[2]{}
 \citation{godot_navigation}
-\citation{godot_engine}
 \providecommand \oddpage@label [2]{}
 \@writefile{toc}{\contentsline {section}{\numberline {I}Introduction}{1}{section.1}\protected@file@percent }
 \newlabel{sec:intro}{{I}{1}{Introduction}{section.1}{}}
@@ -12,9 +11,13 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {I-A}Bob in the candyland}{1}{subsection.1.1}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Main menu of Bob in the candyland. }}{1}{figure.2}\protected@file@percent }
 \newlabel{fig:candyland_menu}{{2}{1}{Main menu of Bob in the candyland}{figure.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {I-B}The navigation pipeline}{1}{subsection.1.2}\protected@file@percent }
-\newlabel{sec:pipeline}{{I-B}{1}{The navigation pipeline}{subsection.1.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {I-B}Simulation framework}{1}{subsection.1.2}\protected@file@percent }
+\newlabel{sec:simulation}{{I-B}{1}{Simulation framework}{subsection.1.2}{}}
+\citation{spiral_of_death}
+\citation{godot_engine}
 \citation{karaman_rrtstar}
+\@writefile{toc}{\contentsline {subsection}{\numberline {I-C}The navigation pipeline}{2}{subsection.1.3}\protected@file@percent }
+\newlabel{sec:pipeline}{{I-C}{2}{The navigation pipeline}{subsection.1.3}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {II}Global planner: RRT*}{2}{section.2}\protected@file@percent }
 \newlabel{sec:rrtstar}{{II}{2}{Global planner: RRT*}{section.2}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {II-A}Dynamic obstacles}{2}{subsection.2.1}\protected@file@percent }
@@ -28,7 +31,7 @@
 \newlabel{sec:trajectory}{{III}{3}{Trajectory following}{section.3}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {IV}Local planner: Discretized nearness diagram}{3}{section.4}\protected@file@percent }
 \newlabel{sec:ND}{{IV}{3}{Local planner: Discretized nearness diagram}{section.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {IV-A}Performance considerations}{3}{subsection.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {IV-A}Performance considerations}{4}{subsection.4.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {V}Low-level controler}{4}{section.5}\protected@file@percent }
 \newlabel{sec:lowlevelcontrol}{{V}{4}{Low-level controler}{section.5}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {VI}Testing}{4}{section.6}\protected@file@percent }
@@ -40,22 +43,23 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Path generated in the demo level after opening a new path. }}{4}{figure.4}\protected@file@percent }
 \newlabel{fig:debugMazeOpen}{{4}{4}{Path generated in the demo level after opening a new path}{figure.4}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {VI-B}Very large path generation}{4}{subsection.6.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {VI-C}Performance testing}{4}{subsection.6.3}\protected@file@percent }
-\newlabel{sec:performance}{{VI-C}{4}{Performance testing}{subsection.6.3}{}}
 \bibstyle{IEEEtran}
 \bibdata{biblio}
-\bibcite{godot_navigation}{1}
-\bibcite{godot_engine}{2}
-\bibcite{karaman_rrtstar}{3}
-\bibcite{geeksforgeeks_kdtree}{4}
+\@writefile{toc}{\contentsline {subsection}{\numberline {VI-C}Performance testing}{5}{subsection.6.3}\protected@file@percent }
+\newlabel{sec:performance}{{VI-C}{5}{Performance testing}{subsection.6.3}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {VI-D}Load testing}{5}{subsection.6.4}\protected@file@percent }
 \newlabel{sec:load_testing}{{VI-D}{5}{Load testing}{subsection.6.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Frame time of the execution with 50 agents navigating simultaneously. The red line marks 16ms, the budget for 60fps. }}{5}{figure.5}\protected@file@percent }
-\newlabel{fig:frameTime}{{5}{5}{Frame time of the execution with 50 agents navigating simultaneously. The red line marks 16ms, the budget for 60fps}{figure.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Frame time of the execution with 50 agents navigating simultaneously. The red line marks 16ms, the budget for 60 ticks per second. }}{5}{figure.5}\protected@file@percent }
+\newlabel{fig:frameTime}{{5}{5}{Frame time of the execution with 50 agents navigating simultaneously. The red line marks 16ms, the budget for 60 ticks per second}{figure.5}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {VII}Conclusions}{5}{section.7}\protected@file@percent }
 \newlabel{sec:conclusion}{{VII}{5}{Conclusions}{section.7}{}}
 \@writefile{toc}{\contentsline {section}{Appendix}{5}{section*.1}\protected@file@percent }
 \newlabel{sec:appendix}{{}{5}{Appendix}{section*.1}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {A}Project structure}{5}{subsection.Appendix.A.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{References}{5}{section*.2}\protected@file@percent }
-\gdef \@abspage@last{5}
+\bibcite{godot_navigation}{1}
+\bibcite{spiral_of_death}{2}
+\bibcite{godot_engine}{3}
+\bibcite{karaman_rrtstar}{4}
+\bibcite{geeksforgeeks_kdtree}{5}
+\@writefile{toc}{\contentsline {section}{References}{6}{section*.2}\protected@file@percent }
+\gdef \@abspage@last{6}

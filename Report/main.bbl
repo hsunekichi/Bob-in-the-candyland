@@ -23,8 +23,11 @@
 \bibitem{godot_navigation}
 {Godot Engine}, ``Navigation in godot,'' \url{https://docs.godotengine.org/en/stable/tutorials/navigation/navigation_introduction_2d.html}.
 
+\bibitem{spiral_of_death}
+G.~Fiedler, ``Fix your timestep! an analysis on physics timesteps in games,'' \url{https://gafferongames.com/post/fix_your_timestep/}.
+
 \bibitem{godot_engine}
-------, ``Godot engine web page,'' \url{https://godotengine.org/}.
+{Godot Engine}, ``Godot engine web page,'' \url{https://godotengine.org/}.
 
 \bibitem{karaman_rrtstar}
 S.~Karaman and E.~Frazzoli, ``Sampling-based algorithms for optimal motion planning,'' \emph{The International Journal of Robotics Research}, vol.~30, no.~7, pp. 846--894, Jun 2011.

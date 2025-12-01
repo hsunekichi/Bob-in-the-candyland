@@ -116,6 +116,33 @@ and can be downloaded here [Insert url].
 %% PRELIMINARIES %%
 %%%%%%%%%%%%%%%%%%%
 
+\subsection{Simulation framework}\label{sec:simulation}
+
+In Godot, the simulation runs in fixed \emph{physics ticks} 
+(usually 60 Hz), where the physics engine integrates bodies, 
+resolves collisions and processes all 
+\texttt{\_physics\_process()} callbacks. Navigation scripts 
+run in this layer: at each tick they read agent states, 
+call physics server queries (ray-casts, shape-casts, area 
+checks) to sense obstacles and path visibility, and then 
+write movement commands (e.g., target velocities) that the 
+physics engine applies on the next step. 
+
+Mantaining this latency target consistently is crucial 
+for responsive control: if navigation logic takes 
+too long the physics engine will skip ticks to catch up, 
+causing stuttering and unresponsive behaviour that 
+completely break the user experience.
+Even more, repeatedly exceeding the budget may cause the physics 
+engine to enter a "spiral of death" \cite{spiral_of_death}, a state where the engine fails 
+to keep up with the target framerate, ticks accumulate infinitely
+and the simulation indefinitely becomes unresponsive.  
+
+Rendering and UI run separately in the variable-rate 
+\texttt{\_process()} loop and are not involved 
+in the control logic, which keeps the 
+behaviour deterministic and tied to the physics timestep.
+
 \subsection{The navigation pipeline}\label{sec:pipeline}
 
 The system is built on top of the Godot game engine \cite{godot_engine}, 
@@ -392,7 +419,7 @@ optimization individually would take a lot of effort.
 Because of that the tests have been conducted using all 
 of them aggregated, to evaluate the performance of the resulting system.
 
-The navigation pipeline takes around 0.6ms per frame, mostly inside
+The navigation pipeline takes around 0.3ms per frame, mostly inside
 the get-k-nearest function. This is a heavily algorithmic function 
 with a significant penalty coming from GDscript's interpreted nature. 
 
@@ -407,18 +434,22 @@ inside a procedurally generated 30x20 maze is used. The number of points
 generated per frame by RTT* is reduced to 3 to maintain performance,
 at the cost of increasing the time needed to find a path.
 
-The scene runs mostly at 144fps, although the frame time 
-(figure \ref{fig:frameTime}) remains unstable due
-to the high number of agents querying the navigation pipeline simultaneously.
+The scene runs smoothly at the standard 60 physics 
+iterations per second, although the frame time 
+(figure \ref{fig:frameTime}) has increased 
+significantly to an average of under 10ms. 
+This leaves still a good margin for other systems,
+which allows the game to run smoothly even with 50 agents 
+navigating simultaneously with no significant freezes or stuttering.
+
 Most of the time is spent again inside the get-k-nearest function,
-so a C++ implementation would significantly improve stability.
-Even with that, the frame time consistently remains around or under 16ms.
+so a C++ implementation would significantly reduce this overhead.
 
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=0.8\columnwidth]{Images/profiler.png}
     \caption{Frame time of the execution with 50 agents navigating simultaneously.
-    The red line marks 16ms, the budget for 60fps.
+    The red line marks 16ms, the budget for 60 ticks per second.
     }
     \label{fig:frameTime}
 \end{figure}

@@ -1,17 +1,19 @@
 # Fdb version 4
-["bibtex main"] 1764627890.476 "main.aux" "main.bbl" "main" 1764628029.17542 0
+["bibtex main"] 1764629726.82294 "main.aux" "main.bbl" "main" 1764629849.39339 0
   "./IEEEtran.bst" 1763718408.66761 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
-  "./biblio.bib" 1764427646.86347 874 d214f4026c54a99fe40dc53c1aa69a93 ""
-  "main.aux" 1764628029.13187 5481 0381b4694c1aa01e62b472d625ab3bf3 "pdflatex"
+  "./biblio.bib" 1764629726.69356 1078 6eca979f9f00ace6efb8676eb3066bcb ""
+  "main.aux" 1764629849.34729 5768 3e0b8fc793d8d3826acb1060ad6c7f15 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1764628028.72191 "/home/hsunekichi/Escritorio/AR-FP/Report/main.tex" "main.pdf" "main" 1764628029.17554 0
+["pdflatex"] 1764629848.91127 "/home/hsunekichi/Escritorio/AR-FP/Report/main.tex" "main.pdf" "main" 1764629849.39352 0
   "/etc/texmf/web2c/texmf.cnf" 1759903345.29985 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/hsunekichi/Escritorio/AR-FP/Report/main.tex" 1764628028.56977 25960 3071199f84943172d2fb78184cc36f11 ""
+  "/home/hsunekichi/Escritorio/AR-FP/Report/main.tex" 1764629848.77614 27378 b2dc25bdc99c58ec008308f78e28f555 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/courier/pcrr7t.tfm" 1136768653 960 379cc0019370a9e0208a0a3f949f847a ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/courier/pcrr8r.tfm" 1136768653 1292 bd42be2f344128bff6d35d98474adfe3 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm" 1136768653 2172 fd0c924230362ff848a33632ed45dc23 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmb8r.tfm" 1136768653 4524 6bce29db5bc272ba5f332261583fee9c ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmbi7t.tfm" 1136768653 2228 e564491c42a4540b5ebb710a75ff306c ""
@@ -39,10 +41,12 @@
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1248133631 32716 08e384dc442464e7285e891af9f45947 ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb" 1136849748 45758 19968a0990191524e34e1994d4a31cb6 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb" 1136849748 44729 811d6c62865936705a31c797a1d5dada ""
   "/usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb" 1136849748 44656 0cbca70e0534538582128f6b54593cca ""
   "/usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb" 1136849748 46026 6dab18b61c907687b520c72847215a68 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb" 1136849748 45458 a3faba884469519614ca56ba5f6b1de1 ""
+  "/usr/share/texlive/texmf-dist/fonts/vf/adobe/courier/pcrr7t.vf" 1136768653 1344 6ff472164bf9de0fb2e864b28ac156d9 ""
   "/usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmb7t.vf" 1136768653 1372 788387fea833ef5963f4c5bffe33eb89 ""
   "/usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmbi7t.vf" 1136768653 1384 6ac0f8b839230f5d9389287365b243c0 ""
   "/usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmr7t.vf" 1136768653 1380 0ea3a3370054be6da6acd929ec569f06 ""
@@ -112,6 +116,7 @@
   "/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def" 1704491087 30006 57b07afb710ee2f649c65cfbafda39c1 ""
   "/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg" 1279039959 678 4792914a8f45be57bb98413425e4c7af ""
   "/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty" 1615845910 6149 2398eec4faa1ee24ff761581e580ecf1 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd" 1137110629 985 1ed784d7bfe47179f3550d2303b073f8 ""
   "/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd" 1137110629 961 15056f4a61917ceed3a44e4ac11fcc52 ""
   "/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd" 1137110629 619 96f56dc5d1ef1fe1121f1cfeec70ee0c ""
   "/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty" 1576624809 9878 9e94e8fa600d95f9c7731bb21dfb67a4 ""
@@ -129,11 +134,11 @@
   "Images/DemoMaze.png" 1764321068.46437 53468 d2b7ae4d6352d3169cb7b721baa8d885 ""
   "Images/DemoMazeOpen.png" 1764321068.4648 38835 c65c71547cde4582d89bac852551bc4c ""
   "Images/GodotNavigation.jpeg" 1764321068.46556 80773 c55fff30f05144f78b48585f0acba2e0 ""
-  "Images/profiler.png" 1764321068.46556 13496 6afab20f6f28125d4c76fe9e31631c30 ""
-  "main.aux" 1764628029.13187 5481 0381b4694c1aa01e62b472d625ab3bf3 "pdflatex"
-  "main.bbl" 1764627890.48579 1536 cce27edcaf3d884ea0ac353e1acbb6bf "bibtex main"
-  "main.out" 1764628029.13187 3165 d41e169f6e82dbaf9fc94f1a424c384c "pdflatex"
-  "main.tex" 1764628028.56977 25960 3071199f84943172d2fb78184cc36f11 ""
+  "Images/profiler.png" 1764628724.62849 16223 936c34602251a62fd7289d2a71d4522b ""
+  "main.aux" 1764629849.34729 5768 3e0b8fc793d8d3826acb1060ad6c7f15 "pdflatex"
+  "main.bbl" 1764629726.83232 1706 cc71ce3302557dc7d4c8ad45cf81ad10 "bibtex main"
+  "main.out" 1764629849.34771 3326 23c8c0c6a7a4a5632a257ca3ba5db213 "pdflatex"
+  "main.tex" 1764629848.77614 27378 b2dc25bdc99c58ec008308f78e28f555 ""
   (generated)
   "main.aux"
   "main.log"
