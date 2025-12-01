@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 [gd_scene load_steps=28 format=3 uid="uid://cewvmgmy1y537"]
-=======
-[gd_scene load_steps=29 format=3 uid="uid://cewvmgmy1y537"]
->>>>>>> 52c7b3c289b148de39fdf0c3fe808d57c905c431
 
 [ext_resource type="Script" uid="uid://leusnapulo60" path="res://Scripts/Game/HUDcontroller.gd" id="1_sd512"]
 [ext_resource type="PackedScene" uid="uid://byfwek3xujxll" path="res://Scenes/GameAssets/Piruleta.tscn" id="2_iylfn"]

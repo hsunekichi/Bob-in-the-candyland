@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://f4psnkm1dc6d"]
+[gd_scene load_steps=41 format=4 uid="uid://f4psnkm1dc6d"]
 
 [ext_resource type="Script" uid="uid://b34eqsowat22x" path="res://Scripts/Game/MainMenu.gd" id="1_8saeu"]
 [ext_resource type="AudioStream" uid="uid://dvwpyd7prwovg" path="res://Art/SFX/Sliding.mp3" id="2_7oilf"]
@@ -12,9 +12,11 @@
 [ext_resource type="Texture2D" uid="uid://cu2cb5us185ej" path="res://Art/candy land - UI/switch - 0%.png" id="7_47tha"]
 [ext_resource type="Texture2D" uid="uid://dcomfn40j4dwn" path="res://Art/candy land - UI/arrow - left.png" id="7_kya2h"]
 [ext_resource type="Script" uid="uid://b5nlio5ttx2h2" path="res://Scripts/Game/nav_toggle.gd" id="8_2byc5"]
+[ext_resource type="Texture2D" uid="uid://c3aw2pbjhp3k5" path="res://Art/candy land - UI/check box - checked L.png" id="8_caim4"]
 [ext_resource type="Texture2D" uid="uid://cab3mjxpdt08d" path="res://Art/candy land - UI/menu - S.png" id="8_kya2h"]
 [ext_resource type="Texture2D" uid="uid://dqlohajwbqdn1" path="res://Art/candy land - UI/switch - 30%.png" id="9_2koo1"]
 [ext_resource type="Texture2D" uid="uid://cgxf1t7h10q1" path="res://Art/candy land - UI/arrow - down.png" id="9_48cs2"]
+[ext_resource type="Texture2D" uid="uid://bvwxh8smc8ji2" path="res://Art/candy land - UI/check box - unchecked L.png" id="9_rqm0p"]
 [ext_resource type="Texture2D" uid="uid://cpewa1qi2ftun" path="res://Art/candy land - UI/switch - 70%.png" id="10_e7437"]
 [ext_resource type="Texture2D" uid="uid://uexan8qvxpsn" path="res://Art/candy land - UI/switch - 100%.png" id="11_owi87"]
 
@@ -1417,18 +1419,6 @@ _source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\">
 _source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><rect width=\"14\" height=\"14\" x=\"1\" y=\"1\" fill=\"#fff\" fill-opacity=\".37\" rx=\"2.333\"/><path fill=\"#1a1a1a\" fill-opacity=\".5\" d=\"m11.5 3.75-5.6 5.6-1.7-1.7-1.5 1.5 3.2 3.2 7.1-7.1z\"/></svg>
 "
 
-[sub_resource type="DPITexture" id="DPITexture_caim4"]
-_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><circle cx=\"8\" cy=\"8\" r=\"5.5\" fill=\"#1a1a1a\" stroke=\"#fff\" stroke-opacity=\".75\" stroke-width=\"3\"/></svg>
-"
-
-[sub_resource type="DPITexture" id="DPITexture_rqm0p"]
-_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><circle cx=\"8\" cy=\"8\" r=\"7\" fill=\"#fff\" fill-opacity=\".37\"/><circle cx=\"8\" cy=\"8\" r=\"4\" fill=\"#1a1a1a\" fill-opacity=\".5\"/></svg>
-"
-
-[sub_resource type="DPITexture" id="DPITexture_w5g40"]
-_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><circle cx=\"8\" cy=\"8\" r=\"7\" fill=\"#1a1a1a\" fill-opacity=\".5\"/></svg>
-"
-
 [sub_resource type="DPITexture" id="DPITexture_djf50"]
 _source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><circle cx=\"8\" cy=\"8\" r=\"7\" fill=\"#1a1a1a\" fill-opacity=\".25\"/></svg>
 "
@@ -1489,9 +1479,9 @@ PopupMenu/fonts/font = SubResource("FontFile_7oilf")
 PopupMenu/fonts/font_separator = SubResource("FontFile_7oilf")
 PopupMenu/icons/checked = SubResource("DPITexture_36gss")
 PopupMenu/icons/checked_disabled = SubResource("DPITexture_6ahw3")
-PopupMenu/icons/radio_checked = SubResource("DPITexture_caim4")
-PopupMenu/icons/radio_checked_disabled = SubResource("DPITexture_rqm0p")
-PopupMenu/icons/radio_unchecked = SubResource("DPITexture_w5g40")
+PopupMenu/icons/radio_checked = ExtResource("8_caim4")
+PopupMenu/icons/radio_checked_disabled = ExtResource("9_rqm0p")
+PopupMenu/icons/radio_unchecked = ExtResource("9_rqm0p")
 PopupMenu/icons/radio_unchecked_disabled = SubResource("DPITexture_djf50")
 PopupMenu/icons/submenu = ExtResource("6_owi87")
 PopupMenu/icons/submenu_mirrored = ExtResource("7_kya2h")
@@ -1516,9 +1506,10 @@ script = ExtResource("1_8saeu")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1920.0
+offset_bottom = 1080.0
 texture = SubResource("CompressedTexture2D_5mpcw")
+expand_mode = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_7oilf")
@@ -1579,6 +1570,8 @@ offset_top = 15.0
 offset_right = 252.0
 offset_bottom = 65.0
 theme = SubResource("Theme_dy61l")
+theme_override_colors/font_focus_color = Color(0.4509804, 0.15686275, 0.050980393, 1)
+theme_override_colors/font_pressed_color = Color(0.4509804, 0.15686275, 0.050980393, 1)
 theme_override_colors/icon_normal_color = Color(0.4509804, 0.15686275, 0.050980393, 1)
 theme_override_fonts/font = SubResource("FontVariation_a2d0p")
 theme_override_font_sizes/font_size = 25
@@ -1601,12 +1594,12 @@ script = ExtResource("6_wkd0y")
 layout_mode = 0
 offset_left = 801.0
 offset_top = 981.0
-offset_right = 1093.0
+offset_right = 1168.0
 offset_bottom = 1057.0
 theme_override_colors/font_color = Color(0.4509804, 0.15686275, 0.050980393, 1)
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 25
 theme_override_styles/focus = SubResource("StyleBoxEmpty_2koo1")
-text = "Show navigation path"
+text = " Show navigation path"
 icon = ExtResource("7_47tha")
 flat = true
 expand_icon = true
