@@ -74,7 +74,7 @@ func enable_transition():
 			await get_tree().process_frame
 
 	# Wait for a short moment
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.5, true, false, true).timeout
 
 func disable_transition():
 	# Move Transition node up smoothly for 0.5 seconds
