@@ -4,7 +4,7 @@ extends Node
 
 const MENU_MUSIC = preload("res://Art/Music/Donut Dreams.mp3")
 const GAME_MUSIC_EASY = preload("res://Art/Music/The Donut Dash.mp3")
-const GAME_MUSIC_MEDIUM = preload("res://Art/Music/Bob's Sweet Escape.mp3")
+const GAME_MUSIC_MEDIUM = preload("res://Art/Music/Tricera-Dash.mp3")
 const GAME_MUSIC_HARD = preload("res://Art/Music/Candy Escape.mp3")
 
 func _ready() -> void:

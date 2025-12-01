@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://bghx832pqxacg"]
+[gd_scene load_steps=7 format=3 uid="uid://bghx832pqxacg"]
 
 [ext_resource type="Script" uid="uid://dghc3kehy87ie" path="res://Scripts/Game/lose_scene.gd" id="1_ojgy1"]
 [ext_resource type="Texture2D" uid="uid://bfwrakkncf4ex" path="res://Art/Screens/LoseScreen.png" id="2_cjo6h"]
 [ext_resource type="PackedScene" uid="uid://cd67h1ppritvf" path="res://Scenes/menu_button.tscn" id="3_p2s2b"]
 [ext_resource type="Texture2D" uid="uid://n62c3stfrmpw" path="res://Art/Screens/MenuButtonS.png" id="4_ojgy1"]
+[ext_resource type="AudioStream" uid="uid://dvwpyd7prwovg" path="res://Art/SFX/Sliding.mp3" id="5_cjo6h"]
+[ext_resource type="AudioStream" uid="uid://dgkmlr8c6kcyt" path="res://Art/SFX/buttomTap.mp3" id="6_p2s2b"]
 
 [node name="LoseScene" type="Control"]
 layout_mode = 3
@@ -39,3 +41,14 @@ offset_bottom = 848.0
 theme_override_colors/font_focus_color = Color(0.4509804, 0.15686275, 0.050980393, 1)
 text = "Main menu"
 icon = ExtResource("4_ojgy1")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_cjo6h")
+volume_db = -40.0
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_p2s2b")
+volume_db = -10.0
+
+[connection signal="mouse_entered" from="RetryButton" to="." method="_on_mycontrol_mouse_entered"]
+[connection signal="mouse_entered" from="MainMenuButton" to="." method="_on_mycontrol_mouse_entered"]
