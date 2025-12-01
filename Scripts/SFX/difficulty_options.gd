@@ -1,4 +1,12 @@
 extends OptionButton
 
 func _ready():
-    get_popup().transparent_bg = true # Ehto no hace nada...
+	var diff = World.get_difficulty()
+
+	match diff:
+		"easy":
+			select(0)
+		"medium":
+			select(1)
+		"hard":
+			select(2)

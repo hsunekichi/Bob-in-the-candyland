@@ -79,6 +79,7 @@ shader_parameter/inner_radius = 0.2
 
 [node name="HUDcontroller" type="CanvasLayer"]
 process_mode = 3
+visible = false
 script = ExtResource("1_sd512")
 life_scene = ExtResource("2_iylfn")
 sugar_scene = ExtResource("3_gxcq2")

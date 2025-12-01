@@ -152,7 +152,7 @@ and backtracks parent links up to the root, yielding the current minimum-cost ro
 This allows to quickly extract paths to arbitrary goals without re-growing the tree, which is crucial to track dynamic targets.
 
 During execution the agent's position diverges from the tree root, so when an unreachable path 
-emerges or dynamic obstacles invalidate part of the current route the tree needs to be rebuilt from 
+emerges or dynamic obstacles invalidate part of the current route, the tree needs to be rebuilt from 
 the current agent's position.
 
 [Figure of the RTT* display]
@@ -179,7 +179,11 @@ the kinematic constraints of the agent.
 
 \subsection{Real-time optimization}\label{sec:rrtstar_optimization}
 
-To ensure real-time performance, several optimizations are implemented:
+To ensure real-time performance, many optimizations 
+work together to speed up the location of valid 
+paths and reduce the performance overhead of the tree maintenance.
+These optimizations tend to hinder the optimality of the solution,
+in favor of a more responsive and light behaviour.  
 \begin{itemize}
      \item \textbf{K-nearest rewiring:} When a new node is added, only the k-nearest neighbors are considered for rewiring, limiting computational overhead to a fixed amount. However
             this directly limits the quality of the path found, in comparison to considering all nodes within a radius. It is a direct trade-off between performance and optimality. 
@@ -190,12 +194,16 @@ To ensure real-time performance, several optimizations are implemented:
     \item \textbf{Path sampling:} When a path already exists, a configurable percentage of samples are generated around the existing path instead of the global disk.
             This focuses exploration on improving the existing path, which is likely to be close to optimal already. The rest of the samples are still generated in the global disk
             to allow discovering new paths.
+    \item \textbf{Hot start:} When the agent visibility of the path is lost due to changes 
+            in the goal instead of dynamic obstacles, the previous path usually is still close to a valid one. 
+            Thus, the previous path is used as a seed to sample a percentage of the new points, which usually speeds up 
+            the location of a valid path significantly. 
     \item \textbf{Efficient nearest neighbor search:} A k-d tree structure is used to allow fast nearest neighbor queries during tree expansion. 
-            It was adapted from \cite{geeksforgeeks_kdtree} to work with Godot's Vector2 class.
+            It was adapted from \cite{geeksforgeeks_kdtree} to work with Godot's Vector2 class, and optimized significantly.
     \item \textbf{Adaptive sampling:} Samples are generated uniformly within a disk around the agent and the current goal, focusing exploration on relevant areas. The size of the disk is configurable,
           which directly affects the convergence speed. If the path goes outside the disk it will never be found, so the disk could by automatically increased if no path is found after some time.
-    \item \textbf{Quick start:} Each time the tree is rebuilt, a large number of samples is generated to quickly find an initial path. 
-            Each new sample tests the goal, so the process stops as soon as a path is found. Then, subsequent refinements will use fewer samples to optimize the existing tree in a goal-agnostic way.
+    \item \textbf{Quick build:} Each time the tree is rebuilt, a large number of samples is generated to quickly find an initial path. 
+            Each new sample tests the goal, and the process stops as soon as a path is found. Then, subsequent refinements will use fewer samples to optimize the existing tree in a goal-agnostic way.
             This helps to reduce the frame-time budget used by the planner while still providing fast responsiveness of the agent's movement.
     \item \textbf{Tree size limit:} To reduce the tree-search space, there are multiple maximum point amounts depending on whether
            a path has been found or not. When there are no paths, the tree can grow larger to explore more space. When the map changes

@@ -3,56 +3,52 @@ class_name RTTtreeGD
 
 class _RTTtreeNode:
 	var point: Vector2
-	var index: int
+
 	var left: int = -1
 	var right: int = -1
-	func _init(pt: Vector2, idx: int):
-		point = pt
-		index = idx
 
-var nodes: Array = []
+	var parent: int = -1
+	var parent_d: float = -1
+
+	func _init(pt: Vector2, _parent: int, _parent_d: float):
+		point = pt
+		parent = _parent
+		parent_d = _parent_d
+
+var nodes: Array[_RTTtreeNode] = []
 var root: int = -1
-var points: PackedVector2Array = []
-var connections: PackedInt32Array = []
-var origin: int = -1
 
 func clear() -> void:
 	nodes.clear()
 	root = -1
-	points.clear()
-	connections.clear()
-	origin = -1
 func isEmpty() -> bool:
 	return root == -1
 func size() -> int:
 	return nodes.size()
 func set_origin(point: Vector2) -> int:
-	origin = connect_point(point, -1)
-	return origin
+	nodes.clear()
+	nodes.append(_RTTtreeNode.new(point, -1, -1))
+	root = 0
+	return 0
 func get_origin() -> Vector2:
-	return points[origin]
+	return nodes[root].point
 func get_point(idx: int) -> Vector2:
-	return points[idx]
+	return nodes[idx].point
 func get_parent(idx: int) -> int:
-	return connections[idx]
+	return nodes[idx].parent
 
-
-func connect_point(point: Vector2, father_idx: int) -> int:
-	var idx = points.size()
-	points.append(point)
-	connections.append(father_idx)
-	root = _insert_recursive(root, point, idx, 0)
-	return idx
 func reconnect_point(idx: int, new_father_idx: int) -> void:
-	connections[idx] = new_father_idx
+	nodes[idx].parent = new_father_idx
+	nodes[idx].parent_d = nodes[idx].point.distance_to(nodes[new_father_idx].point)
 
 
 func compute_cost(idx: int) -> float:
 	var total := 0.0
-	var current := idx
-	while connections[current] != -1:
-		total += points[current].distance_to(points[connections[current]])
-		current = connections[current]
+	var current := nodes[idx]
+	while current.parent != -1:
+		var parent := nodes[current.parent]
+		total += current.parent_d
+		current = parent
 	return total
 
 func get_k_nearest(point: Vector2, k: int) -> PackedInt32Array:
@@ -96,7 +92,7 @@ func get_k_nearest(point: Vector2, k: int) -> PackedInt32Array:
 			
 			var heap_size = heap_indices.size()
 			if heap_size < k:
-				heap_indices.append(node.index)
+				heap_indices.append(node_idx)
 				heap_dists.append(dist)
 				if dist > worst_dist:
 					worst_dist = dist
@@ -108,7 +104,7 @@ func get_k_nearest(point: Vector2, k: int) -> PackedInt32Array:
 					if heap_dists[i] > worst_dist:
 						worst_dist = heap_dists[i]
 						worst_idx = i
-				heap_indices[worst_idx] = node.index
+				heap_indices[worst_idx] = node_idx
 				heap_dists[worst_idx] = dist
 			
 			# Determine near and far children
@@ -173,22 +169,37 @@ func get_k_nearest(point: Vector2, k: int) -> PackedInt32Array:
 func get_nearest(point: Vector2, radius: float) -> PackedInt32Array:
 	var result: PackedInt32Array = []
 	var sqr_radius = radius * radius
-	for i in range(points.size()):
-		if points[i].distance_squared_to(point) < sqr_radius:
+	for i in range(nodes.size()):
+		if nodes[i].point.distance_squared_to(point) < sqr_radius:
 			result.append(i)
 	return result
-	
 
 
-func _insert_recursive(node_idx: int, point: Vector2, index: int, depth: int) -> int:
-	if node_idx == -1:
-		var new_idx = nodes.size()
-		nodes.append(_RTTtreeNode.new(point, index))
-		return new_idx
-	
-	var cd = depth % 2
-	if point[cd] < nodes[node_idx].point[cd]:
-		nodes[node_idx].left = _insert_recursive(nodes[node_idx].left, point, index, depth + 1)
-	else:
-		nodes[node_idx].right = _insert_recursive(nodes[node_idx].right, point, index, depth + 1)
-	return node_idx
+
+func connect_point(point: Vector2, parent: int) -> int:	
+	var depth: int = 0
+	var current := nodes[root]
+
+	while true:
+		var cd = depth % 2
+
+		if point[cd] < current.point[cd]:
+			if current.left != -1:
+				current = nodes[current.left]
+			else:
+				current.left = nodes.size()
+				var dist := point.distance_to(current.point)
+				nodes.append(_RTTtreeNode.new(point, parent, dist))
+				return current.left
+		else:
+			if current.right != -1:
+				current = nodes[current.right]
+			else:
+				current.right = nodes.size()
+				var dist := point.distance_to(current.point)
+				nodes.append(_RTTtreeNode.new(point, parent, dist))
+				return current.right
+
+		depth += 1
+
+	return -1

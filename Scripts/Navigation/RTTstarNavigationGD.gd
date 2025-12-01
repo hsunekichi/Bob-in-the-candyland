@@ -168,7 +168,7 @@ func build_path(goal: Vector2, max_neighbors: int) -> PackedVector2Array:
 	var min_distance := INF
 	for i in range(nearest.size()):
 		var p := _tree.get_point(nearest[i])
-		var d = _tree.compute_cost(nearest[i]) + p.distance_to(goal)
+		var d := _tree.compute_cost(nearest[i]) + p.distance_to(goal)
 		
 		# Find the best reachable neighbor
 		if d < min_distance and not World.ray_intersects_ground(p, goal):
