@@ -457,7 +457,7 @@ latency spikes and always under 1ms of total script execution per frame.
 
 To test the navigation pipeline under load, a scene with 50 agents
 inside a procedurally generated 30x20 maze is used. The number of points
-generated per frame by RTT* is reduced to 3 to maintain performance,
+generated per frame by RRT* is reduced to 3 to maintain performance,
 at the cost of increasing the time needed to find a path.
 
 The scene runs smoothly at the standard 60 physics 
@@ -528,7 +528,7 @@ The navigation pipeline has two main folders:
         combined under the main agent controller due to their simplicity. Player.gd controls the player input and movement.
     \item \textbf{Scripts/Navigation:} Contains all the scripts related to the navigation pipeline.
         RRTStarNavigationGD.gd implements the global planner, HolonomicND.gd implements the local planner,
-        and RTTtree.gd implements a helper KD-tree structure for efficient nearest neighbor search.
+        and RRTtree.gd implements a helper KD-tree structure for efficient nearest neighbor search.
         All of them are combined inside Bat.gd, which queries a global path, computes a target from the trajectory,
         feeds it to the local planner and finally executes its movement commands and handles the animations.
 \end{itemize}
