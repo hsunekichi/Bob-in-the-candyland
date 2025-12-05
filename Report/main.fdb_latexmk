@@ -1,15 +1,15 @@
 # Fdb version 4
-["bibtex main"] 1764935152.6367 "main.aux" "main.bbl" "main" 1764935771.67116 0
+["bibtex main"] 1764935152.6367 "main.aux" "main.bbl" "main" 1764936576.22079 0
   "./IEEEtran.bst" 1763718408.66761 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
   "./biblio.bib" 1764935150.53179 1385 4565cd1ed2474a76c0749ef8e86e55f7 ""
-  "main.aux" 1764935771.61349 8847 1bd9e40dfee18ae1cf090cd95acd7f00 "pdflatex"
+  "main.aux" 1764936576.12603 8847 1bd9e40dfee18ae1cf090cd95acd7f00 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1764935770.74208 "/home/hsunekichi/Escritorio/AR-FP/Report/main.tex" "main.pdf" "main" 1764935771.67133 0
+["pdflatex"] 1764936575.10048 "/home/hsunekichi/Escritorio/AR-FP/Report/main.tex" "main.pdf" "main" 1764936576.22095 0
   "/etc/texmf/web2c/texmf.cnf" 1759903345.29985 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/hsunekichi/Escritorio/AR-FP/Report/main.tex" 1764935770.53024 29419 bef3b51d417a96c35c7de696816eb1e1 ""
+  "/home/hsunekichi/Escritorio/AR-FP/Report/main.tex" 1764936574.87004 29432 47cd5d70cd3f8a1a634a39678e639608 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/courier/pcrr7t.tfm" 1136768653 960 379cc0019370a9e0208a0a3f949f847a ""
@@ -130,7 +130,7 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1763717018.03366 165012 f177baa1c39a3ebd62c3096a43521a0d ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1763717037 6830998 4457b07e3033c637e81b8d4f6613e5cf ""
   "IEEEconf.cls" 1763718170.63717 197574 ece0d1d68e7d93da26a38d986a993284 ""
-  "Images/CandylandMenu.png" 1764321068.46377 1473151 11de8aa55b613f6ec6d0d88dd5a88f58 ""
+  "Images/CandylandMenu.png" 1764936512.56968 1964646 2a11c80f84ba5aed10ea605886e054a3 ""
   "Images/DemoMaze.png" 1764321068.46437 53468 d2b7ae4d6352d3169cb7b721baa8d885 ""
   "Images/DemoMazeOpen.png" 1764321068.4648 38835 c65c71547cde4582d89bac852551bc4c ""
   "Images/GodotNavigation.jpeg" 1764321068.46556 80773 c55fff30f05144f78b48585f0acba2e0 ""
@@ -139,10 +139,10 @@
   "Images/RRTdisplay.png" 1764932806.4376 97924 59ad8c03551c8c447d54164d1f7c0a7e ""
   "Images/SpiralOfDeath.png" 1764630071.0144 11106 d4c9f4c2646df06c7a9d64f49f654821 ""
   "Images/profiler.png" 1764628724.62849 16223 936c34602251a62fd7289d2a71d4522b ""
-  "main.aux" 1764935771.61349 8847 1bd9e40dfee18ae1cf090cd95acd7f00 "pdflatex"
+  "main.aux" 1764936576.12603 8847 1bd9e40dfee18ae1cf090cd95acd7f00 "pdflatex"
   "main.bbl" 1764935152.64933 1936 bc94796e77aff8ca9382ee4e318298d6 "bibtex main"
-  "main.out" 1764935771.61414 3442 1adae43342bfb015632883dcab048ce5 "pdflatex"
-  "main.tex" 1764935770.53024 29419 bef3b51d417a96c35c7de696816eb1e1 ""
+  "main.out" 1764936576.12603 3442 1adae43342bfb015632883dcab048ce5 "pdflatex"
+  "main.tex" 1764936574.87004 29432 47cd5d70cd3f8a1a634a39678e639608 ""
   (generated)
   "main.aux"
   "main.log"
