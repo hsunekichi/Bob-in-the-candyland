@@ -315,7 +315,7 @@ obstructions the agent skips to it directly.
 The local planner is responsible for directly going towards the target provided by the trajectory follower,
 while avoiding immediate obstacles that may not be considered by the global planner.
 
-It implements a discretized Nearness Diagram (ND) controller that reacts to nearby 
+It implements a discretized Nearness Diagram (ND) \cite{minguez_nd_2004} controller that reacts to nearby 
 obstacles, offering local adjustments that prevent collisions with corners 
 and small obstacles undetected by the global planner without triggering costly replanning. 
 Thus, it needs to be as lightweight as possible while providing thorough detection of immediate obstacles. 
