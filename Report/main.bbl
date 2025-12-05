@@ -35,4 +35,7 @@ S.~Karaman and E.~Frazzoli, ``Sampling-based algorithms for optimal motion plann
 \bibitem{geeksforgeeks_kdtree}
 {GeeksforGeeks}, ``Search and insertion in k-dimensional tree (kd-tree),'' \url{https://www.geeksforgeeks.org/dsa/search-and-insertion-in-k-dimensional-tree/}.
 
+\bibitem{minguez_nd_2004}
+J.~Minguez and L.~Montano, ``Nearness diagram navigation (nd): Collision avoidance in troublesome scenarios,'' \emph{IEEE Transactions on Robotics and Automation}, vol.~20, no.~1, pp. 45--59, Feb. 2004.
+
 \end{thebibliography}

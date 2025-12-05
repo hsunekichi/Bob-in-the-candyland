@@ -7,7 +7,7 @@ var MAX_NEIGHBORS: int = 5 ## Maximum number of neighbors to consider when conne
 var SAMPLE_DISTANCE_MULTIPLIER: float = 3.5 ## Multiplier for the sampling disk around the actor and goal. 1 means the circle will pass through each of them
 var MIN_SAMPLE_DISTANCE: float = 0.45 * World.ppu ## Minimum distance to consider a neighbor valid when connecting a new point
 var MIN_SAMPLE_DISTANCE_PATH: float = 0.2 * World.ppu ## Minimum distance to consider a neighbor valid when connecting a new point sampled along the path
-var PATH_SAMPLING_PROBABILITY: float = 0.4 ## Probability to sample along the current path instead of the global circle when a path exists
+var PATH_SAMPLING_PROBABILITY: float = 0.3 ## Probability to sample along the current path instead of the global circle when a path exists
 var PATH_SAMPLING_RADIUS: float = 1.0 * World.ppu ## Radius around path points for sampling
 
 var MAX_TREE_SIZE: int = 2000 ## Maximum number of nodes in the RTT* tree when no path exists

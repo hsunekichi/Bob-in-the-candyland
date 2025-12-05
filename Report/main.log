@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.11.21)  5 DEC 2025 12:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.11.21)  5 DEC 2025 12:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -486,31 +486,37 @@ File: Images/RRTdisplay.png Graphic file (type png)
 <use Images/RRTdisplay.png>
 Package pdftex.def Info: Images/RRTdisplay.png  used on input line 207.
 (pdftex.def)             Requested size: 147.43236pt x 83.22343pt.
- [2 <./Images/SpiralOfDeath.png> <./Images/RRTdisplay.png>] [3]
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 323.
+ [2 <./Images/SpiralOfDeath.png> <./Images/RRTdisplay.png>]
+<Images/RRTTrajectory.png, id=141, 1154.3125pt x 558.085pt>
+File: Images/RRTTrajectory.png Graphic file (type png)
+<use Images/RRTTrajectory.png>
+Package pdftex.def Info: Images/RRTTrajectory.png  used on input line 313.
+(pdftex.def)             Requested size: 147.43236pt x 71.27625pt.
+ [3 <./Images/RRTTrajectory.png>]
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 330.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
-<Images/NDdiagram.png, id=146, 2413.015pt x 1437.37pt>
+<Images/NDdiagram.png, id=150, 2413.015pt x 1437.37pt>
 File: Images/NDdiagram.png Graphic file (type png)
 <use Images/NDdiagram.png>
-Package pdftex.def Info: Images/NDdiagram.png  used on input line 352.
+Package pdftex.def Info: Images/NDdiagram.png  used on input line 359.
 (pdftex.def)             Requested size: 245.71811pt x 146.35538pt.
-<Images/DemoMaze.png, id=148, 1004.75375pt x 773.89125pt>
+ [4 <./Images/NDdiagram.png>]
+<Images/DemoMaze.png, id=161, 1004.75375pt x 773.89125pt>
 File: Images/DemoMaze.png Graphic file (type png)
 <use Images/DemoMaze.png>
-Package pdftex.def Info: Images/DemoMaze.png  used on input line 406.
+Package pdftex.def Info: Images/DemoMaze.png  used on input line 413.
 (pdftex.def)             Requested size: 147.43236pt x 113.55164pt.
- [4 <./Images/NDdiagram.png>]
-<Images/DemoMazeOpen.png, id=159, 998.73125pt x 773.89125pt>
+<Images/DemoMazeOpen.png, id=163, 998.73125pt x 773.89125pt>
 File: Images/DemoMazeOpen.png Graphic file (type png)
 <use Images/DemoMazeOpen.png>
-Package pdftex.def Info: Images/DemoMazeOpen.png  used on input line 425.
+Package pdftex.def Info: Images/DemoMazeOpen.png  used on input line 432.
 (pdftex.def)             Requested size: 147.43236pt x 114.23653pt.
-<Images/profiler.png, id=161, 829.0975pt x 202.7575pt>
+<Images/profiler.png, id=165, 829.0975pt x 202.7575pt>
 File: Images/profiler.png Graphic file (type png)
 <use Images/profiler.png>
-Package pdftex.def Info: Images/profiler.png  used on input line 488.
+Package pdftex.def Info: Images/profiler.png  used on input line 495.
 (pdftex.def)             Requested size: 196.57523pt x 48.07187pt.
  [5 <./Images/DemoMaze.png> <./Images/DemoMazeOpen.png> <./Images/profiler.png>] (./main.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 36--37
@@ -543,18 +549,18 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 1ADAE43342BFB015632883DCAB048CE5;3442.
  ) 
 Here is how much of TeX's memory you used:
- 12455 strings out of 476106
- 193716 string characters out of 5793932
+ 12466 strings out of 476106
+ 193996 string characters out of 5793932
  1942975 words of memory out of 5000000
- 34221 multiletter control sequences out of 15000+600000
+ 34230 multiletter control sequences out of 15000+600000
  595843 words of font info for 110 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 75i,9n,79p,619b,443s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,9n,79p,619b,444s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (6 pages, 2168736 bytes).
+Output written on main.pdf (6 pages, 2196217 bytes).
 PDF statistics:
- 231 PDF objects out of 1000 (max. 8388607)
- 189 compressed objects within 2 object streams
- 45 named destinations out of 1000 (max. 500000)
- 233 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 236 PDF objects out of 1000 (max. 8388607)
+ 192 compressed objects within 2 object streams
+ 47 named destinations out of 1000 (max. 500000)
+ 238 words of extra memory for PDF output out of 10000 (max. 10000000)
 
