@@ -308,7 +308,14 @@ selects its second endpoint as the target to reach.
 To prevent the agent from getting stuck at the endpoints, if the next segment endpoint has no 
 obstructions the agent skips to it directly.
 
-[Figure of a trajectory, the selected segment and the target point]
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.6\columnwidth]{Images/RRTTrajectory.png}
+    \caption{Display of the trajectory following logic. The agent (bat character) follows the path (grey line) by targeting the next segment endpoint (green circle). In the figure multiple segments are computed, but only the next one (Computed distance of the green arrow) is used as target, the other segments are ignored (red arrow).
+    }
+    \label{fig:rrttrajectory}
+\end{figure}
+
 
 \section{Local planner: Discretized nearness diagram}\label{sec:ND}
 
