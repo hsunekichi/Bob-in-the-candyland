@@ -243,7 +243,7 @@ func on_hit() -> bool:
 		global_position = maze.get_start_position()
 		
 	$DamageSFX.play()
-	$JetPackSFX.stop()
+	disable_propulsion()
 
 	return true
 
@@ -262,20 +262,17 @@ func end_sugar_rush() -> void:
 	sugarRushCooldownTimer.start()
 	
 func _apply_propulsion(delta: float) -> void:
+	# Check for propulsion input
 	if Input.is_action_pressed("Jump"):
-		if not isPropulsing:
-			enable_propulsion()
+		enable_propulsion()
+	else:
+		disable_propulsion()
 
+	# Apply upward propulsion
+	if isPropulsing:
 		var target_velocity_y := -propulsor_speed
 		var accel_y := propulsor_acceleration * delta
-		
 		velocity.y = move_toward(velocity.y, target_velocity_y, accel_y)
-		
-		if not $JetPackSFX.is_playing():
-			$JetPackSFX.play()
-	else:
-		$JetPackSFX.stop()
-		disable_propulsion()
 
 func _apply_gravity(delta: float) -> void:
 	if not isPropulsing and not is_on_floor():
@@ -303,8 +300,6 @@ func _update_animations() -> void:
 	if not is_on_floor(): # Fly animations
 		if animator.current_animation != "Fly":
 			animator.play("Fly")
-		if isPropulsing:
-			enable_propulsion()
 	elif velocity.x != 0:
 		if animator.current_animation != "Walk":
 			animator.play("Walk")
@@ -312,17 +307,25 @@ func _update_animations() -> void:
 		if animator.current_animation != "Idle":
 			animator.play("Idle")
 	
+	if isPropulsing:
+		if not $Propulsors.visible: $Propulsors.visible = true
+	else:
+		if 	   $Propulsors.visible: $Propulsors.visible = false
+
 	if velocity.x != 0:
 		look_to(velocity.x)
 
 func enable_propulsion() -> void:
-	$Propulsors.visible = true
-	isPropulsing = true
-	sit_timer.stop()
+	if not isPropulsing:
+		isPropulsing = true
+		sit_timer.stop()
+		if not $JetPackSFX.is_playing():
+			$JetPackSFX.play()
 
 func disable_propulsion() -> void:
-	$Propulsors.visible = false
-	isPropulsing = false
+	if isPropulsing:
+		isPropulsing = false
+		$JetPackSFX.stop()
 
 ######### Direction Helpers #########
 func looking_dir_x() -> float:
