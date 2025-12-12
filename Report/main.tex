@@ -303,10 +303,12 @@ finding valid paths in a few seconds even in complex, dynamic environments.
 
 Once the global planner provides a path, the agent needs to follow it.
 For that, the trajectory follower iterates over all path segments to find the closest one to the agent, and 
-selects its second endpoint as the target to reach.
+selects its second endpoint as the target to reach. In addition, the agent may skip segments if the direct path to
+future endpoints is free of obstacles. Currently, only the next segment endpoint is considered for skipping.
 
-To prevent the agent from getting stuck at the endpoints, if the next segment endpoint has no 
-obstructions the agent skips to it directly.
+To prevent the agent from getting stuck at the endpoints, the target is only allowed to 
+change forward. If an agressive path change makes the closest segment behind the agent,
+then a replanning will be trigerred to prevent oscillations.
 
 \begin{figure}[!ht]
     \centering

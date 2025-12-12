@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.11.21)  5 DEC 2025 13:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.11.21)  12 DEC 2025 19:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -490,38 +490,41 @@ Package pdftex.def Info: Images/RRTdisplay.png  used on input line 207.
 <Images/RRTTrajectory.png, id=141, 3910.61pt x 2129.9575pt>
 File: Images/RRTTrajectory.png Graphic file (type png)
 <use Images/RRTTrajectory.png>
-Package pdftex.def Info: Images/RRTTrajectory.png  used on input line 313.
+Package pdftex.def Info: Images/RRTTrajectory.png  used on input line 315.
 (pdftex.def)             Requested size: 245.71811pt x 133.80452pt.
  [3]
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 330.
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 332.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
 <Images/NDdiagram.png, id=149, 2413.015pt x 1437.37pt>
 File: Images/NDdiagram.png Graphic file (type png)
 <use Images/NDdiagram.png>
-Package pdftex.def Info: Images/NDdiagram.png  used on input line 359.
+Package pdftex.def Info: Images/NDdiagram.png  used on input line 361.
 (pdftex.def)             Requested size: 245.71811pt x 146.35538pt.
 
-Underfull \vbox (badness 7362) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \vbox (badness 3872) has occurred while \output is active []
 
  [4 <./Images/RRTTrajectory.png> <./Images/NDdiagram.png>]
 <Images/DemoMaze.png, id=161, 1004.75375pt x 773.89125pt>
 File: Images/DemoMaze.png Graphic file (type png)
 <use Images/DemoMaze.png>
-Package pdftex.def Info: Images/DemoMaze.png  used on input line 413.
+Package pdftex.def Info: Images/DemoMaze.png  used on input line 415.
 (pdftex.def)             Requested size: 147.43236pt x 113.55164pt.
 <Images/DemoMazeOpen.png, id=163, 998.73125pt x 773.89125pt>
 File: Images/DemoMazeOpen.png Graphic file (type png)
 <use Images/DemoMazeOpen.png>
-Package pdftex.def Info: Images/DemoMazeOpen.png  used on input line 432.
+Package pdftex.def Info: Images/DemoMazeOpen.png  used on input line 434.
 (pdftex.def)             Requested size: 147.43236pt x 114.23653pt.
 <Images/profiler.png, id=165, 829.0975pt x 202.7575pt>
 File: Images/profiler.png Graphic file (type png)
 <use Images/profiler.png>
-Package pdftex.def Info: Images/profiler.png  used on input line 495.
+Package pdftex.def Info: Images/profiler.png  used on input line 497.
 (pdftex.def)             Requested size: 196.57523pt x 48.07187pt.
- [5 <./Images/DemoMaze.png> <./Images/DemoMazeOpen.png> <./Images/profiler.png>] (./main.bbl
+ [5 <./Images/DemoMaze.png> <./Images/DemoMazeOpen.png>] (./main.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 36--37
 []\OT1/ptm/m/n/8 GeeksforGeeks, ``Search and in-ser-tion in k-dimensional
  []
@@ -543,7 +546,7 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the US letter (8.5in X 11in) paper size.
 
-[6] (./main.aux)
+[6 <./Images/profiler.png>] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -560,7 +563,7 @@ Here is how much of TeX's memory you used:
  59 hyphenation exceptions out of 8191
  75i,9n,79p,619b,444s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (6 pages, 3297613 bytes).
+Output written on main.pdf (6 pages, 3297760 bytes).
 PDF statistics:
  236 PDF objects out of 1000 (max. 8388607)
  192 compressed objects within 2 object streams
