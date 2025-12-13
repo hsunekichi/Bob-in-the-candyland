@@ -177,9 +177,12 @@ func _process_normal_state(delta: float) -> void:
 	# Start sugar rush
 	if Input.is_action_just_pressed("Dash") \
 	   and sugarRushCooldownTimer.is_stopped() \
-	   and sugarRushDurationTimer.is_stopped() \
-	   and sugar_level > 0:
-		start_sugar_rush()
+	   and sugarRushDurationTimer.is_stopped():
+	
+		if sugar_level > 0:
+			start_sugar_rush()
+		else:
+			World.sugar_rush_failed_no_charges.emit()
 	
 	_handle_sugar_rush()
 	_apply_propulsion(delta)
@@ -336,3 +339,4 @@ func looking_dir_x() -> float:
 func look_to(direction: float) -> void:
 	if sign(direction) != looking_dir_x():
 		scale.x = -scale.x
+		

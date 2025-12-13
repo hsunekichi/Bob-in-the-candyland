@@ -1510,10 +1510,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -314.0
-offset_top = -49.5
-offset_right = 314.0
-offset_bottom = 49.5
+offset_left = -312.0
+offset_top = -85.0
+offset_right = 316.0
+offset_bottom = 14.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_focus_color = Color(0.4509804, 0.15686275, 0.050980393, 1)
@@ -1525,10 +1525,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -255.0
-offset_top = 36.0
-offset_right = 255.0
-offset_bottom = 135.0
+offset_left = -253.0
+offset_top = 0.5
+offset_right = 257.0
+offset_bottom = 99.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_focus_color = Color(0.4509804, 0.15686275, 0.050980393, 1)
@@ -1542,14 +1542,31 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -202.0
-offset_top = 122.0
-offset_right = 202.0
-offset_bottom = 221.0
+offset_left = -200.0
+offset_top = 86.5
+offset_right = 204.0
+offset_bottom = 185.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_focus_color = Color(0.4509804, 0.15686275, 0.050980393, 1)
 text = "Controls"
+icon = ExtResource("4_a2d0p")
+
+[node name="Quit" parent="Background" instance=ExtResource("2_853f1")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -196.0
+offset_top = 271.0
+offset_right = 208.0
+offset_bottom = 370.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_focus_color = Color(0.4509804, 0.15686275, 0.050980393, 1)
+text = "Quit game"
 icon = ExtResource("4_a2d0p")
 
 [node name="DifficultyTexture" type="TextureRect" parent="Background"]
@@ -1559,10 +1576,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -152.0
-offset_top = 226.0
-offset_right = 132.0
-offset_bottom = 301.0
+offset_left = -150.0
+offset_top = 190.5
+offset_right = 134.0
+offset_bottom = 265.5
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_a2d0p")
@@ -1639,5 +1656,7 @@ volume_db = -10.0
 [connection signal="pressed" from="Background/PlayDebug" to="." method="_on_play_debug"]
 [connection signal="mouse_entered" from="Background/Controls" to="." method="_on_mycontrol_mouse_entered"]
 [connection signal="pressed" from="Background/Controls" to="." method="_on_play_controls"]
+[connection signal="mouse_entered" from="Background/Quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="pressed" from="Background/Quit" to="." method="_on_play_quit"]
 [connection signal="mouse_entered" from="Background/DifficultyTexture/DifficultyOptions" to="." method="_on_difficulty_options_mouse_entered"]
 [connection signal="mouse_entered" from="Background/NavToggle" to="." method="_on_nav_toggle_mouse_entered"]

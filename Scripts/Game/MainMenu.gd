@@ -24,8 +24,16 @@ func _on_play_debug() -> void:
 func _on_play_controls() -> void:
 	World.load_controls()
 	$AudioStreamPlayer2.play()
+	
+func _on_play_quit() -> void:
+	$AudioStreamPlayer2.play()
+	await $AudioStreamPlayer2.finished
+	get_tree().quit()
 
 func _on_mycontrol_mouse_entered():
+	$AudioStreamPlayer.play()
+	
+func _on_quit_mouse_entered():
 	$AudioStreamPlayer.play()
 
 func _on_nav_toggle_mouse_entered() -> void:

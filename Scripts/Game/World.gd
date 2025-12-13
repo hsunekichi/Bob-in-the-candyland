@@ -34,7 +34,7 @@ var show_navigation: bool = false
 
 signal game_finished
 signal config_changed
-
+signal sugar_rush_failed_no_charges
 
 func _ready() -> void:
 	# Set clear color

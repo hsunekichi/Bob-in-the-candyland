@@ -6,6 +6,7 @@ extends CanvasLayer
 @onready var sugar_display: Node = $SugarDisplay/HBoxContainer
 @onready var pause_menu: Control = $PauseMenu
 @onready var hungry_display: Node = $HungryDisplay/HungryTexture
+@onready var on_game: bool = false
 
 func _ready() -> void:
 	var tr_nodes = transition.get_children()
@@ -30,6 +31,7 @@ func _ready() -> void:
 	$HealthDisplay.visible = false
 
 	World.config_changed.connect(config_changed)
+	World.sugar_rush_failed_no_charges.connect(_on_sugar_rush_failed_no_charges)
 
 func config_changed() -> void:
 	$SugarRushEffect.total_duration = World.config_value("sugar_rush_duration", 2.0)
@@ -105,6 +107,7 @@ func disable_transition():
 		child.visible = false	
 
 func update_health(new_health: int) -> void:
+	on_game = true
 	$HealthDisplay.update_value(new_health)
 	
 
@@ -117,6 +120,7 @@ func show_hud() -> void:
 	$HealthDisplay.visible = true
 
 func on_game_ended() -> void:
+	on_game = false
 	health_display.visible = false
 	sugar_display.visible = false
 	$HealthDisplay.visible = false
@@ -130,7 +134,7 @@ func close_pause() -> void:
 	get_tree().paused = false
 
 func _input(event):
-	if event.is_action_pressed("ui_cancel") and health_display.visible == true:
+	if event.is_action_pressed("ui_cancel") and on_game == true:
 		if get_tree().paused:
 			close_pause()
 		else:
@@ -142,6 +146,7 @@ func _on_ResumeButton_pressed():
 
 func _on_RestartButton_pressed() -> void:
 	close_pause()
+	World.game_finished.emit()
 	await get_tree().process_frame
 	World.load_maze()
 	$PauseMenu/AudioStreamPlayer2.play()
@@ -149,6 +154,7 @@ func _on_RestartButton_pressed() -> void:
 func _on_HomeButton_pressed() -> void:
 	close_pause()
 	await get_tree().process_frame
+	World.game_finished.emit()
 	World.load_menu()
 	$PauseMenu/AudioStreamPlayer2.play()
 	
@@ -157,3 +163,8 @@ func _on_mycontrol_mouse_entered():
 
 func _on_viewport_size_changed() -> void:
 	transition.rescale_all(transition.get_viewport_rect().size / Vector2(1920, 1080))
+
+
+func _on_sugar_rush_failed_no_charges() -> void:
+	if $SugarDisplay and $SugarDisplay.has_method("no_charges_feedback"):
+		$SugarDisplay.no_charges_feedback()

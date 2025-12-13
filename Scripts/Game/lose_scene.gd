@@ -24,4 +24,3 @@ func _on_main_menu_button_pressed() -> void:
 
 func _on_mycontrol_mouse_entered():
 	$AudioStreamPlayer.play()
-
