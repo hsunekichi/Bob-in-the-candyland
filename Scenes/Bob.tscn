@@ -674,10 +674,15 @@ scale = Vector2(0.4206063, 0.39396933)
 sprite_frames = SubResource("SpriteFrames_wpjfl")
 autoplay = "default"
 
-[node name="RayDestructor" type="RayCast2D" parent="."]
+[node name="RayDestructorR" type="RayCast2D" parent="."]
 position = Vector2(33, 53)
 enabled = false
 target_position = Vector2(61, 0)
+
+[node name="RayDestructorT" type="RayCast2D" parent="."]
+position = Vector2(0, 12)
+enabled = false
+target_position = Vector2(0, -56)
 
 [node name="Center" type="Marker2D" parent="."]
 position = Vector2(0, 45)

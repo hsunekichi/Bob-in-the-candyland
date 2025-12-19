@@ -1,12 +1,12 @@
 {
 	"starting_sugar": 0,
     "starting_health": 3,
-    "sugar_rush_duration": 2.0,
+    "sugar_rush_duration": 2.5,
     "sugar_rush_cooldown": 1.5,
     
     "maze_donuts": 9,
     "maze_enemies": 20,
     "maze_width": 50,
     "maze_height": 40,
-    "maze_wall_skip_probability": 0.125
+    "maze_wall_skip_probability": 0.140
 }

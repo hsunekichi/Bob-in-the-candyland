@@ -9,7 +9,7 @@ signal sugar_rush_failed
 ######### Movement Parameters #########
 @export var speed: float = 250.0
 @export var air_speed: float = 175.0
-@export var propulsor_speed: float = 256.0
+@export var propulsor_speed: float = 300.0
 
 @export var acceleration: float = 1000.0
 @export var brake_acceleration: float = 2500.0
@@ -50,7 +50,8 @@ var moveInput: Vector2 = Vector2.ZERO
 
 ######### Components #########
 @onready var animator: AnimationPlayer = $AnimationPlayer
-@onready var rayDestructor: RayCast2D = $RayDestructor
+@onready var rayDestructorR: RayCast2D = $RayDestructorR
+@onready var rayDestructorT: RayCast2D = $RayDestructorT
 @onready var player_center: Node2D = $Center
 
 ######### Initialization #########
@@ -203,10 +204,16 @@ func _handle_sugar_rush() -> void:
 
 	var maze := _maze as MazeGenerator
 
-	var origin = rayDestructor.global_position
-	var target = rayDestructor.to_global(rayDestructor.target_position)
-
+	# Check right raycast
+	var origin = rayDestructorR.global_position
+	var target = rayDestructorR.to_global(rayDestructorR.target_position)
 	var col: Vector2i = maze.raycast_cells(origin, target)
+
+	# If no collision on right, check top raycast
+	if col[0] == -1:
+		origin = rayDestructorT.global_position
+		target = rayDestructorT.to_global(rayDestructorT.target_position)
+		col = maze.raycast_cells(origin, target)
 
 	if col[0] != -1:
 		# raycast_cells returns tilemap coordinates, convert directly to world
