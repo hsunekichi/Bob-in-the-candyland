@@ -225,7 +225,8 @@ color = Color(0, 0, 0, 1)
 
 [node name="Transition" type="Control" parent="."]
 visible = false
-z_index = 10
+z_index = 100
+z_as_relative = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1.0
