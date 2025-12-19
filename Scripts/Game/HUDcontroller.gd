@@ -148,7 +148,11 @@ func _on_RestartButton_pressed() -> void:
 	close_pause()
 	World.game_finished.emit()
 	await get_tree().process_frame
-	World.load_maze()
+	
+	if World.isDemo():
+		World.load_debug()
+	else:
+		World.load_maze()
 	$PauseMenu/AudioStreamPlayer2.play()
 
 func _on_HomeButton_pressed() -> void:
@@ -156,6 +160,7 @@ func _on_HomeButton_pressed() -> void:
 	await get_tree().process_frame
 	World.game_finished.emit()
 	World.load_menu()
+	World.demo = false
 	$PauseMenu/AudioStreamPlayer2.play()
 	
 func _on_mycontrol_mouse_entered():

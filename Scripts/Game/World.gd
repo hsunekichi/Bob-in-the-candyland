@@ -14,6 +14,7 @@ var debug_scene: PackedScene = preload("res://Scenes/MainScenes/Debug.tscn")
 var controls_scene: PackedScene = preload("res://Scenes/MainScenes/ControlsScene.tscn")
 
 var scene_changing: bool = false
+var demo: bool = false
 
 @export var main_menu_scene_path: StringName = "res://Scenes/MainScenes/MainMenu.tscn"
 
@@ -154,7 +155,14 @@ func load_debug() -> void:
 		HUD.show_hud()
 		Player.initialize(true)
 		Player.increase_sugar(10, false)
+	demo = true
 	change_scene(debug_scene, "Game", self, initialize_player)
+
+func isDemo() -> bool:
+	if demo:
+		return true
+	return false
+
 func game_completed() -> void:
 	game_finished.emit()
 	change_scene(win_scene, "", HUD)
