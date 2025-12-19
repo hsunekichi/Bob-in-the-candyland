@@ -18,12 +18,14 @@ func _ready() -> void:
 
 func _on_pressed() -> void:
 	$"../../AudioStreamPlayer2".play()
+	
 	if _animating:
 		return  # Prevent multiple animations at once
 	
 	if is_filled:
 		_animate_empty()
 	else:
+		get_parent().get_parent()._show_warning_menu()
 		_animate_fill()
 	
 	is_filled = !is_filled

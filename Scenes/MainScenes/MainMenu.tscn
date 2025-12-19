@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://f4psnkm1dc6d"]
+[gd_scene load_steps=44 format=4 uid="uid://f4psnkm1dc6d"]
 
 [ext_resource type="Script" uid="uid://b34eqsowat22x" path="res://Scripts/Game/MainMenu.gd" id="1_8saeu"]
 [ext_resource type="AudioStream" uid="uid://dvwpyd7prwovg" path="res://Art/SFX/Sliding.mp3" id="2_7oilf"]
@@ -20,6 +20,8 @@
 [ext_resource type="Texture2D" uid="uid://bvwxh8smc8ji2" path="res://Art/candy land - UI/check box - unchecked L.png" id="9_rqm0p"]
 [ext_resource type="Texture2D" uid="uid://cpewa1qi2ftun" path="res://Art/candy land - UI/switch - 70%.png" id="10_e7437"]
 [ext_resource type="Texture2D" uid="uid://uexan8qvxpsn" path="res://Art/candy land - UI/switch - 100%.png" id="11_owi87"]
+[ext_resource type="Texture2D" uid="uid://dvomyaw5t5gii" path="res://Art/candy land - UI/menu - Large H.png" id="19_djf50"]
+[ext_resource type="Texture2D" uid="uid://4aeyul036y41" path="res://Art/Screens/WarningPathTransparent.png" id="20_3jne8"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5mpcw"]
 load_path = "res://.godot/imported/MenuBackground.png-e3d3db516d287e73597e8bb477357f4e.ctex"
@@ -1636,6 +1638,55 @@ texture_70 = ExtResource("10_e7437")
 texture_100 = ExtResource("11_owi87")
 animation_duration = 0.1
 
+[node name="WarningMenu" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 929.0
+offset_top = 569.0
+offset_right = 969.0
+offset_bottom = 609.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PauseScreen" type="TextureRect" parent="WarningMenu"]
+texture_filter = 1
+layout_mode = 0
+offset_left = -569.0
+offset_top = -354.0
+offset_right = 1351.0
+offset_bottom = 726.0
+scale = Vector2(0.6105469, 0.66898143)
+texture = ExtResource("19_djf50")
+
+[node name="Text" type="TextureRect" parent="WarningMenu"]
+modulate = Color(1, 1, 1, 0.99607843)
+layout_mode = 0
+offset_left = -792.0
+offset_top = -271.0
+offset_right = 1738.7693
+offset_bottom = 1163.913
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("20_3jne8")
+
+[node name="ConfirmButton" parent="WarningMenu" instance=ExtResource("2_853f1")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.17500001
+anchor_top = 6.162
+anchor_right = 0.17500001
+anchor_bottom = 6.162
+offset_left = -217.0
+offset_top = -49.48001
+offset_right = 217.0
+offset_bottom = 49.51999
+theme_override_colors/font_focus_color = Color(0.4509804, 0.15686275, 0.050980393, 1)
+text = "Ok"
+icon = ExtResource("5_a2d0p")
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_7oilf")
 volume_db = -40.0
@@ -1647,7 +1698,6 @@ volume_db = -10.0
 [connection signal="mouse_entered" from="Background/PlayButton" to="." method="_on_mycontrol_mouse_entered"]
 [connection signal="pressed" from="Background/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="mouse_entered" from="Background/PlayDebug" to="." method="_on_mycontrol_mouse_entered"]
-[connection signal="pressed" from="Background/PlayDebug" to="." method="_on_play_debug_pressed"]
 [connection signal="pressed" from="Background/PlayDebug" to="." method="_on_play_debug"]
 [connection signal="mouse_entered" from="Background/Controls" to="." method="_on_mycontrol_mouse_entered"]
 [connection signal="pressed" from="Background/Controls" to="." method="_on_play_controls"]
@@ -1655,3 +1705,5 @@ volume_db = -10.0
 [connection signal="pressed" from="Background/Quit" to="." method="_on_play_quit"]
 [connection signal="mouse_entered" from="Background/DifficultyTexture/DifficultyOptions" to="." method="_on_difficulty_options_mouse_entered"]
 [connection signal="mouse_entered" from="Background/NavToggle" to="." method="_on_nav_toggle_mouse_entered"]
+[connection signal="mouse_entered" from="WarningMenu/ConfirmButton" to="." method="_on_confirm_warning_menu_mouse_entered"]
+[connection signal="pressed" from="WarningMenu/ConfirmButton" to="." method="_on_confirm_warning_menu_pressed"]
