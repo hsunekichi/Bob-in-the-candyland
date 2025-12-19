@@ -447,6 +447,55 @@ In this case, it simply moves the agent in the desired direction at a constant s
 This is the place where the designer can implement more complex movement mechanics like acceleration, jumping, etc,
 although many of those would require to modify the global and local planners to take them into account.
 
+\subsection{Adapting the stack to ROS}
+
+Adapting this work to ROS~2 mostly means formalizing the interfaces 
+between layers and running each component as a node (or a plugin)
+with clear contracts, rather than as in-engine scripts. 
+The core algorithms remain the same, but perception, state, 
+commands, and time become explicit data streams with well-defined rates and coordinate frames.
+
+In a ROS~2 navigation setup, the cleanest mapping is to 
+integrate with the \emph{Navigation2} (Nav2) architecture:
+\begin{itemize}
+    \item \textbf{Global planner $\rightarrow$ Nav2 global-planner plugin:} Wrap the RRT* 
+    planner as a \texttt{nav2\_core::GlobalPlanner} plugin. Input 
+    is the current pose and goal pose in a global frame (e.g., \texttt{map}); 
+    output is a \texttt{nav\_msgs/Path}. Collision checking moves from 
+    Godot ray-casts to queries over a costmap (inflation for footprint clearance) 
+    plus optional segment validity checks.
+
+    \item \textbf{Trajectory follower $\rightarrow$ controller input shaping:} The waypoint 
+    selection logic becomes the ``carrot'' or lookahead target that feeds 
+    the controller at a fixed control rate. This can live inside the 
+    controller plugin (preferred for tight timing) or as a small node 
+    that converts \texttt{nav\_msgs/Path} into intermediate targets.
+
+    \item \textbf{Local planner $\rightarrow$ Nav2 controller plugin:} Implement 
+    the discretized holonomic ND as a \texttt{nav2\_core::Controller} 
+    plugin producing \texttt{geometry\_msgs/Twist}. Replace the in-engine 
+    sensing with costmap-based obstacle distances (or a laser/pointcloud pipeline), 
+    keeping the same sector discretization and selection rule. This section becomes
+    less relevant thanks to the possibility of using obstacle inflation in the global planner.
+
+    \item \textbf{Low-level control $\rightarrow$ robot base interface:} The game-specific 
+    movement (acceleration/jump) becomes the robot platform controller (diff-drive/holonomic base). 
+    For non-holonomic platforms, the ND selection must be constrained to 
+    feasible velocities, or coupled with a kinematic layer (e.g., DWA-style admissibility filtering).
+\end{itemize}
+
+Operationally, the adaptation requires (i) a consistent 
+TF tree (\texttt{map}$\rightarrow$\texttt{odom}$\rightarrow$\texttt{base\_link}),
+(ii) a source of localization/odometry, and (iii) 
+an obstacle representation (local/global costmaps).
+For multi-agent pursuit, each agent runs the same stack under a
+namespace (\texttt{/bat\_i/...}) with isolated TF, costmaps, and 
+parameters, while sharing global static data (map) when applicable. 
+Finally, debugging and evaluation move naturally to ROS tooling: 
+RViz for path/TF visualization and rosbag2 for recording trajectories, 
+replans, and timing to reproduce corner cases.
+
+
 \section{Testing}\label{sec:testing}
 
 \subsection{Navigation testing}\label{sec:nav_testing}
