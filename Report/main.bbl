@@ -7,7 +7,8 @@
 \providecommand{\BIBentrySTDinterwordspacing}{\spaceskip=0pt\relax}
 \providecommand{\BIBentryALTinterwordstretchfactor}{4}
 \providecommand{\BIBentryALTinterwordspacing}{\spaceskip=\fontdimen2\font plus
-\BIBentryALTinterwordstretchfactor\fontdimen3\font minus \fontdimen4\font\relax}
+\BIBentryALTinterwordstretchfactor\fontdimen3\font minus
+  \fontdimen4\font\relax}
 \providecommand{\BIBforeignlanguage}[2]{{%
 \expandafter\ifx\csname l@#1\endcsname\relax
 \typeout{** WARNING: IEEEtran.bst: No hyphenation pattern has been}%
@@ -21,33 +22,61 @@
 \BIBdecl
 
 \bibitem{hart_a_star_1968}
-P.~E. Hart, N.~J. Nilsson, and B.~Raphael, ``A formal basis for the heuristic determination of minimum cost paths,'' \emph{IEEE Transactions on Systems Science and Cybernetics}, vol.~4, no.~2, pp. 100--107, 1968.
+P.~E. Hart, N.~J. Nilsson, and B.~Raphael, ``A formal basis for the heuristic
+  determination of minimum cost paths,'' \emph{IEEE Transactions on Systems
+  Science and Cybernetics}, vol.~4, no.~2, pp. 100--107, 1968.
 
 \bibitem{godot_navigation}
-{Godot Engine}, ``Navigation in godot,'' \url{https://docs.godotengine.org/en/stable/tutorials/navigation/navigation_introduction_2d.html}.
+{Godot Engine}, ``Navigation in godot,''
+  \url{https://docs.godotengine.org/en/stable/tutorials/navigation/navigation_introduction_2d.html}.
 
 \bibitem{lavalle_rrt_1998}
-S.~M. LaValle, ``Rapidly-exploring random trees: A new tool for path planning,'' Iowa State University, Tech. Rep., 1998.
+S.~M. LaValle, ``Rapidly-exploring random trees: A new tool for path
+  planning,'' Iowa State University, Tech. Rep., 1998.
 
 \bibitem{karaman_rrtstar}
-S.~Karaman and E.~Frazzoli, ``Sampling-based algorithms for optimal motion planning,'' \emph{The International Journal of Robotics Research}, vol.~30, no.~7, pp. 846--894, Jun 2011.
+S.~Karaman and E.~Frazzoli, ``Sampling-based algorithms for optimal motion
+  planning,'' \emph{The International Journal of Robotics Research}, vol.~30,
+  no.~7, pp. 846--894, Jun 2011.
 
 \bibitem{fox_dwa_1997}
-D.~Fox, W.~Burgard, and S.~Thrun, ``The dynamic window approach to collision avoidance,'' \emph{IEEE Robotics \& Automation Magazine}, vol.~4, no.~1, pp. 23--33, 1997.
+D.~Fox, W.~Burgard, and S.~Thrun, ``The dynamic window approach to collision
+  avoidance,'' \emph{IEEE Robotics \& Automation Magazine}, vol.~4, no.~1, pp.
+  23--33, 1997.
 
 \bibitem{arob_repo}
-H.~M. Trejo and {\'A}.~Villanueva~Agudo, ``Arob practical work: Ar-fp (project repository),'' \url{https://github.com/hsunekichi/AR-FP}, Dec. 2025.
+H.~M. Trejo and {\'A}.~Villanueva~Agudo, ``Arob practical work: Ar-fp (project
+  repository),'' \url{https://github.com/hsunekichi/AR-FP}, Dec. 2025.
 
 \bibitem{spiral_of_death}
-G.~Fiedler, ``Fix your timestep! an analysis on physics timesteps in games,'' \url{https://gafferongames.com/post/fix_your_timestep/}.
+G.~Fiedler, ``Fix your timestep! an analysis on physics timesteps in games,''
+  \url{https://gafferongames.com/post/fix_your_timestep/}.
 
 \bibitem{godot_engine}
 {Godot Engine}, ``Godot engine web page,'' \url{https://godotengine.org/}.
 
-\bibitem{geeksforgeeks_kdtree}
-{GeeksforGeeks}, ``Search and insertion in k-dimensional tree (kd-tree),'' \url{https://www.geeksforgeeks.org/dsa/search-and-insertion-in-k-dimensional-tree/}.
-
 \bibitem{minguez_nd_2004}
-J.~Minguez and L.~Montano, ``Nearness diagram navigation (nd): Collision avoidance in troublesome scenarios,'' \emph{IEEE Transactions on Robotics and Automation}, vol.~20, no.~1, pp. 45--59, Feb. 2004.
+J.~Minguez and L.~Montano, ``Nearness diagram navigation (nd): Collision
+  avoidance in troublesome scenarios,'' \emph{IEEE Transactions on Robotics and
+  Automation}, vol.~20, no.~1, pp. 45--59, Feb. 2004.
+
+\bibitem{cover_hart_1967}
+T.~M. Cover and P.~E. Hart, ``Nearest neighbor pattern classification,''
+  \emph{IEEE Transactions on Information Theory}, vol.~13, no.~1, pp. 21--27,
+  Jan. 1967.
+
+\bibitem{bentley_kdtree_1975}
+J.~L. Bentley, ``Multidimensional binary search trees used for associative
+  searching,'' \emph{Communications of the ACM}, vol.~18, no.~9, pp. 509--517,
+  Sep. 1975.
+
+\bibitem{geeksforgeeks_kdtree}
+{GeeksforGeeks}, ``Search and insertion in k-dimensional tree (kd-tree),''
+  \url{https://www.geeksforgeeks.org/dsa/search-and-insertion-in-k-dimensional-tree/}.
+
+\bibitem{macenski_ros2_2022}
+S.~Macenski, T.~Foote, B.~Gerkey, D.~Lalancette, and W.~Woodall, ``Robot
+  operating system 2: Design, architecture, and uses in the wild,''
+  \emph{Science Robotics}, vol.~7, no.~66, p. eabm6074, 2022.
 
 \end{thebibliography}
