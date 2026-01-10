@@ -434,15 +434,15 @@ to get more detailed information about the obstacle's position.
 If there are no obstacles nearby, the ND controller is completely disabled to save computation time 
 and the agent simply moves toward the goal.
 
-Before performing the valley search, they rays are sorted by their angular distance to the goal direction.
+Before performing the valley search, the rays are sorted by their angular distance to the goal direction.
 This favors testing the most promising valleys first, allowing to early-exit the search as soon as a valid valley is found.
 This optimization is particularly effective in cluttered scenarios where many valleys may be blocked, and directly reduces
 the number of shape-casts needed for clearance refinement. Ray-casts however 
 are always performed for all 8 rays, since it is more performant to use Godot's dedicated raycast node. 
 
-\section{Low-level controler}\label{sec:lowlevelcontrol}
+\section{Low-level controller}\label{sec:lowlevelcontrol}
 
-The low-level controler is responsible for executing the movement commands provided by the local planner.
+The low-level controller is responsible for executing the movement commands provided by the local planner.
 In this case, it simply moves the agent in the desired direction at a constant speed.
 This is the place where the designer can implement more complex movement mechanics like acceleration, jumping, etc,
 although many of those would require to modify the global and local planners to take them into account.
