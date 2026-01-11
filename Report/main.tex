@@ -42,10 +42,9 @@
 This work presents a real-time navigation stack for 2D videogame 
 agents in Godot that plans directly in continuous space without 
 hand-authored navigation graphs. It combines a customized, 
-goal-agnostic RRT* global planner with a simple trajectory 
-follower and a discretized Nearness Diagram (ND) local 
+goal-agnostic RRT* global planner with a discretized Nearness Diagram (ND) local 
 controller for short-horizon obstacle avoidance, and is 
-demonstrated in a maze-like platformer game with dynamic layout changes.
+demonstrated in a maze platformer game with dynamic environment changes.
 Across hand-crafted and procedural mazes, the system 
 produces consistent pursuit behaviour with collision avoidance and 
 remains lightweight enough for real-time use with many
@@ -71,7 +70,7 @@ as it determines how non-player characters move through complex environments
 while avoiding obstacles and respecting design constraints. 
 It also lies at the heart of behaviour AI, since characters 
 must not only reach their goals but do so in ways that appear intentional, 
-legible and consistent with the game's fiction. From enemy flanking in 
+legible and consistent within the game's fiction. From enemy flanking in 
 action games to crowd movement in open worlds or unit coordination 
 in strategy titles, robust navigation directly impacts believability 
 and player immersion. At the same time, navigation systems must remain 
@@ -80,10 +79,7 @@ so that designers and artists can obtain plausible, cinematic movement
 without manually scripting every trajectory. 
 
 Classical pipelines rely on graph-based representations (figure \ref{fig:godot_navmesh}), such as navigation meshes or waypoint graphs, 
-and search algorithms like A* \cite{hart_a_star_1968}, which require a carefully constructed graph discretizing the free space.
-In practice, these graphs are often built or curated by level designers, a tedious and error-prone 
-process that is difficult to maintain in large or dynamic worlds. Automatic graph construction is 
-possible but complex, hard to adapt in real time, and challenging to tune for artistic or gameplay requirements. 
+and search algorithms like A* \cite{hart_a_star_1968}, which require a carefully constructed graph discretizing the free space. In practice, these graphs are often built or curated by level designers, a tedious and error-prone process that is difficult to maintain in large or dynamic worlds. Automatic graph construction is possible but complex, hard to adapt in real time, and challenging to tune for artistic or gameplay requirements. 
 
 \begin{figure}[!ht]
     \centering
@@ -97,7 +93,7 @@ As an alternative, robotics research has developed plenty of methods that operat
 such as sampling-based planners and reactive navigation. However, many navigation pipelines designed for robotics
 are too computationally expensive to run in a videogame, since they are designed to work in a robot with 
 its own dedicated resources. In contrast, videogame agents must share limited CPU time with other agents, 
-rendering, physics, AI, and other systems, using frameworks that typically have very limited multithreading capabilities
+rendering, physics, AI, and other systems, all that using frameworks that typically have very limited multithreading capabilities
 and need to run at a high framerate (60+ FPS). Thus, the challenge is to design a navigation stack that is both efficient and effective
 enough to run in real-time within these constraints.
 
@@ -134,17 +130,16 @@ budgets rather than theoretical optimality guarantees.
 
 \subsection{Bob in the candyland}
 
-To showcase the navigation pipeline, a simple videogame has been created (figure \ref{fig:candyland_menu}).
-It consists on a 2D platformer where Bob the triceratops (the player) has to navigate through a 
-procedurally generated candy maze to reach the end. The maze has bat enemies (the agents) that pursue the player 
-using the navigation pipeline described in this report.
+A videogame has been created to showcase the navigation pipeline (figure \ref{fig:candyland_menu}).
+It is a 2D platformer where Bob the triceratops (the player) has to navigate through a 
+procedurally generated candy maze to reach the exit. The maze has bat enemies (the agents) that pursue the player using the navigation pipeline described in this report.
 
 To make the challenge more interesting the player has a special ability that 
-allows to destroy walls to create new paths in the maze, making it a dynamic environment.
+allows to destroy walls to create new paths, making the maze a dynamic environment.
 
-In addition, it also includes a debug level used in this report to test and visualize the navigation pipeline.
+In addition, it also includes a test level used in this report to benchmark the navigation pipeline.
 It is fully implemented in GDscript (a python-like language), allowing easy deployment and modification, 
-and the releases can be downloaded from the project repository \cite{arob_repo}.
+and the release can be downloaded from the project repository \cite{arob_repo}.
 
 \begin{figure}[!ht]
     \centering
@@ -171,7 +166,7 @@ checks) to sense obstacles and path visibility, and then
 write movement commands (e.g., target velocities) that the 
 physics engine applies on the next step. 
 
-Maintaining this latency target consistently is crucial 
+Maintaining the latency target consistently is crucial 
 for responsive control: if navigation logic takes 
 too long the physics engine will skip ticks to catch up, 
 causing stuttering and unresponsive behaviour that 
@@ -631,8 +626,8 @@ smooth and robust to dynamic changes, providing a usable navigation
 solution for videogame scenarios without sacrificing performance or designer control.
 
 \section{Limitations and future work}
-The main limitations arise from bounded sampling regions and capped tree sizes, which can prevent discovering long detours around large obstacles.
-Future work includes adaptive expansion of the sampling domain, more informed sampling heuristics for large-scale mazes, and moving performance-critical components (e.g., nearest-neighbor queries) to a compiled implementation to further reduce runtime variance under heavy multi-agent load.
+The main limitations arise from bounding the sampling region and limiting the tree size, which can prevent discovering long paths around large obstacles.
+Future work could include adaptive expansion of the sampling domain, better informed sampling heuristics for large-scale mazes, better tree reusage during environment changes and moving performance-critical components (e.g. kd-tree) to a C++ implementation to further reduce runtime overhead under heavy multi-agent load.
 
 \appendix
 \label{sec:appendix}
@@ -656,6 +651,11 @@ The rest of the project contains an Art folder with the sprites used,
 World.gd which provides global convenience logic, Scenes which 
 contains Godot scene files, and Scripts/Navigation/Display which contains the 
 classes used to visualize the RRT* tree for debugging purposes.
+
+\subsection{Content and tools}
+
+Most of the graphic art used in the project comes from free online resources in Itch.io,
+and the rest has been created by the team using Canva and Gimp. The music and sound effects have been created using the AI tool Suno \cite{suno_ai}.
 
 \bibliographystyle{IEEEtran}
 \bibliography{biblio}

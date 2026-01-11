@@ -1,13 +1,13 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.11.28)  10 JAN 2026 10:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.5.6)  11 JAN 2026 23:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/angel.ANGEL/Documents/GitHub/AR-FP/report/main.tex
-(c:/Users/angel.ANGEL/Documents/GitHub/AR-FP/report/main.tex
+**/home/hsunekichi/Escritorio/AR-FP/Report/main.tex
+(/home/hsunekichi/Escritorio/AR-FP/Report/main.tex
 LaTeX2e <2023-11-01> patch level 1
-L3 programming layer <2024-01-04>
-(IEEEconf.cls
+L3 programming layer <2024-01-22>
+(./IEEEconf.cls
 
 LaTeX Warning: You have requested document class `IEEEconf',
                but the document class provides `ieeeconf'.
@@ -19,7 +19,7 @@ Document Class: ieeeconf 2004/1/15 revision V1.6b by Pradeep Misra
 \@IEEEtrantmpcountB=\count188
 \@IEEEtrantmptoksA=\toks17
 LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 794.
-(C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1ptm.fd
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 \@IEEEnormalsizefontbaselineskip=\skip48
@@ -93,21 +93,21 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <24> not available
 )
 ** ATTENTION: Overriding command lockouts (line 2).
 ** ATTENTION: Overriding IEEE standard margins (line 3).
-(C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2023/05/13 v2.17o AMS math features
 \@mathmargin=\skip54
 
 For additional information on amsmath, use the `?' option.
-(C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2021/08/26 v2.01 AMS text
- (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
+ (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks18
 \ex@=\dimen151
-)) (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
+)) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen152
-) (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
 \inf@bad=\count199
@@ -157,16 +157,16 @@ LaTeX Info: Redefining \Relbar on input line 971.
 \mathdisplay@stack=\toks22
 LaTeX Info: Redefining \[ on input line 2953.
 LaTeX Info: Redefining \] on input line 2954.
-) (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
- (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfonts.sty
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-)) (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/amscls\amsthm.sty
+)) (/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty
 Package: amsthm 2020/05/29 v2.20.6
 \thm@style=\toks23
 \thm@bodyfont=\toks24
@@ -177,11 +177,11 @@ Package: amsthm 2020/05/29 v2.20.6
 \thm@postskip=\skip58
 \thm@headsep=\skip59
 \dth@everypar=\toks28
-) (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/algorithms\algorithmic.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithmic.sty
 Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
- (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
+ (/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
-) (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks29
 )
@@ -191,9 +191,9 @@ Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \c@ALC@depth=\count280
 \ALC@tlm=\skip60
 \algorithmicindent=\skip61
-) (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/algorithms\algorithm.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithm.sty
 Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating environment
- (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
+ (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count281
 \float@exts=\toks30
@@ -203,23 +203,23 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 )
 \@float@every@algorithm=\toks32
 \c@algorithm=\count282
-) (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
- (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
- (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
-) (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.cfg
+) (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 107.
- (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
 File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen160
 \Gin@req@width=\dimen161
-) (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/graphbox\graphbox.sty
-Package: graphbox 2025/03/25 v1.1.1 extension for graphicx to adjust containing box
+) (/usr/share/texlive/texmf-dist/tex/latex/graphbox/graphbox.sty
+Package: graphbox 2018/01/17 v1.1 extension for graphicx to adjust containing box
 \Gin@box@box=\box56
 \Gin@box@width=\skip62
 \Gin@box@height=\skip63
@@ -227,21 +227,21 @@ Package: graphbox 2025/03/25 v1.1.1 extension for graphicx to adjust containing 
 \Gin@box@hspace=\skip65
 \Gin@box@bwidth=\skip66
 \Gin@box@bheight=\skip67
-) (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/base\textcomp.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
 Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
-) (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/multirow\multirow.sty
-Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
+) (/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
+Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
 \multirow@colwidth=\skip68
 \multirow@cntb=\count283
 \multirow@dima=\skip69
 \bigstrutjot=\dimen162
-) (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2023/11/15 v3.01 LaTeX color extensions (UK)
- (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: pdftex.def on input line 274.
- (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx)
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1350.
 Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1354.
 Package xcolor Info: Model `RGB' extended on input line 1366.
@@ -251,21 +251,21 @@ Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1370.
 Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1371.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1372.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1373.
-) (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/adjustbox\adjustbox.sty
-Package: adjustbox 2025/02/26 v1.3c Adjusting TeX boxes (trim, clip, ...)
- (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/xkeyval\xkeyval.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/adjustbox/adjustbox.sty
+Package: adjustbox 2022/10/17 v1.3a Adjusting TeX boxes (trim, clip, ...)
+ (/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
 Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
- (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkeyval.tex (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkvutils.tex
+ (/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex (/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
 \XKV@toks=\toks33
 \XKV@tempa@toks=\toks34
 )
 \XKV@depth=\count284
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
-)) (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/adjustbox\adjcalc.sty
+)) (/usr/share/texlive/texmf-dist/tex/latex/adjustbox/adjcalc.sty
 Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back-ends (calc, etex, pgfmath)
-) (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/adjustbox\trimclip.sty
-Package: trimclip 2025/02/21 v1.2a Trim and clip general TeX material
- (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/collectbox\collectbox.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/adjustbox/trimclip.sty
+Package: trimclip 2020/08/19 v1.2 Trim and clip general TeX material
+ (/usr/share/texlive/texmf-dist/tex/latex/collectbox/collectbox.sty
 Package: collectbox 2022/10/17 v0.4c Collect macro arguments as boxes
 \collectedbox=\box57
 )
@@ -274,8 +274,8 @@ Package: collectbox 2022/10/17 v0.4c Collect macro arguments as boxes
 \tc@urx=\dimen165
 \tc@ury=\dimen166
 Package trimclip Info: Using driver 'tc-pdftex.def'.
- (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/adjustbox\tc-pdftex.def
-File: tc-pdftex.def 2025/02/26 v2.3 Clipping driver for pdftex
+ (/usr/share/texlive/texmf-dist/tex/latex/adjustbox/tc-pdftex.def
+File: tc-pdftex.def 2019/01/04 v2.2 Clipping driver for pdftex
 ))
 \adjbox@Width=\dimen167
 \adjbox@Height=\dimen168
@@ -285,100 +285,99 @@ File: tc-pdftex.def 2025/02/26 v2.3 Clipping driver for pdftex
 \adjbox@pheight=\dimen172
 \adjbox@pdepth=\dimen173
 \adjbox@ptotalheight=\dimen174
- (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/ifoddpage\ifoddpage.sty
+ (/usr/share/texlive/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
 Package: ifoddpage 2022/10/18 v1.2 Conditionals for odd/even page detection
 \c@checkoddpage=\count285
-) (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/varwidth\varwidth.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/varwidth/varwidth.sty
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \@vwid@box=\box58
 \sift@deathcycles=\count286
 \@vwid@loff=\dimen175
 \@vwid@roff=\dimen176
-)) (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
-Package: hyperref 2023-11-26 v7.01g Hypertext links for LaTeX
- (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+)) (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2024-01-20 v7.01h Hypertext links for LaTeX
+ (/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty
 Package: iftex 2022/02/03 v1.0f TeX engine tests
-) (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.sty
-Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
-) (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
 Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
-) (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefinekeys.sty
+) (/usr/share/texlive/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
-) (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape.sty
+) (/usr/share/texlive/texmf-dist/tex/generic/pdfescape/pdfescape.sty
 Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
- (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+ (/usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
 Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
-) (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds.sty
+) (/usr/share/texlive/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
 Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
+ (/usr/share/texlive/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
-)) (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty
+)) (/usr/share/texlive/texmf-dist/tex/latex/hycolor/hycolor.sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
-) (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/letltxmacro\letltxmacro.sty
-Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
-) (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/auxhook\auxhook.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/auxhook/auxhook.sty
 Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
-) (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2023-11-26 v2.56 Cross-referencing by name of section
- (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty
+ (/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
-) (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettitlestring.sty
+) (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
- (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+ (/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
 \c@section@level=\count287
-) (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count288
 )
 \@linkdim=\dimen177
 \Hy@linkcounter=\count289
 \Hy@pagecounter=\count290
- (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
-File: pd1enc.def 2023-11-26 v7.01g Hyperref: PDFDocEncoding definition (HO)
+ (/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2024-01-20 v7.01h Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
-) (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
+) (/usr/share/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
 \Hy@SavedSpaceFactor=\count291
- (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
-File: puenc.def 2023-11-26 v7.01g Hyperref: PDF Unicode definition (HO)
+ (/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def
+File: puenc.def 2024-01-20 v7.01h Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
-Package hyperref Info: Hyper figures OFF on input line 4181.
-Package hyperref Info: Link nesting OFF on input line 4186.
-Package hyperref Info: Hyper index ON on input line 4189.
-Package hyperref Info: Plain pages OFF on input line 4196.
-Package hyperref Info: Backreferencing OFF on input line 4201.
+Package hyperref Info: Hyper figures OFF on input line 4179.
+Package hyperref Info: Link nesting OFF on input line 4184.
+Package hyperref Info: Hyper index ON on input line 4187.
+Package hyperref Info: Plain pages OFF on input line 4194.
+Package hyperref Info: Backreferencing OFF on input line 4199.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4448.
+Package hyperref Info: Bookmarks ON on input line 4446.
 \c@Hy@tempcnt=\count292
- (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
+ (/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 4786.
+LaTeX Info: Redefining \url on input line 4784.
 \XeTeXLinkMargin=\dimen178
- (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
+ (/usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
- (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintcalc.sty
+ (/usr/share/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
 \Fld@menulength=\count293
 \Field@Width=\dimen179
 \Fld@charsize=\dimen180
-Package hyperref Info: Hyper figures OFF on input line 6065.
-Package hyperref Info: Link nesting OFF on input line 6070.
-Package hyperref Info: Hyper index ON on input line 6073.
-Package hyperref Info: backreferencing OFF on input line 6080.
-Package hyperref Info: Link coloring OFF on input line 6085.
-Package hyperref Info: Link coloring with OCG OFF on input line 6090.
-Package hyperref Info: PDF/A mode OFF on input line 6095.
- (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/base\atbegshi-ltx.sty
+Package hyperref Info: Hyper figures OFF on input line 6063.
+Package hyperref Info: Link nesting OFF on input line 6068.
+Package hyperref Info: Hyper index ON on input line 6071.
+Package hyperref Info: backreferencing OFF on input line 6078.
+Package hyperref Info: Link coloring OFF on input line 6083.
+Package hyperref Info: Link coloring with OCG OFF on input line 6088.
+Package hyperref Info: PDF/A mode OFF on input line 6093.
+ (/usr/share/texlive/texmf-dist/tex/latex/base/atbegshi-ltx.sty
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
@@ -387,27 +386,27 @@ package with kernel methods
 \c@Hfootnote=\count296
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
- (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
-File: hpdftex.def 2023-11-26 v7.01g Hyperref driver for pdfTeX
- (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/base\atveryend-ltx.sty
+ (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2024-01-20 v7.01h Hyperref driver for pdfTeX
+ (/usr/share/texlive/texmf-dist/tex/latex/base/atveryend-ltx.sty
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
 with kernel methods
 )
 \Fld@listcount=\count297
 \c@bookmark@seq@number=\count298
- (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfilecheck.sty
-Package: rerunfilecheck 2025-06-21 v1.11 Rerun checks for auxiliary files (HO)
- (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniquecounter.sty
+ (/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
+ (/usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
 Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
-Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 284.
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
 )
 \Hy@SectionHShift=\skip70
-) (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
+) (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count299
 \l__pdf_internal_box=\box59
-) (main.aux)
+) (./main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
@@ -428,7 +427,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 36.
 LaTeX Font Info:    ... okay on input line 36.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 36.
 LaTeX Font Info:    ... okay on input line 36.
- (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
+ (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count300
 \scratchdimen=\dimen181
@@ -441,110 +440,110 @@ LaTeX Font Info:    ... okay on input line 36.
 \MPnumerator=\count304
 \makeMPintoPDFobject=\count305
 \everyMPtoPDFconversion=\toks36
-) (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
- (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+ (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 Package hyperref Info: Link coloring OFF on input line 36.
- (main.out) (main.out)
+ (./main.out) (./main.out)
 \@outlinefile=\write3
 \openout3 = `main.out'.
 
-<Images/GodotNavigation.jpeg, id=113, 1327.96124pt x 624.3325pt>
+<Images/GodotNavigation.jpeg, id=118, 1327.96124pt x 624.3325pt>
 File: Images/GodotNavigation.jpeg Graphic file (type jpg)
 <use Images/GodotNavigation.jpeg>
-Package pdftex.def Info: Images/GodotNavigation.jpeg  used on input line 90.
+Package pdftex.def Info: Images/GodotNavigation.jpeg  used on input line 86.
 (pdftex.def)             Requested size: 196.57523pt x 92.4169pt.
- [1{C:/Users/angel.ANGEL/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/angel.ANGEL/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}
+ [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}
 
 
  <./Images/GodotNavigation.jpeg>]
-<Images/CandylandMenu.png, id=135, 2466.21375pt x 1385.175pt>
+<Images/CandylandMenu.png, id=140, 2466.21375pt x 1385.175pt>
 File: Images/CandylandMenu.png Graphic file (type png)
 <use Images/CandylandMenu.png>
-Package pdftex.def Info: Images/CandylandMenu.png  used on input line 151.
+Package pdftex.def Info: Images/CandylandMenu.png  used on input line 146.
 (pdftex.def)             Requested size: 196.57523pt x 110.39354pt.
-LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 167.
- (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1pcr.fd
+LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 162.
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-<Images/SpiralOfDeath.png, id=139, 829.0975pt x 313.17pt>
+<Images/SpiralOfDeath.png, id=144, 829.0975pt x 313.17pt>
 File: Images/SpiralOfDeath.png Graphic file (type png)
 <use Images/SpiralOfDeath.png>
-Package pdftex.def Info: Images/SpiralOfDeath.png  used on input line 186.
+Package pdftex.def Info: Images/SpiralOfDeath.png  used on input line 181.
 (pdftex.def)             Requested size: 196.57523pt x 74.24962pt.
 
 Underfull \vbox (badness 1895) has occurred while \output is active []
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 207.
- (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+LaTeX Font Info:    Trying to load font information for U+msa on input line 202.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 207.
- (C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+LaTeX Font Info:    Trying to load font information for U+msb on input line 202.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [2 <./Images/CandylandMenu.png> <./Images/SpiralOfDeath.png>]
-<Images/RRTdisplay.png, id=160, 1159.33125pt x 654.445pt>
+<Images/RRTdisplay.png, id=165, 1159.33125pt x 654.445pt>
 File: Images/RRTdisplay.png Graphic file (type png)
 <use Images/RRTdisplay.png>
-Package pdftex.def Info: Images/RRTdisplay.png  used on input line 250.
+Package pdftex.def Info: Images/RRTdisplay.png  used on input line 245.
 (pdftex.def)             Requested size: 147.43236pt x 83.22343pt.
  [3 <./Images/RRTdisplay.png>]
-Underfull \hbox (badness 3547) in paragraph at lines 339--341
+Underfull \hbox (badness 3547) in paragraph at lines 334--336
 []\OT1/ptm/b/n/10 Efficient near-est neigh-bor search: \OT1/ptm/m/n/10 A k-d tree
  []
 
-<Images/RRTTrajectory.png, id=171, 3910.61pt x 2129.9575pt>
+<Images/RRTTrajectory.png, id=176, 3910.61pt x 2129.9575pt>
 File: Images/RRTTrajectory.png Graphic file (type png)
 <use Images/RRTTrajectory.png>
-Package pdftex.def Info: Images/RRTTrajectory.png  used on input line 359.
+Package pdftex.def Info: Images/RRTTrajectory.png  used on input line 354.
 (pdftex.def)             Requested size: 245.71811pt x 133.80452pt.
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 376.
-(C:\Users\angel.ANGEL\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 371.
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
-<Images/NDdiagram.png, id=173, 2413.015pt x 1437.37pt>
+<Images/NDdiagram.png, id=178, 2413.015pt x 1437.37pt>
 File: Images/NDdiagram.png Graphic file (type png)
 <use Images/NDdiagram.png>
-Package pdftex.def Info: Images/NDdiagram.png  used on input line 405.
+Package pdftex.def Info: Images/NDdiagram.png  used on input line 400.
 (pdftex.def)             Requested size: 245.71811pt x 146.35538pt.
 
 Underfull \vbox (badness 3590) has occurred while \output is active []
 
  [4 <./Images/RRTTrajectory.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 461--467
+Underfull \hbox (badness 10000) in paragraph at lines 456--462
 []\OT1/ptm/b/n/10 Global plan-ner $\OMS/cmsy/m/n/10 !$ \OT1/ptm/b/n/10 Nav2 global-planner
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 461--467
+Underfull \hbox (badness 10000) in paragraph at lines 456--462
 \OT1/ptm/b/n/10 plu-gin: \OT1/ptm/m/n/10 Wrap the RRT* plan-ner as a
  []
 
 
-Underfull \hbox (badness 6063) in paragraph at lines 461--467
+Underfull \hbox (badness 6063) in paragraph at lines 456--462
 \OT1/pcr/m/n/10 nav2[]core::GlobalPlanner \OT1/ptm/m/n/10 plu-gin. In-put is
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 474--480
+Underfull \hbox (badness 10000) in paragraph at lines 469--475
 []\OT1/ptm/b/n/10 Local plan-ner $\OMS/cmsy/m/n/10 !$ \OT1/ptm/b/n/10 Nav2 con-troller plu-gin:
  []
 
 
-Underfull \hbox (badness 6268) in paragraph at lines 474--480
+Underfull \hbox (badness 6268) in paragraph at lines 469--475
 \OT1/ptm/m/n/10 Im-ple-ment the dis-cretized holo-nomic ND as a
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 474--480
+Underfull \hbox (badness 10000) in paragraph at lines 469--475
 \OT1/pcr/m/n/10 nav2[]core::Controller \OT1/ptm/m/n/10 plu-gin pro-duc-ing
  []
 
 
-Underfull \hbox (badness 7308) in paragraph at lines 474--480
+Underfull \hbox (badness 7308) in paragraph at lines 469--475
 \OT1/pcr/m/n/10 geometry[]msgs/Twist\OT1/ptm/m/n/10 . Re-place the in-engine
  []
 
@@ -552,28 +551,28 @@ Underfull \hbox (badness 7308) in paragraph at lines 474--480
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [5 <./Images/NDdiagram.png>]
-<Images/DemoMaze.png, id=193, 1004.75375pt x 773.89125pt>
+<Images/DemoMaze.png, id=199, 1004.75375pt x 773.89125pt>
 File: Images/DemoMaze.png Graphic file (type png)
 <use Images/DemoMaze.png>
-Package pdftex.def Info: Images/DemoMaze.png  used on input line 508.
+Package pdftex.def Info: Images/DemoMaze.png  used on input line 503.
 (pdftex.def)             Requested size: 147.43236pt x 113.55164pt.
-<Images/DemoMazeOpen.png, id=195, 998.73125pt x 773.89125pt>
+<Images/DemoMazeOpen.png, id=201, 998.73125pt x 773.89125pt>
 File: Images/DemoMazeOpen.png Graphic file (type png)
 <use Images/DemoMazeOpen.png>
-Package pdftex.def Info: Images/DemoMazeOpen.png  used on input line 527.
+Package pdftex.def Info: Images/DemoMazeOpen.png  used on input line 522.
 (pdftex.def)             Requested size: 147.43236pt x 114.23653pt.
-<Images/profiler.png, id=197, 829.0975pt x 202.7575pt>
+<Images/profiler.png, id=203, 829.0975pt x 202.7575pt>
 File: Images/profiler.png Graphic file (type png)
 <use Images/profiler.png>
-Package pdftex.def Info: Images/profiler.png  used on input line 591.
+Package pdftex.def Info: Images/profiler.png  used on input line 586.
 (pdftex.def)             Requested size: 196.57523pt x 48.07187pt.
- [6 <./Images/DemoMaze.png> <./Images/DemoMazeOpen.png> <./Images/profiler.png>] (main.bbl
-Underfull \hbox (badness 10000) in paragraph at lines 74--76
+ [6 <./Images/DemoMaze.png> <./Images/DemoMazeOpen.png> <./Images/profiler.png>] (./main.bbl
+Underfull \hbox (badness 10000) in paragraph at lines 57--58
 []\OT1/ptm/m/n/8 GeeksforGeeks, ``Search and in-ser-tion in k-dimensional
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 74--76
+Underfull \hbox (badness 10000) in paragraph at lines 57--58
 \OT1/ptm/m/n/8 tree (kd-tree),'' []$https : / / www . geeksforgeeks . org / dsa /
  []
 
@@ -589,26 +588,27 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the US letter (8.5in X 11in) paper size.
 
-[7] (main.aux)
+[7] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
-L3 programming layer <2024-01-04>
+L3 programming layer <2024-01-22>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 8FE88A2E857E351435AC15EC44ECB433;3937.
+(rerunfilecheck)             Checksum: D575DD390DCBCA3B2C35CB0B64145869;4096.
  ) 
 Here is how much of TeX's memory you used:
- 12539 strings out of 474486
- 199740 string characters out of 5740922
- 1947542 words of memory out of 5000000
- 34563 multiletter control sequences out of 15000+600000
+ 12492 strings out of 474222
+ 194418 string characters out of 5748734
+ 1945975 words of memory out of 5000000
+ 34487 multiletter control sequences out of 15000+600000
  595843 words of font info for 110 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,9n,79p,629b,526s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/angel.ANGEL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/angel.ANGEL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/angel.ANGEL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/angel.ANGEL/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/angel.ANGEL/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/angel.ANGEL/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/angel.ANGEL/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/angel.ANGEL/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (7 pages, 3336071 bytes).
+ 75i,9n,79p,619b,526s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (7 pages, 3311549 bytes).
 PDF statistics:
- 271 PDF objects out of 1000 (max. 8388607)
- 58 named destinations out of 1000 (max. 500000)
- 262 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 283 PDF objects out of 1000 (max. 8388607)
+ 237 compressed objects within 3 object streams
+ 60 named destinations out of 1000 (max. 500000)
+ 270 words of extra memory for PDF output out of 10000 (max. 10000000)
 
